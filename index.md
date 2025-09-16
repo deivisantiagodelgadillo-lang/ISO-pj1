@@ -3,7 +3,7 @@ layout: default
 title: "Implantació de sistemes operatius"
 ---
 
-Este repositorio contiene el material del curso de Machine Learning desarrollado por Mireia Consarnau.
+Este repositorio contiene el material del curso de Implantació de sistemes operatius desarrollado por Santiago Delgadillo.
 
 - Índice y enlaces a las unidades del curso.
 - Recursos en formato PDF, vídeos, y Google Colab.

@@ -1,6 +1,6 @@
-# Curso de Machine Learning
+# Implantació de sistemes operatius
 
-Este repositorio contiene el material del curso de Machine Learning desarrollado por Mireia Consarnau.
+Este repositorio contiene el material del curso de Implantació de sistemes operatius por Santiago Delgadillo.
 
 ## Contenido
 
@@ -12,7 +12,7 @@ Este repositorio contiene el material del curso de Machine Learning desarrollado
 
 Este repositorio está preparado para ser publicado con GitHub Pages.  
 Puedes ver la versión web pública en:  
-https://mireiaconsarnau.github.io/machine_learning/
+https://deivisantiagodelgadillo-lang.github.io/ISO-pj1/
 
 ## Licencia
 
@@ -21,5 +21,5 @@ El contenido está bajo licencia [Creative Commons BY-NC-SA 3.0 ES](LICENSE.md).
 
 ---
 
-© 2025 Mireia Consarnau
+© 2025 Santiago Delgadillo
 

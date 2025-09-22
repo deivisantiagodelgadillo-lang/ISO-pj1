@@ -10,7 +10,9 @@ Esta licencia permite que otros compartan, copien y distribuyan tu trabajo, así
 
 - Reconozcan la autoría original.  
 - No utilicen el trabajo con fines comerciales.  
-- Distribuyan las obras derivadas bajo la misma licencia.  
+- Distribuyan las obras derivadas bajo la misma licencia (CC BY-NC-SA 4.0).  
+
+Además, la versión 4.0 aclara que los permisos se aplican a nivel mundial, incluyen tanto derechos de autor como derechos similares (como derechos de base de datos), y no pueden añadirse restricciones legales o tecnológicas que limiten lo que la licencia permite.
 
 ---
 

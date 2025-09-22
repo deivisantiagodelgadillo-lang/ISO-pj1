@@ -21,6 +21,5 @@ El contenido está bajo licencia [Creative Commons BY-NC-SA 4.0 ES](LICENSE.md).
 ### [Sprint 4. Configuració del Programari de Base i Sistemes d’Emmagatzematge en Ubuntu](SP4/SP4.md)  
 ### [Sprint 5. Monitoratge, Auditories i Programari Client/Servidor](SP5/SP5.md)  
 
-### [Relación entre Unidades y Resultados de Aprendizaje (RAs)](ras.md)  
 
  

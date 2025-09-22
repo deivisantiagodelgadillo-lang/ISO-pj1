@@ -16,7 +16,7 @@ https://deivisantiagodelgadillo-lang.github.io/ISO-pj1/
 
 ## Licencia
 
-El contenido está bajo licencia [Creative Commons BY-NC-SA 3.0 ES](LICENSE.md).
+El contenido está bajo licencia [Creative Commons BY-NC-SA 4.0 ES](LICENSE.md).
 
 
 ---

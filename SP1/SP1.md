@@ -111,7 +111,59 @@ Reiniciamos y veremos que ya entramos en el grub para poder seleccionar ubuntu o
 
 <img width="370" height="185" alt="2025-10-25_19-09" src="https://github.com/user-attachments/assets/6681e575-2271-4017-81e1-5511167a792e" />
 
-## Punts de restauracio 
+## Punts de restauracio
+Primeramente haremos un apt install timeshift, esta herramienta se utiliza para restaurar el sistema si una actualización la rompe
+
+<img width="1028" height="332" alt="2025-10-25_20-00" src="https://github.com/user-attachments/assets/9bc9099f-1d0c-48cf-9126-f71b54bd1d22" />
+
+Después tomaremos un disco vacío de 20 GB y creamos una única partición que ocupara todo su espacio
+
+<img width="822" height="489" alt="2025-10-25_20-02" src="https://github.com/user-attachments/assets/0026c248-f1a9-49b4-8944-6bfd61edb6ae" />
+
+Podemos ver cómo se ha creado la partición
+
+<img width="659" height="465" alt="2025-10-25_20-03" src="https://github.com/user-attachments/assets/9402ebda-90f6-4dfa-a114-a2e38f0fff2a" />
+
+Seguidamente podremos ver cómo se ha formateado la partición /dev/sdb1 para que pueda ser utilizada por un sistema operativo Linux para almacenar archivos y carpetas
+
+<img width="743" height="242" alt="2025-10-25_20-05" src="https://github.com/user-attachments/assets/97e7b9ec-29ef-436f-a999-ba712c427048" />
+
+A continuación haremos un ls para ver las carpetas que tenemos en nuestra /home, haremos un touch hola, para crear un archivo, también haremos un mkdir hola para crear una carpeta, con los podremos ver cómo se ha creado correctamente
+
+<img width="904" height="178" alt="2025-10-25_20-07" src="https://github.com/user-attachments/assets/6155dd6e-ab07-4be2-9934-acce19c6bf4b" />
+
+Una vez hecho todo lo anterior, nos saldrá la aplicación del timeshift, entraremos y saldrá el asistente de configuración, escogeremos RSYNC
+
+<img width="792" height="254" alt="2025-10-25_20-08" src="https://github.com/user-attachments/assets/174a0026-68cb-4358-928e-2ed18f8fb3df" />
+
+Seguidamente escogeremos el sdb1 que es el disco que hemos creado anteriormente
+
+<img width="767" height="258" alt="2025-10-25_20-09" src="https://github.com/user-attachments/assets/cceeed61-6d4f-4b62-9dde-3d36dccf33f8" />
+
+Indicaremos que sólo cuando arranque
+
+<img width="720" height="587" alt="2025-10-25_20-10" src="https://github.com/user-attachments/assets/8dc1055a-5a78-41c7-8975-ceee615535f8" />
+
+Finalmente pondremos que se excluyan todos los archivos de root, y que se incluyan todos los archivos del usuario
+
+<img width="857" height="219" alt="2025-10-25_20-11" src="https://github.com/user-attachments/assets/23f82998-a0ec-4604-b6f9-c1732a912e46" />
+
+Crearemos otra instantanea, iremos a --> crea, y allí se nos empezará a crear la instantanea
+
+<img width="1920" height="1080" alt="Captura de pantalla de 2025-10-07 13-03-12" src="https://github.com/user-attachments/assets/2ada3fbe-ec47-4dcc-aacc-83bfbe18c824" />
+
+Aquí podemos ver cómo se nos ha creado la ultima instantanea que estábamos haciendo
+
+<img width="678" height="518" alt="2025-10-25_20-15" src="https://github.com/user-attachments/assets/352fa3ac-c983-40e1-84ac-c420ee7cab98" />
+
+Ahora lo que haremos será borrar la carpeta adiós y el archivo hola, esto lo haremos para recuperaremos la instantanea que hemos creado y podremos recuperarlo
+
+<img width="583" height="223" alt="2025-10-25_20-16" src="https://github.com/user-attachments/assets/54b28228-5a3c-4387-85da-ca03d89585f2" />
+
+Seleccionaremos la instantanea y pulsaremos en recuperar, haremos siguiente, siguiente ,siguiente
+
+
+
 ## Configuracio de la xarxa
 ## Comandes generals i instal·lacions
 

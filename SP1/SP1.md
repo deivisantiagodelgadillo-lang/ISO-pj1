@@ -38,6 +38,30 @@ Ubuntu como tal utiliza la "GNU GPLv2" para su núcleo y en la mayoría de sus a
 <img width="597" height="189" alt="2025-10-25_19-34" src="https://github.com/user-attachments/assets/fbe7f593-93df-42de-a1ca-c4da83bcd68b" />
 
 ## Gestors d'arrencada per a instalacions DUALS
+En la maquina virtual, activamos la siguiente opcion:
+<img width="878" height="568" alt="2025-10-25_18-26" src="https://github.com/user-attachments/assets/507edbd3-31ab-4785-b5af-e5ebce3b5235" />
+Ponemos la ISo de Windows y arrancamos la maquina.
+<img width="485" height="295" alt="2025-10-25_18-32" src="https://github.com/user-attachments/assets/4ae31ada-425a-4311-916f-a28cdd30926a" />
+Luego de eso empezamos la instalacion con normalidad hasta llegar a este punto.
+<img width="641" height="479" alt="2025-10-25_18-35" src="https://github.com/user-attachments/assets/7e0a1b64-a3cd-4860-b220-ca6c7772190c" />
+Ya por ultimo continuamos la instalacion.
+<img width="996" height="610" alt="2025-10-25_18-44" src="https://github.com/user-attachments/assets/05a377e3-d924-4230-8b02-139284efaf1f" />
+Y ya tendriamos el windows instalado.
+<img width="556" height="355" alt="2025-10-25_18-48" src="https://github.com/user-attachments/assets/f7ed5103-de8b-4bf8-8e5d-84da67f582ac" />
+Para recuperar el grub ponemos la iso de Super-Grub2:
+<img width="483" height="294" alt="2025-10-25_18-56" src="https://github.com/user-attachments/assets/dd3ecfe3-9423-45ee-a4d7-19847c3be7cf" />
+Entramos al boot menu de vbox
+<img width="418" height="124" alt="2025-10-25_19-45" src="https://github.com/user-attachments/assets/6fe8fa06-a220-49a8-8c82-ab0a15d7fa18" />
+Seleccionamos "detect and show boot methods".
+<img width="618" height="402" alt="2025-10-25_18-59" src="https://github.com/user-attachments/assets/31d6242e-1007-4b0a-9f89-e1287163a6ce" />
+Buscamos grub.cfg de ubuntu.
+<img width="630" height="380" alt="2025-10-25_19-04" src="https://github.com/user-attachments/assets/6ec06541-f910-4b43-a3cf-e5ff59ae1b59" />
+Una vez entramos en Ubuntu, ejecutamos las siguientes comandas para arreglar el grupo desde el terminal
+<img width="643" height="61" alt="2025-10-25_19-05" src="https://github.com/user-attachments/assets/bc9155c7-4c44-4b40-a958-25ea1311024f" />
+<img width="600" height="93" alt="2025-10-25_19-07" src="https://github.com/user-attachments/assets/ab451b95-4969-470c-b70f-b6d7f475a9b2" />
+Reiniciamos y veremos que ya entramos en el grub para poder seleccionar ubuntu o windows.
+<img width="370" height="185" alt="2025-10-25_19-09" src="https://github.com/user-attachments/assets/6681e575-2271-4017-81e1-5511167a792e" />
+
 ## Punts de restauracio 
 ## Configuracio de la xarxa
 ## Comandes generals i instal·lacions

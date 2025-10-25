@@ -177,6 +177,24 @@ Finalmente haremos un ls y podremos ver que si teníamos bien hecha la instantan
 <img width="609" height="37" alt="2025-10-25_20-39" src="https://github.com/user-attachments/assets/b22c67ea-c5c9-4d13-843f-73ce763fbcb5" />
 
 ## Configuracio de la xarxa
+Para configurar la red lo primero que haremos será ir a la red, para crear una nueva, iremos a ipv4, y cambiaremos de dhcp a manual, meteremos la ip 192.168.203.156, será /24 (255.255.255.0), y de gateway meteremos la 192.
+
+<img width="583" height="470" alt="Captura de pantalla de 2025-10-07 13-58-46" src="https://github.com/user-attachments/assets/ca5aa3a9-528f-4598-8ab9-1d8bbc24cff3" />
+
+Haremos un ping en 8.8.8.8, para comprobar la conectividad
+
+<img width="729" height="463" alt="Captura de pantalla de 2025-10-07 13-59-49" src="https://github.com/user-attachments/assets/6360515a-fb81-440d-a185-d485c92195c8" />
+
+Seguidamente iremos a /etc/netplan/ y el archivo .yaml, lo utilizaremos para configurar la red, haremos un netplan apply para aplicar la configuración
+
+<img width="729" height="150" alt="Captura de pantalla de 2025-10-07 14-00-24" src="https://github.com/user-attachments/assets/7452a0e1-9767-436f-9f9e-d3bcbe4b0901" />
+
+<img width="729" height="479" alt="Captura de pantalla de 2025-10-07 14-07-17" src="https://github.com/user-attachments/assets/4ca82eab-df85-4fb9-a5b2-2cade2f930bb" />
+
+Finalmente haremos un ping en 8.8.8.8 para ver la conectividad que tiene.
+
+<img width="729" height="479" alt="Captura de pantalla de 2025-10-07 14-07-52" src="https://github.com/user-attachments/assets/932e39d2-b55a-475e-817a-df5385d3debe" />
+
 ## Comandes generals i instal·lacions
 
 

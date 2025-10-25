@@ -162,7 +162,19 @@ Ahora lo que haremos será borrar la carpeta adiós y el archivo hola, esto lo h
 
 Seleccionaremos la instantanea y pulsaremos en recuperar, haremos siguiente, siguiente ,siguiente
 
+<img width="672" height="549" alt="2025-10-25_20-18" src="https://github.com/user-attachments/assets/afdbb2f1-9505-4b31-b9ea-0af37d398171" />
 
+<img width="676" height="556" alt="2025-10-25_20-18_1" src="https://github.com/user-attachments/assets/3db75ff0-94af-4d2f-be71-15fb72c1ec2a" />
+
+<img width="649" height="528" alt="2025-10-25_20-18_2" src="https://github.com/user-attachments/assets/4b853db6-7da4-418a-95fe-e581ef088c2b" />
+
+Se reiniciara el sistema y con una pantalla gris nos indicara que se está cargando la instantanea
+
+<img width="1920" height="1080" alt="Captura de pantalla de 2025-10-07 13-55-19" src="https://github.com/user-attachments/assets/dde49c5c-f9e5-44fa-9dff-1840edc7da6e" />
+
+Finalmente haremos un ls y podremos ver que si teníamos bien hecha la instantanea tendremos otra vez la carpeta adiós y el archivo hola
+
+<img width="609" height="37" alt="2025-10-25_20-39" src="https://github.com/user-attachments/assets/b22c67ea-c5c9-4d13-843f-73ce763fbcb5" />
 
 ## Configuracio de la xarxa
 ## Comandes generals i instal·lacions

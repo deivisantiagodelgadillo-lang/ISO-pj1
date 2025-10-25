@@ -196,6 +196,23 @@ Finalmente haremos un ping en 8.8.8.8 para ver la conectividad que tiene.
 <img width="729" height="479" alt="Captura de pantalla de 2025-10-07 14-07-52" src="https://github.com/user-attachments/assets/932e39d2-b55a-475e-817a-df5385d3debe" />
 
 ## Comandes generals i instal·lacions
+Empezaremos haciendo un apt-cache policy, para ver las versiones que tenemos en nuestra máquina
 
+<img width="887" height="264" alt="Captura de pantalla de 2025-10-20 13-09-51" src="https://github.com/user-attachments/assets/4bec551a-6cdc-4b47-a8b6-e15f01e10a9f" />
 
+Seguidamente crearemos el archivo audacity dentro de /etc/apt/preferences.d, que ya sea por defecto y
+dentro del archivo pondremos, el nombre del paquete, la otra versión de las 2 que tenemos, (tomaremos la que no va por defecto), y le cambiaremos la prioridad
 
+<img width="694" height="167" alt="Captura de pantalla de 2025-10-20 13-12-15" src="https://github.com/user-attachments/assets/74669720-5de0-4b51-97cc-c326417d1585" />
+
+Aquí podemos ver cómo ya se ha cambiado la versión
+
+<img width="887" height="280" alt="Captura de pantalla de 2025-10-20 13-12-57" src="https://github.com/user-attachments/assets/900e6856-12b2-4b8a-8983-f9fd62d98b8b" />
+
+Instalaremos la dependencia
+
+<img width="887" height="280" alt="Captura de pantalla de 2025-10-20 13-19-41" src="https://github.com/user-attachments/assets/d96e21c7-6567-41c3-affe-fbdd50be618d" />
+
+Finalmente haremos un apt install audacity y podemos ver cómo ha instalado la versión que hemos cambiado
+
+<img width="597" height="188" alt="Captura de pantalla de 2025-10-20 13-20-13" src="https://github.com/user-attachments/assets/1cd64f48-d767-46e1-aa9d-dbac2c5c917f" />

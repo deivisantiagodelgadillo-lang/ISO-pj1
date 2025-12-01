@@ -94,7 +94,7 @@ Añadimos la partición /dev/sdb1 al archivo /etc/fstab para montarla automátic
 
 ---
 
-## Gestió de processos
+## 2. Gestió de processos
 
 Configuración Previa y Archivos del Sistema Antes de empezar con la creación de usuarios, hicimos una revisión de los principales archivos de configuración para entender dónde se almacena la información en el sistema.
 Revisión del Entorno Gráfico En primer lugar, comprobamos el estado de los usuarios desde la interfaz gráfica para ver las opciones disponibles y confirmar la existencia del usuario ClienteUsuari.
@@ -119,4 +119,20 @@ Función del Archivo /etc/gshadow: Por último, revisamos /etc/gshadow, que es e
 
 --- 
 
-## Gestió d'usuaris i grups i permisos
+## 3. Gestió d'usuaris i grups i permisos
+
+Creación y Gestión del Usuario gina Ahora iremos a crear el usuario gina utilizando el comando adduser, que es la herramienta más sencilla, ya que automatiza muchos pasos.
+Creación con adduser y Asignación de Contraseña: Hemos ejecutado adduser gina. El proceso nos ha creado el usuario, el grupo primario y nos ha pedido la contraseña. Comprobamos que el sistema nos avisa si la contraseña es demasiado corta.
+
+<img width="827" height="518" alt="2025-11-04_13-02" src="https://github.com/user-attachments/assets/046a22f7-716d-41a2-8587-a909e5641ddb" />
+
+Verificación del Directorio Personal: Verificamos que el comando adduser creó automáticamente el directorio /home/gina con su estructura interna por defecto.
+
+<img width="922" height="153" alt="2025-11-04_13-05" src="https://github.com/user-attachments/assets/27bb812d-475e-4d93-bcc9-6aa93385f354" />
+
+Creación y Configuración Avanzada del Usuario gina2: Para demostrar un método más manual, creamos el usuario gina2 con useradd y tuvimos que configurar su entorno después.
+Acciones que llevamos a cabo:
+
+Crear el usuario (useradd), establecer la contraseña (passwd), modificar la shell de inicio de sesión en /bin/bash (usermod -s), crear el directorio personal manualmente (mkdir), cambiar el propietario del directorio de root en gina2 (chown).
+
+<img width="816" height="667" alt="2025-11-04_13-12" src="https://github.com/user-attachments/assets/f30dffe0-0574-4d8d-84a2-a59b83e98a2b" />

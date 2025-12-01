@@ -91,3 +91,32 @@ Añadimos la partición /dev/sdb1 al archivo /etc/fstab para montarla automátic
 <img width="721" height="391" alt="2025-10-27_13-18" src="https://github.com/user-attachments/assets/9575fd73-a2be-45a8-adfd-1e7dd7c12040" />
 
 <img width="499" height="133" alt="2025-10-27_13-21" src="https://github.com/user-attachments/assets/478d26af-97da-49f5-8845-508455395929" />
+
+---
+
+## Gestió de processos
+
+Configuración Previa y Archivos del Sistema Antes de empezar con la creación de usuarios, hicimos una revisión de los principales archivos de configuración para entender dónde se almacena la información en el sistema.
+Revisión del Entorno Gráfico En primer lugar, comprobamos el estado de los usuarios desde la interfaz gráfica para ver las opciones disponibles y confirmar la existencia del usuario ClienteUsuari.
+
+<img width="792" height="481" alt="2025-11-04_12-50" src="https://github.com/user-attachments/assets/ad5ba4c7-8981-4d1a-88b5-60d7cf82834a" />
+
+Función del Archivo /etc/passwd: Iremos a mirar el archivo /etc/passwd, que es fundamental porque contiene la lista de todos los usuarios del sistema. Para cada usuario, nos indica el nombre, el identificador de usuario (UID), el identificador de grupo primario (GID), el directorio personal y la shell que se ejecutará al iniciar la sesión.
+
+<img width="1036" height="567" alt="2025-11-04_12-53" src="https://github.com/user-attachments/assets/27414ad4-93ad-478e-90be-9439807abdcb" />
+
+Función de Archivo /etc/shadow: Este archivo es crítico para la seguridad. Comprobamos su contenido, sabiendo que guarda los hashes (contraseñas cifradas) de los usuarios y la información sobre la antigüedad y caducidad de las contraseñas. Sólo el usuario root tiene permiso para leerlo.
+
+<img width="740" height="481" alt="2025-11-04_12-55" src="https://github.com/user-attachments/assets/a13793ed-2924-4f8c-8e70-95d6c1587b38" />
+
+Función de Archivo /etc/group: Hemos examinado el archivo /etc/group, que sirve para definir todos los grupos existentes en el sistema y listar qué usuarios pertenecen a cada grupo secundario.
+
+<img width="1153" height="482" alt="2025-11-04_12-56" src="https://github.com/user-attachments/assets/10a29b4a-2d2e-4461-9c60-53aa92d27473" />
+
+Función del Archivo /etc/gshadow: Por último, revisamos /etc/gshadow, que es el equivalente seguro de /etc/group. Este archivo se utiliza para guardar contraseñas cifradas para grupos, en caso de que un grupo sea protegido con contraseña, y gestiona los administradores de cada grupo.
+
+<img width="773" height="517" alt="2025-11-04_12-58" src="https://github.com/user-attachments/assets/2d4cf5a3-d25d-4170-8e8b-8f287809b4a8" />
+
+--- 
+
+## Gestió d'usuaris i grups i permisos

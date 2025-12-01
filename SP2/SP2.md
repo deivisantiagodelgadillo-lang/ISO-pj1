@@ -136,3 +136,81 @@ Acciones que llevamos a cabo:
 Crear el usuario (useradd), establecer la contraseña (passwd), modificar la shell de inicio de sesión en /bin/bash (usermod -s), crear el directorio personal manualmente (mkdir), cambiar el propietario del directorio de root en gina2 (chown).
 
 <img width="816" height="667" alt="2025-11-04_13-12" src="https://github.com/user-attachments/assets/f30dffe0-0574-4d8d-84a2-a59b83e98a2b" />
+
+Bloqueo y Desbloqueo de Usuarios (Gestión Fina de gina): Una vez que el usuario gina estaba operativo, demostramos cómo podemos bloquear una cuenta temporalmente, evitando que nadie pueda iniciar sesión sin necesidad de eliminar al usuario.
+
+3Bloqueo (usermod -L) y Desbloqueo (usermod -U) ¿Qué hace el bloqueo?: Utilizamos usermod con la opción -L(Lock). Comprobamos con grep que el sistema añade un signo de admiración (!) al principio del hash de la contraseña en el archivo /etc/shadow, invalidándola.
+
+¿Qué hace el desbloqueo?: Luego utilizamos la opción -U (Unlock) de usermod, que elimina el signo de admiración y restaura la funcionalidad de la contraseña.
+
+<img width="789" height="108" alt="2025-11-04_13-29" src="https://github.com/user-attachments/assets/a9883ff8-f769-4f47-bc20-bd6ee65d90b9" />
+
+<img width="809" height="197" alt="2025-11-04_13-30" src="https://github.com/user-attachments/assets/e60bb793-b9b4-473b-8426-8fb3ee44f25c" />
+
+Eliminación de Usuarios: Finalizadas las pruebas, procedimos a la eliminación de los usuarios gina y gina2 utilizando los métodos habituales.
+
+Eliminación del Usuario gina con deluser: Eliminamos gina con deluser, que es el pedido recomendado para sistemas Debian/Ubuntu. Este pedido se encarga de limpiar las referencias al grupo primario del usuario si no tiene más miembros.
+
+Eliminación del Usuario gina2 con userdel -r: Eliminamos gina2 con userdel utilizando la opción -r (remove home directory) para borrar también su directorio personal. Utilizamos este comando ya que gina2 fue creado con el método useradd (más manual).
+
+<img width="615" height="325" alt="2025-11-04_13-24" src="https://github.com/user-attachments/assets/292c2b3f-5983-4b73-a25a-c1d209b6eeef" />
+
+Cambio de Nombre y Eliminación del Grupo asixb: Para practicar la modificación de grupos, cambiamos el nombre de asixb a asix con el comando groupmod -n. Luego, eliminamos el grupo utilizando groupdel.
+
+¿Qué hace groupmod -n?: Modifica el nombre de un grupo sin afectar al GID ni a los usuarios miembros.
+
+<img width="807" height="201" alt="2025-11-04_13-35" src="https://github.com/user-attachments/assets/cfdd0780-f6c5-4cdd-8f26-fea8b31cc218" />
+
+Cambio de Nombre de Grupo Hicimos otro ejemplo de cambio de nombre para consolidar el conocimiento, cambiando el grupo parchis a damas.
+
+<img width="804" height="112" alt="2025-11-17_11-54" src="https://github.com/user-attachments/assets/ba165423-8607-4d0d-b247-00bd5463e19a" />
+
+Verificación de Nuevos Usuarios (Usuarios de Colores): Comprobamos que los usuarios con nombres de colores (azul, rojo, amarillo y verde) se habían creado correctamente, observando las últimas líneas del archivo /etc/passwd. Esto nos permite ver sus UID y GID asignados.
+
+<img width="799" height="132" alt="2025-11-17_11-53" src="https://github.com/user-attachments/assets/dc456a4d-87b8-4d4b-a306-d482a1dd9a86" />
+
+Gestión Avanzada de Miembros de Grupos: Demostramos diferentes formas de añadir y sacar usuarios de un grupo existente, utilizando herramientas especializadas para la gestión de miembros.
+Métodos para Añadir Usuarios a Grupos Secundarios: Para un grupo de prueba (asix1r), añadimos tres usuarios (ivan, paz, iker) utilizando tres pedidos diferentes, ya que cada uno tiene un uso ligeramente distinto.
+
+<img width="802" height="219" alt="2025-11-04_13-38" src="https://github.com/user-attachments/assets/a04049dd-016d-495f-af3d-815a743e68b5" />
+
+Administración y Gestión de Miembros con gpasswd: Utilizamos gpasswd para demostrar cómo asignar administradores de grupo y cómo intentaríamos eliminar a sus miembros.
+
+¿Qué hace gpasswd -A?: Añade un usuario como administrador del grupo.
+
+Añadimos aaron como administrador de asix1r y comprobamos la modificación en el archivo /etc/gshadow, que es donde se guardan estos permisos.
+
+<img width="711" height="192" alt="2025-12-01_21-14" src="https://github.com/user-attachments/assets/10d2d0d0-b54f-4f6a-b82b-9dab9a23ccef" />
+
+Métodos para Eliminar Usuarios de Grupos: Utilizamos el grupo parchis (con miembros rojo, verde y amarillo) para demostrar los dos pedidos principales para sacar a miembros de un grupo:
+
+<img width="806" height="363" alt="2025-11-17_11-58" src="https://github.com/user-attachments/assets/156911b9-64dc-49e6-8c3c-1481f7663a30" />
+
+<img width="817" height="238" alt="2025-11-17_12-02" src="https://github.com/user-attachments/assets/d9dd9168-724e-4d62-b3b0-ab7cf1e5aca5" />
+
+Preparo la Plantilla de Usuario (/etc/skel) Ante todo, entro en el directorio esquelético (/etc/skel), que es la plantilla para los nuevos usuarios. Yo quiero que, por defecto, tengan algo más que los archivos básicos.
+He creado una nueva carpeta que he llamado prueba (mkdir prueba), un archivo vacío llamado hola (touch hola) y de esta forma, cualquier usuario nuevo que cree a partir de ahora tendrá estos dos elementos en su directorio personal.
+
+<img width="692" height="457" alt="2025-11-17_12-07" src="https://github.com/user-attachments/assets/9a8b2521-124b-4a20-b193-3396bb438664" />
+
+Definimos los Parámetros Generales (/etc/adduser.conf) Luego, voy a configurar cómo deben crearse los usuarios con la herramienta adduser. He editado el archivo /etc/adduser.conf y he realizado tres cambios clave:
+Cambio la ubicación de los Home Directorias: He cambiado DHOME del estándar /home a /var. Esto significa que los directorios personales irán a /var/nombre_usuario.
+
+Cambio los UIDs/GIDs: Quiero que los nuevos usuarios y sus grupos empiecen a partir de 3000; por eso he definido FIRST_UID=3000 y FIRST_GID=3000.
+
+<img width="727" height="91" alt="2025-11-17_12-10" src="https://github.com/user-attachments/assets/90b1d0de-dc6f-4a16-9bd8-a99b5e936913" />
+
+<img width="440" height="167" alt="2025-11-17_12-12" src="https://github.com/user-attachments/assets/b33a60af-cf51-4b92-9752-4f5d1c9d09e0" />
+
+Definimos las Reglas de Seguridad (/etc/login.defs) Por motivos de seguridad, he definido una política de contraseñas global. En /etc/login.defs, he establecido estas reglas:
+Validez Máxima: He puesto PASS_MAX_DAYS 20. Las contraseñas caducarán a los 20 días.
+
+Intervalo Mínimo: He puesto PASS_MIN_DAYS 15. Habrá que esperar 15 días entre cambio y cambio de contraseña.
+
+Avisos: He definido PASS_WARN_AGE 3. El usuario recibirá un aviso 3 días antes de que la contraseña caduque.
+
+<img width="260" height="81" alt="2025-11-17_12-13" src="https://github.com/user-attachments/assets/9bda57f6-94ff-419b-88fd-6728a36b0bcc" />
+
+Me aseguro que Shell sea Bash (/etc/default/useradd) Como la herramienta useradd es de bajo nivel ya veces utiliza una shell más simple (/bin/sh), he editado /etc/default/useradd y he cambiado SHELL a /bin/bash. Así me aseguro que cualquier usuario, independientemente de cómo se cree, utilice Bash.
+
+<img width="685" height="207" alt="2025-11-17_12-19" src="https://github.com/user-attachments/assets/e17b1b49-2e7c-409b-9845-317ee333c613" />

@@ -344,3 +344,11 @@ Edito el archivo global: Utilizo nano para editar el archivo /etc/login.defs.
 Cambio el valor UMASK: He cambiado el valor por defecto (022) a 033.
 
 <img width="177" height="51" alt="2025-12-01_23-14_1" src="https://github.com/user-attachments/assets/f3d28686-862d-4533-b96b-f61a6d1f0c46" />
+
+---
+
+## 4. Còpies de seguretat i automatització de tasques
+
+---
+
+## 5. Quotes d'usuari

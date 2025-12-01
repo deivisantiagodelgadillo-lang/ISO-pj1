@@ -214,3 +214,133 @@ Avisos: He definido PASS_WARN_AGE 3. El usuario recibirá un aviso 3 días antes
 Me aseguro que Shell sea Bash (/etc/default/useradd) Como la herramienta useradd es de bajo nivel ya veces utiliza una shell más simple (/bin/sh), he editado /etc/default/useradd y he cambiado SHELL a /bin/bash. Así me aseguro que cualquier usuario, independientemente de cómo se cree, utilice Bash.
 
 <img width="685" height="207" alt="2025-11-17_12-19" src="https://github.com/user-attachments/assets/e17b1b49-2e7c-409b-9845-317ee333c613" />
+
+Pongo en Prueba la Configuración (Usuario negro) He creado el usuario negro utilizando el comando useradd negro. Después he comprobado el resultado:
+He visto que se le ha asignado el UID 3001 (el siguiente al 3000).
+
+He comprobado que su shell es /bin/bash.
+
+<img width="729" height="167" alt="2025-11-17_12-20" src="https://github.com/user-attachments/assets/b62d4f64-b6d1-44bf-b550-fbc5ab872d0d" />
+
+Verifico que Todo Funcione (Usuario gris) Éste es el paso donde se ve que la configuración global ha funcionado correctamente. Después de crear el usuario gris (que ha cogido el UID 3000, el primero disponible):
+Compruebo su perfil: Veo que el usuario gris tiene el UID/GID 3000 y su directorio personal está correctamente en /var/gris.
+
+Compruebo la seguridad: En /etc/shadow, confirmo que las reglas de caducidad (15 días mínimo, 20 días máximo, 3 días de aviso) se han aplicado correctamente.
+
+Compruebo la plantilla: Cuando listo el contenido de /var/gris, veo los archivos de sesión (como .bashrc) y, muy importante, la carpeta prueba y el archivo hola.
+
+<img width="699" height="251" alt="2025-11-17_12-15" src="https://github.com/user-attachments/assets/2f1d2e15-70db-4334-b09a-293162b9e1c3" />
+
+<img width="817" height="95" alt="2025-11-17_12-17" src="https://github.com/user-attachments/assets/ad08f725-1aec-4b77-ab02-05fe6f568658" />
+
+<img width="527" height="62" alt="2025-11-17_12-17_1" src="https://github.com/user-attachments/assets/65f03557-e514-45c3-967f-fd0616881dc0" />
+
+<img width="729" height="167" alt="2025-11-17_12-20" src="https://github.com/user-attachments/assets/650eadcd-744f-463e-b449-335a928cc01c" />
+
+Personalizo el Inicio de Sesión (.profile) Ahora vuelvo a la plantilla (/etc/skel) para añadir más personalización. He editado el archivo .profile y he añadido la línea PWD="/var/$USER". Con esto intento asegurarme de que, cuando un usuario haga login, esté bien situado en su directorio en /var.
+
+<img width="180" height="37" alt="2025-11-17_12-27" src="https://github.com/user-attachments/assets/51009a1a-d9b8-4567-b5c8-3e511f930a5b" />
+
+Añado un Alias ​​(.bashrc) Después, he editado el archivo .bashrc de la plantilla. Aquí he creado un sobrenombre, que es un atajo de pedido:
+He añadido: alias connexio='ls -la'
+
+Esto significa que todos los nuevos usuarios podrán escribir conexion en lugar del pedido más largo.
+
+<img width="256" height="21" alt="2025-11-17_12-30" src="https://github.com/user-attachments/assets/b6ff0e92-edd7-47fa-89cf-5e22e08dd169" />
+
+Configuro la Limpieza Automática (.bash_logout) Y el último cambio es la limpieza automática. He editado el archivo .bash_logout (el que se ejecuta cuando cierras la sesión) y he añadido un pedido fuerte:
+He añadido: rm -r /var/"$USER"/*
+
+Con ello, todo el contenido del directorio personal del usuario se borrará automáticamente cada vez que cierren la sesión. Así, su espacio de trabajo será siempre temporal.
+
+<img width="653" height="60" alt="2025-11-17_12-32" src="https://github.com/user-attachments/assets/1efd52d2-8cb5-4a75-9b5c-0de53a1dd963" />
+
+Verificación de Inicio de Sesión He comprobado que la usuaria rosa puede hacer login sin problemas y listar el contenido de su directorio. Esta acción confirma que el usuario se ha creado correctamente.
+
+<img width="477" height="319" alt="2025-11-17_12-35" src="https://github.com/user-attachments/assets/569e01ec-bc18-4a7f-90d7-28a0e9527df4" />
+
+### ACL
+
+Proba de Permisos Tradicionales y ACL Básica
+¿Qué hago aquí? Primero, creo un par de elementos para realizar pruebas: un directorio llamado pruebas y un archivo llamado pruebas2.
+
+Asigno permisos tradicionales:
+
+En el directorio pruebas, le pongo 750 (chmod 750 pruebas). Esto significa que el propietario (yo) tiene todo el control, el grupo puede leer y entrar (r-x), y los demás no tienen permiso (---).
+
+Miro las ACLs:
+
+Ejecuto getfacl en el directorio pruebas para comprobar si hay ACLs aplicadas, y veo que de momento sólo existen los permisos tradicionales.
+
+<img width="813" height="394" alt="2025-11-24_11-58" src="https://github.com/user-attachments/assets/29c7ac26-ea47-478b-855e-ea0a62a5d88f" />
+
+<img width="670" height="490" alt="2025-11-24_12-00" src="https://github.com/user-attachments/assets/5f592c9b-126a-4d3a-a178-093c1d53ae0c" />
+
+Asignación y Verificación de ACL Específico
+¿Qué hago aquí? Quiero dar acceso de escritura a un usuario concreto (rojo) en un archivo, sin cambiar los permisos del grupo u otros.
+
+Aplico una ACL: Uso setfacl -m user:rojo :rw- proves2. Con esto, le doy permisos de Lectura y Escritura (rw-) al usuario rojo sólo sobre el archivo proves2.
+
+Verifico la ACL: Cuando ejecuto getfacl proves2, veo claramente que el usuario rojo aparece en la lista con rw-, mientras que el grupo y los demás usuarios continúan con permisos restringidos.
+
+Pruebo el acceso (Usuarios azul y rojo):
+
+Intento entrar como azul y modificar el archivo, pero fallo (ni siquiera tengo permisos de sudo).
+
+Cuando entro como rojo y ejecuto nano /var/proves2, puedo abrir el archivo y empezar a editarlo.
+
+<img width="735" height="258" alt="2025-11-24_12-02" src="https://github.com/user-attachments/assets/6df44afc-586f-4256-b2fe-03bde10490f9" />
+
+<img width="552" height="51" alt="2025-11-24_12-03_1" src="https://github.com/user-attachments/assets/ac371af8-9f8a-4ca0-8c3f-e878eb80eaed" />
+
+<img width="808" height="581" alt="2025-11-24_12-03" src="https://github.com/user-attachments/assets/6329ae35-b9d2-4e4b-9641-88a924c9bc57" />
+
+<img width="577" height="100" alt="2025-11-24_12-04_1" src="https://github.com/user-attachments/assets/031b8a45-e353-4966-908e-78f7d0779483" />
+
+<img width="816" height="571" alt="2025-11-24_12-04" src="https://github.com/user-attachments/assets/f0787922-d4db-4278-a92d-6ef84ecacd89" />
+
+Demostración de la Prioridad de ACL
+¿Qué hago aquí? Ésta es una prueba avanzada donde demuestro que las ACLs pueden sobreescribir y denegar un permiso que la configuración tradicional sí permitiría.
+
+Creo un directorio compartido abierto: Creo el directorio compartida y le pongo los permisos más abiertos posibles: 777 (rwxrwxrwx). En teoría, todo el mundo debería poder entrar.
+
+Aplico una ACL de denegación: Intencionadamente, utilizo setfacl -m user:roig :--- compartida/ para quitar TODOS los permisos al usuario rojo sobre este directorio.
+
+Intento el acceso: Entro como rojo e intento entrar en el directorio (cd /compartida/).
+
+<img width="818" height="738" alt="2025-11-24_12-14" src="https://github.com/user-attachments/assets/3a5247e2-509e-4253-a1cd-d5de4805a0c1" />
+
+<img width="643" height="262" alt="2025-11-24_12-14_1" src="https://github.com/user-attachments/assets/1afc5ac0-6069-4cfe-9477-1ce8926bb7ff" />
+
+Limpieza de ACL
+¿Qué hago aquí? Una vez hecha la prueba de ACL, quiero dejar el archivo como estaba, sin ninguna lista de control de acceso especial.
+
+Elimino ACL: Utilizo setfacl -b pruebas2. El parámetro -b indica que borre todas las ACLs del archivo.
+
+Verifico: Ejecuto getfacl pruebas2 y confirmo que la entrada de usuario rojo:rw- ya no está.
+
+<img width="676" height="513" alt="2025-11-24_12-22" src="https://github.com/user-attachments/assets/b3068f04-d59f-4025-9495-6ceb8fb99b59" />
+
+<img width="760" height="723" alt="2025-11-24_12-25" src="https://github.com/user-attachments/assets/5c8ac38c-83e1-4858-b16a-8395b1340a38" />
+
+<img width="662" height="152" alt="2025-11-24_12-25_1" src="https://github.com/user-attachments/assets/4d60aa09-1994-45d6-973c-85ac0514a6f7" />
+
+Configuración Local de la Máscara de Creación (umask)
+¿Qué hago aquí? Esta prueba es para ver cómo la máscara de creación de archivos afecta a los permisos de los elementos nuevos.
+
+Cambio el umask: Cambio el valor de umask en el terminal de 0002 a 0004.
+
+Cree nuevos elementos: Después, creo un directorio (mkdir pruebas) y un archivo (touch proves2).
+
+Listo los permisos: Con ls -l, miro qué permisos tienen los elementos creados con el nuevo umask.
+
+<img width="525" height="200" alt="2025-12-01_23-14" src="https://github.com/user-attachments/assets/d65b087d-73b4-4936-9880-c8b98b1adef2" />
+
+Configuración Global de la Máscara de Creación (/etc/login.defs)
+¿Qué hago aquí? Quiero aplicar un umask concreto a todos los usuarios del sistema por defecto.
+
+Edito el archivo global: Utilizo nano para editar el archivo /etc/login.defs.
+
+Cambio el valor UMASK: He cambiado el valor por defecto (022) a 033.
+
+<img width="177" height="51" alt="2025-12-01_23-14_1" src="https://github.com/user-attachments/assets/f3d28686-862d-4533-b96b-f61a6d1f0c46" />

@@ -259,6 +259,17 @@ Verificación de Inicio de Sesión He comprobado que la usuaria rosa puede hacer
 
 <img width="477" height="319" alt="2025-11-17_12-35" src="https://github.com/user-attachments/assets/569e01ec-bc18-4a7f-90d7-28a0e9527df4" />
 
+Prueba de Permisos Compartidos He creado el directorio palomas/ y he aplicado los permisos rwxr-xr-- para realizar un test de seguridad. He verificado que:
+El propietario (nick) puede escribir y borrar.
+
+El miembro del grupo (cire) sólo puede entrar y leer.
+
+Los demás usuarios (ferran) tienen el acceso denegado (r--).
+
+<img width="719" height="440" alt="2025-12-20_20-38" src="https://github.com/user-attachments/assets/303c8ba7-f8b8-47de-bad6-c92bf614576c" />
+
+<img width="683" height="505" alt="2025-12-20_20-40" src="https://github.com/user-attachments/assets/07b2bb97-9638-4243-8525-796e1fbacfbf" />
+
 ### ACL
 
 Proba de Permisos Tradicionales y ACL Básica
@@ -350,5 +361,7 @@ Cambio el valor UMASK: He cambiado el valor por defecto (022) a 033.
 ## 4. Còpies de seguretat i automatització de tasques
 
 ---
+
+
 
 ## 5. Quotes d'usuari

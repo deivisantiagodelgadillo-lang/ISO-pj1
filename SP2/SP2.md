@@ -364,6 +364,259 @@ Cambio el valor UMASK: He cambiado el valor por defecto (022) a 033.
 
 ### Teoria copies de seguretat
 
+Copias de seguridad
+
+Una copia de seguridad es una duplicación de los datos que permite recuperar información en caso de pérdida, daño, error humano, virus o cualquier otro desastre. Estas copias se almacenan de forma independiente de los datos originales, preferiblemente en otro dispositivo, servidor o servicio en la nube.
+
+Normalmente siguen políticas definidas, como el tiempo de retención, el número de versiones guardadas y la realización de pruebas de restauración para asegurar que los datos se pueden recuperar correctamente.
+
+Tipos principales de copia de seguridad
+Copia completa
+
+Guarda todos los datos cada vez que se realiza la copia.
+
+Es la más lenta y la que ocupa más espacio, pero también la más segura y la más fácil de restaurar, ya que solo se necesita una única copia para recuperar toda la información.
+
+Copia incremental
+
+Solo guarda los cambios realizados desde la última copia, ya sea completa o incremental.
+
+Es muy rápida y ocupa poco espacio. El principal inconveniente es que, para restaurar los datos, se necesita disponer de la copia completa inicial y de todas las copias incrementales posteriores.
+
+Copia diferencial
+
+Guarda todos los cambios realizados desde la última copia completa.
+
+Es más rápida que la copia completa y ocupa un espacio intermedio. La restauración es más sencilla que con las incrementales, pero cada nueva copia diferencial ocupa más espacio hasta que se realiza una nueva copia completa.
+
+Ejemplos de funcionamiento
+Copia completa
+
+Lunes: copia completa
+
+Martes: copia completa
+
+Miércoles: copia completa
+
+Si se pierde un archivo el jueves, solo es necesario restaurar la copia completa del miércoles.
+
+Copia incremental
+
+Lunes: copia completa
+
+Martes: copia incremental
+
+Miércoles: copia incremental
+
+Para recuperar un archivo perdido el jueves, se necesita la copia completa del lunes y todas las copias incrementales hasta el miércoles.
+
+Copia diferencial
+
+Lunes: copia completa
+
+Martes: copia diferencial
+
+Miércoles: copia diferencial
+
+Si se pierde un archivo el jueves, se necesita la copia completa del lunes y la última copia diferencial, la del miércoles.
+
+RAID y almacenamiento
+
+Los sistemas RAID combinan varios discos para que funcionen conjuntamente, mejorando el rendimiento y/o la seguridad según el tipo de RAID utilizado.
+
+RAID 0 une la capacidad y la velocidad de varios discos, pero no ofrece ninguna protección: si un disco falla, se pierden todos los datos.
+RAID 1 crea una copia espejo: los datos se duplican y, si un disco falla, el otro continúa funcionando.
+RAID 5 y RAID 6 distribuyen los datos y la información de paridad entre varios discos, ofreciendo un buen equilibrio entre velocidad y seguridad.
+RAID 10 combina la velocidad de RAID 0 con la seguridad de RAID 1.
+
+Es importante recordar que RAID no es una copia de seguridad. Si se borran archivos o un virus afecta a los datos, el error se replica en todos los discos.
+
+Imagen de disco
+
+Una imagen de disco es una copia exacta de todo un disco o partición, incluyendo el sistema operativo, los programas, la configuración y los datos. Se utiliza para clonar equipos o restaurar un sistema completo tal y como estaba en un momento concreto.
+
+Es muy completa, pero requiere mucho espacio y tiempo para crearse. A cambio, permite restaurar un ordenador entero en muy poco tiempo.
+
+Snapshot
+
+Un snapshot es una captura instantánea del estado de un sistema de archivos o de un dispositivo de almacenamiento. Normalmente depende de la tecnología utilizada (LVM, ZFS, Btrfs, máquinas virtuales, etc.) y es muy rápido de crear, ya que solo guarda los cambios realizados a partir del momento en que se crea.
+
+Los snapshots son útiles para volver atrás rápidamente o hacer pruebas, pero no son una copia de seguridad segura si se guardan en el mismo disco. Si el disco falla, el snapshot también se pierde.
+
+Resumen final
+
+La copia de seguridad sirve para proteger los datos guardándolos en un lugar seguro.
+La imagen de disco copia todo el sistema exactamente como está en un momento concreto.
+El snapshot permite volver atrás rápidamente, pero no protege contra fallos del propio disco.
+
+No se debe confiar únicamente en snapshots locales como única protección. La mejor estrategia combina snapshots para recuperaciones rápidas y copias de seguridad externas para protegerse frente a desastres.
+
+Herramientas de copia
+
+cp → Es una copia simple, no inteligente; solo transfiere archivos localmente. Es muy sencilla de utilizar, pero no está optimizada.
+
+rsync → Es una herramienta inteligente que solo copia los archivos modificados y permite la sincronización local o remota mediante SSH.
+
+dd → Es una herramienta para clonar discos o particiones. No es inteligente, ya que copia todos los sectores.
+
+Comando cp
+Comando cp (teoría)
+
+El comando cp se utiliza en sistemas operativos Linux y Unix para copiar archivos y directorios de una ubicación a otra. Permite duplicar información manteniendo, si se desea, atributos como permisos, fechas y propietario.
+
+Funcionamiento general
+
+cp copia uno o más archivos a un archivo o directorio de destino. Cuando el destino ya existe, el archivo puede sobrescribirse según las opciones utilizadas. Por defecto, cp solo copia archivos; para copiar directorios es necesario indicarlo explícitamente.
+
+Opciones y parámetros principales
+Copia recursiva
+
+Permite copiar directorios completos con todos sus subdirectorios y archivos. Sin esta opción, los directorios no se copian.
+
+Modo interactivo
+
+Hace que el sistema solicite confirmación antes de sobrescribir un archivo existente, evitando pérdidas accidentales de información.
+
+Modo forzado
+
+Sobrescribe los archivos de destino sin pedir confirmación, incluso si están protegidos contra escritura.
+
+Modo detallado
+
+Muestra información del proceso de copia, indicando qué archivos se están copiando.
+
+Actualización
+
+Solo copia los archivos que son más nuevos que los del destino o que aún no existen, ahorrando tiempo y espacio.
+
+Conservación de atributos
+
+Mantiene los permisos, el propietario, el grupo y las fechas originales de los archivos copiados.
+
+Modo archivo
+
+Realiza una copia completa conservando la estructura, los atributos y los enlaces, y es la opción más utilizada para hacer copias de seguridad de directorios.
+
+Gestión de enlaces
+
+El comando puede tratar los enlaces simbólicos de varias formas:
+
+Copiar el enlace como enlace
+
+Seguir el enlace y copiar el archivo real
+
+No seguir el enlace y conservarlo tal como está
+
+También permite crear enlaces simbólicos o enlaces duros en lugar de realizar una copia real del archivo.
+
+Otras funcionalidades
+
+cp puede copiar múltiples archivos a la vez a un mismo directorio.
+
+Permite mantener la estructura de directorios original al copiar archivos individuales.
+
+Puede limitar la copia para que no atraviese distintos sistemas de archivos.
+
+Se puede utilizar como herramienta básica dentro de estrategias de copias de seguridad simples.
+
+<img width="828" height="603" alt="2025-12-20_22-46" src="https://github.com/user-attachments/assets/87f89939-0bbd-444c-bae9-d179e51fd36d" />
+
+Comando rsync
+
+El comando rsync es una herramienta de Linux/Unix utilizada para sincronizar archivos y directorios entre dos ubicaciones, ya sea dentro del mismo sistema, entre distintos discos o entre equipos a través de la red. Es especialmente eficiente para copias de seguridad y transferencias de grandes volúmenes de datos.
+
+Funcionamiento general
+
+rsync compara los archivos de origen y destino y solo transfiere las diferencias, lo que lo hace mucho más rápido y eficiente que copiar todo el contenido de nuevo. Puede trabajar con archivos locales o remotos y permite mantener los atributos y permisos de los archivos originales.
+
+Opciones y parámetros principales
+Modo recursivo
+
+Permite copiar directorios completos, incluyendo subdirectorios y archivos. Sin esta opción, solo se copian archivos individuales.
+
+Conservación de atributos
+
+Mantiene propietario, grupo, permisos, fechas y atributos especiales de los archivos copiados. Esto asegura que la copia sea idéntica al original.
+
+Compresión
+
+Reduce la cantidad de datos transferidos cuando se utiliza a través de la red, comprimiendo los archivos durante la transmisión.
+
+Modos detallados
+
+Permite mostrar información del proceso de sincronización, indicando qué archivos se transfieren y cuáles ya están actualizados.
+
+Actualización y sincronización
+
+Solo copia los archivos que han cambiado o que no existen en el destino, evitando duplicaciones innecesarias y ahorrando tiempo y espacio.
+
+Eliminación de archivos obsoletos
+
+Permite eliminar en el destino los archivos que ya no existen en el origen, manteniendo ambas ubicaciones exactamente sincronizadas.
+
+Modos seguros
+
+Puede funcionar a través de conexiones seguras (por ejemplo, SSH) cuando se sincronizan archivos entre distintos equipos, protegiendo la información durante la transferencia.
+
+Enlaces y enlaces simbólicos
+
+rsync puede copiar enlaces simbólicos como enlaces o bien seguirlos y copiar el contenido real, según la configuración.
+
+Otras funcionalidades
+
+Permite filtrar archivos por extensión, nombre o directorios específicos.
+
+Admite transferencias parciales para reanudar copias interrumpidas.
+
+Puede funcionar de forma programada para automatizar copias de seguridad periódicas.
+
+Es muy eficaz para sincronizar grandes cantidades de datos entre servidores, discos locales o sistemas de respaldo.
+
+<img width="806" height="497" alt="2025-12-20_22-48" src="https://github.com/user-attachments/assets/4e2f064f-2925-4025-af41-d6187ed123d6" />
+
+Comando dd
+
+El comando dd es una herramienta de Linux/Unix utilizada para copiar y transformar datos a bajo nivel, normalmente archivos, discos o dispositivos de bloques. Es muy potente y flexible, ya que trabaja directamente con datos binarios y permite hacer copias exactas sector por sector.
+
+Funcionamiento general
+
+dd lee datos desde una fuente y los escribe en un destino especificado, con la posibilidad de transformarlos durante el proceso. Se puede utilizar para crear imágenes de discos, copiar particiones, hacer copias de seguridad de dispositivos completos o incluso escribir archivos de arranque.
+
+Opciones y parámetros principales
+Input (if)
+
+Define el archivo o dispositivo de origen desde el cual se deben leer los datos.
+
+Output (of)
+
+Especifica el archivo o dispositivo de destino donde se escribirán los datos.
+
+Block size (bs)
+
+Permite establecer el tamaño de los bloques de datos leídos y escritos. Ajustar este tamaño puede mejorar el rendimiento de la copia.
+
+Count
+
+Indica cuántos bloques se deben copiar desde el origen. Permite limitar la cantidad de datos copiados.
+
+Skip
+
+Permite saltar un número determinado de bloques al comenzar a leer del origen, útil para trabajar con fragmentos de discos o archivos grandes.
+
+Seek
+
+Permite saltar bloques en el destino antes de comenzar a escribir, facilitando la copia parcial dentro de un dispositivo o archivo.
+
+conv
+
+Permite aplicar transformaciones a los datos durante la copia, como cambiar mayúsculas/minúsculas, convertir entre formatos o truncar datos.
+
+Status
+
+Muestra información del progreso de la copia, útil en operaciones con grandes cantidades de datos.
+
+<img width="812" height="395" alt="2025-12-20_22-50" src="https://github.com/user-attachments/assets/6dd49a73-f723-4441-881b-5bd6d9016b97" />
+
 ### Automatizació de tasques
 
 cron y anacron son dos herramientas de automatización que permiten ejecutar tareas periódicas.

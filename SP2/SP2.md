@@ -362,6 +362,133 @@ Cambio el valor UMASK: He cambiado el valor por defecto (022) a 033.
 
 ---
 
+### Teoria copies de seguretat
 
+### Automatizació de tasques
+
+cron y anacron son dos herramientas de automatización que permiten ejecutar tareas periódicas.
+
+cron ejecuta tareas programadas en una fecha y hora específicas. Si el sistema está apagado en ese momento, la tarea se pierde. Es ideal para tareas en fechas y horas concretas y para acciones específicas de un usuario.
+
+anacron es ideal para ejecutar tareas periódicas en las que no es necesaria una fecha ni una hora exactas. Normalmente se utiliza para tareas de mantenimiento del sistema y no requiere que el sistema esté encendido en el momento programado, ya que se ejecutará cuando el sistema se inicie.
+
+#### Cron y Anacron
+
+El cron se guarda en la ruta /etc/crontab y así es como se ve:
+
+<img width="1073" height="589" alt="2025-12-09_13-17" src="https://github.com/user-attachments/assets/ec44ab1f-6773-4906-ae97-ef8d725f7363" />
+
+<img width="987" height="581" alt="2025-12-09_13-18" src="https://github.com/user-attachments/assets/1f3a79b9-9e8a-4c2d-a5ab-42e1059fb5d5" />
+
+Con este pedido podemos especificar desde qué usuario queremos entrar y la primera vez que entramos nos dirá en qué editor queremos hacerlo.
+
+<img width="835" height="295" alt="2025-12-09_13-18_1" src="https://github.com/user-attachments/assets/8a7c7864-18e1-475e-9093-2a35dab74ad1" />
+
+Con esta ruta podemos ver todos los binarios del cron.
+
+<img width="714" height="269" alt="2025-12-09_13-18_2" src="https://github.com/user-attachments/assets/677eb8a9-8060-44da-9ea3-17115503a331" />
+
+Y éste es el anacrono que está guardado con esta ruta:
+
+<img width="805" height="332" alt="2025-12-09_13-19" src="https://github.com/user-attachments/assets/cc69c356-8ecb-40eb-be2f-fc643392a43e" />
+
+Ahora he programado un script que contiene el siguiente código:
+
+<img width="948" height="211" alt="2025-12-09_13-23" src="https://github.com/user-attachments/assets/2db1cb74-83bf-4c57-9d24-b9347f319b97" />
+
+Le doy permisos de ejecución
+
+<img width="1021" height="458" alt="2025-12-09_13-25" src="https://github.com/user-attachments/assets/9c911f3b-1b6d-42a4-a7dd-67b7dffbf609" />
+
+compruebo que esta alli
+
+<img width="878" height="67" alt="2025-12-09_13-41_1" src="https://github.com/user-attachments/assets/797cfa13-0a04-4414-98e9-2cfe2832edfb" />
+
+Y reemplazamos ese valor por 1.
+
+<img width="836" height="390" alt="2025-12-09_13-42" src="https://github.com/user-attachments/assets/933645d4-6a34-4df8-921a-9a64eeabb772" />
+
+---
 
 ## 5. Quotes d'usuari
+
+¿Qué es una cuota?
+
+En Linux, una cuota es un mecanismo de control de uso de espacio y archivos dentro de un sistema de archivos. Sirve para limitar la cantidad de disco o número de inodos (ficheros) que un usuario o grupo puede utilizar, evitando que una sola persona ocupe todo el espacio y afecte al resto del equipo.
+
+edquota -u usuario -> ver cuotas un usuario
+
+setquota -u usuario -> establecer cuotas 1 usuario
+
+repquota /dev/sdc1 -> informe cuotas de todos los usuarios lo que ocupan
+
+quotaon /mnt/datos -> activar
+
+quotaoff /mnt/datos -> desactivar
+
+quotacheck -cug /mnt/datos -> crear archivos para cuotas usuario y grupo si no están por defecto
+
+Para realizar esta parte necesitamos instalar el paquete cuota.
+
+<img width="836" height="534" alt="2025-12-15_11-54" src="https://github.com/user-attachments/assets/033aaa39-52ee-4ad0-9eaa-e5bc14c16010" />
+
+Ahora vamos a crear una carpeta llamada datos.
+
+<img width="661" height="149" alt="2025-12-15_12-06" src="https://github.com/user-attachments/assets/b0a062e0-bf94-49c9-9cec-3cf350579533" />
+
+Y haremos el montaje de esta carpeta permanentemente, además aquí añadiremos usrquota y grpquota para que podamos configurar las cuotas aquí.
+
+<img width="915" height="355" alt="2025-12-15_12-09" src="https://github.com/user-attachments/assets/fda42bc2-eaff-4fc9-8bef-1e74e8dc057c" />
+
+Hacemos un reboot y con este pedido podemos comprobar que está montado correctamente.
+
+<img width="798" height="301" alt="2025-12-15_12-15" src="https://github.com/user-attachments/assets/dd87ff98-f4d2-4558-b999-20ffb4a273e9" />
+
+Con este pedido podemos generar los 2 archivos para las cuotas.
+
+<img width="848" height="291" alt="2025-12-15_12-18" src="https://github.com/user-attachments/assets/215cdd55-4e02-4ba4-81bd-11aeffb2d9a5" />
+
+Y con estos pedidos activamos y desactivamos las cuotas.
+
+<img width="793" height="119" alt="2025-12-15_12-39" src="https://github.com/user-attachments/assets/a008d211-852b-4dad-a968-dc0429ec4f23" />
+
+Ahora haremos la cuota para el usuario gina.
+
+<img width="679" height="97" alt="2025-12-15_12-40" src="https://github.com/user-attachments/assets/a436daff-803b-4fc9-9acd-75e1ca996048" />
+
+Y le diremos lo máximo que puede llegar a gastar en espacio con esa carpeta.
+
+<img width="930" height="182" alt="2025-12-15_12-43" src="https://github.com/user-attachments/assets/bbdd911e-45b7-4f33-acb8-0fafa70d423a" />
+
+Verificación de cuotas en /dev/sdb Uso de quota y repquota para comprobar límites de disco. Se confirma que el usuario prova no tiene restricciones aplicadas y solo root registra consumo actual.
+
+<img width="755" height="293" alt="2025-12-15_12-40_1" src="https://github.com/user-attachments/assets/3148cf8d-bb5d-41de-a920-8c8baee86ba0" />
+
+Prueba de escritura sin restricciones El usuario prova crea archivos mediante el comando dd. La operación es exitosa, demostrando que no existen límites de cuota bloqueando la escritura en este momento.
+
+<img width="925" height="298" alt="2025-12-15_12-46" src="https://github.com/user-attachments/assets/e072d9a1-1628-48e9-b44f-2e67a459804d" />
+
+Estado de cuota excedido El comando repquota muestra que el usuario prova ha superado su límite blando (1024), activando el periodo de gracia de 6 días
+
+<img width="777" height="300" alt="2025-12-15_12-47" src="https://github.com/user-attachments/assets/754e986a-e539-4f78-ab7b-f58e6d7c24a3" />
+
+Límite blando excedido El comando quota -u prova muestra que el usuario ha superado su límite (1600 de 1024 bloques), marcando el uso con un asterisco (*) e iniciando la cuenta atrás de 6 días de gracia.
+
+<img width="838" height="133" alt="2025-12-15_12-47_1" src="https://github.com/user-attachments/assets/8bb7d69b-3c63-486f-a967-723043b71bcf" />
+
+Bloqueo por límite duro El sistema interrumpe la escritura del archivo test3 al alcanzar el límite máximo de bloques permitido (límite duro), devolviendo el error: "Se ha excedido la cuota de disco".
+
+<img width="925" height="352" alt="2025-12-15_12-50" src="https://github.com/user-attachments/assets/195dd890-7ed1-46e1-8858-7ebd1f69a7fa" />
+
+Bloqueo total por límite duro repquota confirma que el usuario ha alcanzado el límite máximo permitido (2048 bloques), lo que impide legalmente cualquier escritura adicional en el dispositivo.
+
+<img width="730" height="242" alt="2025-12-15_12-50_1" src="https://github.com/user-attachments/assets/6e42c4c6-c1e4-4877-a0e5-474259036a68" />
+
+Desactivación de cuotas y escritura libre Tras desactivar las cuotas con quotaoff, el usuario prova puede volver a crear archivos (como test4) sin restricciones, a pesar de seguir figurando con el límite excedido en el último registro del sistema.
+
+<img width="935" height="667" alt="2025-12-15_12-52" src="https://github.com/user-attachments/assets/85c46fe1-2750-4cf1-9781-4318af166a70" />
+
+Escritura libre tras desactivar cuotas Tras ejecutar quotaoff, el usuario prova crea el archivo test4 con éxito a pesar de haber alcanzado previamente su límite máximo de bloques.
+
+<img width="925" height="717" alt="2025-12-15_12-52_1" src="https://github.com/user-attachments/assets/257fb4f6-2fcc-43ad-a43a-fc5039e99dd4" />
+

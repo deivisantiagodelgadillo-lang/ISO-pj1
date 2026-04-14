@@ -1,4 +1,4 @@
-# Guia de Pràctiques: Windows i Sistemes Operatius
+# Instal·lació, Configuració Inicial i Programari de Base
 
 ## Fase 1 – Instal·lació del sistema operatiu
 - **Pas 1:** Crear màquina virtual amb VirtualBox

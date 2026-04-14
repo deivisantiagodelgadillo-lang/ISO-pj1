@@ -103,26 +103,67 @@ Aquí tienes la traducción al castellano, manteniendo el formato para que sea f
 
 ## Fase 4 – Gestor d'arrencada
 - **Pas 16:** Obrir Command Prompt com administrador
+
+<img width="738" height="371" alt="2026-04-15_00-10" src="https://github.com/user-attachments/assets/be079ce0-b218-46ec-8dee-fd71c9c84cdb" />
+
 - **Pas 17:** Executar `bcdedit`
+
+<img width="538" height="554" alt="2026-04-15_00-11" src="https://github.com/user-attachments/assets/7b9c8974-b902-4487-a9e5-752b89ee04cf" />
+
 - **Pas 18:** Identificar els blocs:
   - Administrador de arranque de Windows (Boot Manager)
+ 
+<img width="513" height="202" alt="2026-04-15_00-12" src="https://github.com/user-attachments/assets/4a870afa-d39d-468d-abf0-340818397352" />
+
+
   - Cargador de arranque de Windows (Boot Loader)
+
+<img width="524" height="281" alt="2026-04-15_00-13" src="https://github.com/user-attachments/assets/479b89f9-593b-48aa-a5d6-fb6346783db8" />
+
+
 - **Pas 19:** Interpretar dades concretes
+* **Boot Manager**
+    * **default: {current}** -> El sistema que se elige por defecto para arrancar.
+    * **timeout: 30** -> Los segundos que tarda antes de arrancar automáticamente.
+
+* **Boot Loader**
+    * **device: partition=C:** -> Partición del disco donde está instalado el sistema operativo (Windows).
+    * **path: \WINDOWS\system32\winload.efi** -> Archivo que carga el sistema.
+    * **description: Windows 11** -> Nombre del sistema operativo.
+
 - **Pas 20:** Respondre preguntes curtes:
-  - Quin sistema s'està arrencant?
-  - A quin disc o partició està instal·lat?
-  - Quant temps espera abans d'arrencar?
-  - Quin fitxer inicia Windows?
-- **Pas 21:** Interpretació final. *Explicar amb una frase:*
-  - Qui decideix l'arrencada (Boot Manager)
-  - Qui carrega el sistema (Boot Loader)
+  * **¿Qué sistema se está arrancando?** Se arranca Windows 10 (se ve en el parámetro `description` del Cargador de arranque).
+* **¿En qué disco o partición está instalado?** Se encuentra en la partición C: (se ve en el parámetro `device` del Cargador de arranque).
+* **¿Cuánto tiempo espera antes de arrancar?** Espera 30 segundos (se ve en el parámetro `timeout` del Administrador de arranque).
+* **¿Qué archivo inicia Windows?** Lo inicia el archivo `\WINDOWS\system32\winload.efi` (se ve en el parámetro `path` del Cargador de arranque).
+
+- **Pas 21:** Interpretació final. 
+* **Quién decide el arranque (Boot Manager):** El Windows Boot Manager (`bootmgr`) es el responsable de mostrar el menú de arranque y decidir qué sistema operativo se iniciará, en función de la configuración del BCD.
+
+* **Quién carga el sistema (Boot Loader):** El Windows Boot Loader (`winload.efi`) es el archivo que realmente carga el núcleo de Windows en la memoria e inicia el sistema operativo una vez que el Boot Manager ha tomado la decisión.
 
 ## Fase 5 – Xarxa bàsica
 - **Pas 22:** Obrir configuració de xarxa
+
+<img width="752" height="623" alt="2026-04-15_00-19" src="https://github.com/user-attachments/assets/ead5e26a-f4b1-40fb-b0ab-0bee50393553" />
+
 - **Pas 23:** Consultar IP amb: `ipconfig`
+
+<img width="551" height="236" alt="2026-04-15_00-20" src="https://github.com/user-attachments/assets/42d1e0e9-c600-4543-b609-b7b2576da1b9" />
+
 - **Pas 24:** Configurar IP dinàmica (DHCP automàtic)
+
+<img width="605" height="496" alt="2026-04-15_00-21" src="https://github.com/user-attachments/assets/fcfa90b6-2a00-4ffc-b0eb-7e8f546fe39c" />
+
 - **Pas 25:** Configurar IP fixa (manual: IP, màscara, gateway, DNS)
+
+<img width="363" height="713" alt="2026-04-15_00-25" src="https://github.com/user-attachments/assets/b05a8eda-7823-4158-b63e-cdab64df87a2" />
+
+<img width="321" height="216" alt="2026-04-15_00-26" src="https://github.com/user-attachments/assets/121cc21c-59b8-47c8-b8e6-d356855bc941" />
+
 - **Pas 26:** Comprovar connexió amb: `ping google.com`
+
+<img width="541" height="228" alt="2026-04-15_00-28" src="https://github.com/user-attachments/assets/25173454-f8f9-4656-a505-e8dcd6f58df7" />
 
 ## Fase 6 – Comandes generals
 - **Pas 27:** Obrir PowerShell

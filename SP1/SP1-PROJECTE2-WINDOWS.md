@@ -26,12 +26,44 @@
   
 - **Pas 5:** Comprovar que arrenca correctament
 
+<img width="427" height="413" alt="2026-04-15_01-38" src="https://github.com/user-attachments/assets/9b2d90ed-4e01-4a2a-9fe5-ef407fa36513" />
+
 ## Fase 2 – Punts de restauració
 - **Pas 6:** Cercar "Crear un punt de restauració"
+
+<img width="736" height="251" alt="2026-04-14_23-52" src="https://github.com/user-attachments/assets/eeaf7dd4-b556-402f-acec-b2407dd2e2ea" />
+
 - **Pas 7:** Activar protecció del sistema al disc C:
+
+<img width="437" height="501" alt="2026-04-14_23-53" src="https://github.com/user-attachments/assets/ff92de93-eed6-4810-91fc-47ee389267b1" />
+
+<img width="425" height="468" alt="2026-04-14_23-53_1" src="https://github.com/user-attachments/assets/a1d5ef6d-b95c-4b21-b3a3-f746dcf5a064" />
+
 - **Pas 8:** Crear un punt manual
+
+<img width="407" height="483" alt="2026-04-14_23-54" src="https://github.com/user-attachments/assets/03e3b282-327a-486e-aa2c-18618ee63523" />
+
+<img width="416" height="486" alt="2026-04-14_23-55" src="https://github.com/user-attachments/assets/1ea26893-abcc-46c9-af71-4f617f78664c" />
+
+<img width="373" height="169" alt="2026-04-14_23-56" src="https://github.com/user-attachments/assets/6e347e78-adfb-49d6-9182-85a8ebcdd92c" />
+
 - **Pas 9:** Fer un canvi (instal·lar app o configuració)
+
+<img width="423" height="153" alt="2026-04-14_23-59" src="https://github.com/user-attachments/assets/1fb40cf1-c705-415d-8dad-8c6001e3e6f8" />
+
+<img width="294" height="332" alt="2026-04-14_23-59_1" src="https://github.com/user-attachments/assets/b052d5cb-0313-41c3-a376-f4717897bf80" />
+
 - **Pas 10:** Restaurar i comprovar
+
+<img width="399" height="478" alt="2026-04-15_00-01" src="https://github.com/user-attachments/assets/81d42545-dc48-4bae-8ff6-f218c60d609b" />
+
+<img width="620" height="494" alt="2026-04-15_00-01_1" src="https://github.com/user-attachments/assets/fe0f552b-3ac3-4418-9b66-c82d302f0daa" />
+
+<img width="560" height="456" alt="2026-04-15_00-01_2" src="https://github.com/user-attachments/assets/1d72e449-a07b-4db7-b8fa-66af12e2a743" />
+
+<img width="567" height="271" alt="2026-04-15_00-02" src="https://github.com/user-attachments/assets/634645e6-7f79-4ff0-aa28-d14da1e72f65" />
+
+<img width="720" height="464" alt="2026-04-15_00-05" src="https://github.com/user-attachments/assets/8bc37c0d-8ac2-4c36-9805-f21c61cb89cd" />
 
 ## Fase 3 – Llicències de Windows
 - **Pas 11:** Obrir Configuració → Sistema → Activació

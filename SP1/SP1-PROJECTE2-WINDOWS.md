@@ -67,10 +67,39 @@
 
 ## Fase 3 – Llicències de Windows
 - **Pas 11:** Obrir Configuració → Sistema → Activació
+
+<img width="305" height="706" alt="2026-04-15_00-08" src="https://github.com/user-attachments/assets/f20b67a3-bb36-451c-846a-6bb5c986c0e7" />
+
 - **Pas 12:** Veure si Windows està activat
+
+<img width="784" height="699" alt="2026-04-15_00-08_1" src="https://github.com/user-attachments/assets/433b69ce-7124-4323-90c9-cc495f321929" />
+
 - **Pas 13:** Executar al cmd: `slmgr /xpr`
+
+<img width="683" height="361" alt="2026-04-15_00-09" src="https://github.com/user-attachments/assets/9dc3f170-8598-4d12-be97-05bb363e7880" />
+
 - **Pas 14:** Esbrinar llicenciament Windows i explicar breument
+
+Aquí tienes la traducción al castellano, manteniendo el formato para que sea fácil de consultar:
+
+### Tipos de Licencias de Software
+
+* **Retail (FPP):** Licencia comercial que se compra por separado. Pertenece al **usuario** y no al ordenador.
+* **OEM:** Instalada por defecto en equipos nuevos. Se vincula de manera **permanente** a la placa base de ese PC.
+* **Volumen:** Diseñada para empresas e instituciones. Permite activar **múltiples dispositivos** a la vez.
+* **Digital:** Licencia vinculada al hardware y a la cuenta de Microsoft; es el sustituto de la clave de producto tradicional.
+* **Suscripción:** Pago indefinido (mensual o anual, como Windows 365), utilizada principalmente en la **nube**.
+
 - **Pas 15:** Consultar preu aproximat d'una llicència Windows (web oficial o botigues)
+
+> **Precios oficiales de Microsoft (abril 2026):**
+>
+> | Edición | Precio aprox. (web oficial) |
+> |---|---|
+> | Windows 11 Home | ~145 € |
+> | Windows 11 Pro | ~259 € |
+> | Windows 11 Pro for Workstations | ~439 € |
+>****
 
 ## Fase 4 – Gestor d'arrencada
 - **Pas 16:** Obrir Command Prompt com administrador

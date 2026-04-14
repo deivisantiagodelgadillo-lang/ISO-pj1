@@ -2,9 +2,28 @@
 
 ## Fase 1 – Instal·lació del sistema operatiu
 - **Pas 1:** Crear màquina virtual amb VirtualBox
+
+<img width="856" height="457" alt="2026-04-14_08-54" src="https://github.com/user-attachments/assets/ffaba0a6-ea16-4a27-8512-bdf53944737a" />
+
 - **Pas 2:** Assignar recursos (RAM mínim 4 GB, disc mínim 40 GB)
+
+<img width="843" height="466" alt="2026-04-14_08-56" src="https://github.com/user-attachments/assets/f718d9d7-0472-4c7c-969e-29b9d511b2e3" />
+
+<img width="724" height="465" alt="2026-04-14_08-57" src="https://github.com/user-attachments/assets/f27ff410-ab02-4a17-9414-10b4f7cb91bf" />
+
+
 - **Pas 3:** Carregar ISO de Windows 10 o Windows 11
+
+<img width="863" height="325" alt="2026-04-15_01-36" src="https://github.com/user-attachments/assets/c4d1b27b-5171-4bd9-bc53-3fa457c74d1c" />
+  
 - **Pas 4:** Instal·lar el sistema (idioma, usuari, contrasenya)
+
+<img width="661" height="497" alt="2026-04-14_09-00" src="https://github.com/user-attachments/assets/f9b29f24-29d5-488a-add0-c1375538109b" />
+
+<img width="634" height="424" alt="2026-04-14_09-12" src="https://github.com/user-attachments/assets/d479ec67-64af-4f6c-bd98-f910fbbb90c3" />
+
+<img width="777" height="433" alt="2026-04-14_09-12_1" src="https://github.com/user-attachments/assets/ac272910-d52b-45e6-bc9c-c975f49df09d" />
+  
 - **Pas 5:** Comprovar que arrenca correctament
 
 ## Fase 2 – Punts de restauració

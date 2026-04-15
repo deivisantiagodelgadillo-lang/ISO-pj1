@@ -209,23 +209,67 @@ Aquí tienes la traducción al castellano, manteniendo el formato para que sea f
 
 - **Pas 30:** Comandes útils del sistema:
   - `tasklist`: veure processos actius
+ 
+<img width="615" height="457" alt="2026-04-15_00-42" src="https://github.com/user-attachments/assets/928232dd-891a-4512-ab75-305d8255979b" />
+
   - `taskkill /IM notepad.exe /F`: tancar un procés
+
+<img width="490" height="119" alt="2026-04-15_00-43" src="https://github.com/user-attachments/assets/73be46bc-e99c-4eed-a619-c1949f3b38c0" />
+
   - `systeminfo`: informació completa del sistema
+
+<img width="867" height="662" alt="2026-04-15_00-44" src="https://github.com/user-attachments/assets/36d22ed1-4106-4d4e-bbd2-febc85b90efa" />
+
   - `hostname`: nom de l'equip
+
+<img width="283" height="118" alt="2026-04-15_00-44_1" src="https://github.com/user-attachments/assets/2ca52e46-9c8f-4cd2-ac76-128c47297be7" />
+
   - `whoami`: usuari actual
+
+<img width="270" height="76" alt="2026-04-15_00-44_2" src="https://github.com/user-attachments/assets/0f2ad154-7137-4913-8d43-5de029d3b879" />
+
 - **Pas 31:** Comandes de xarxa:
   - `ipconfig`: veure configuració IP
+
+ <img width="545" height="236" alt="2026-04-15_00-45" src="https://github.com/user-attachments/assets/564c1fe9-efc0-4cb6-8a44-64c2d9b98375" />
+
   - `ping google.com`: comprovar connexió
+
+<img width="533" height="248" alt="2026-04-15_00-46" src="https://github.com/user-attachments/assets/89eb0bf6-a575-4ee7-84cb-9b914b62b733" />
+
   - `netstat -an`: connexions obertes
+
+<img width="475" height="624" alt="2026-04-15_00-51" src="https://github.com/user-attachments/assets/253d32c8-ec60-4870-9969-dd8dddaf9a06" />
+
 - **Pas 32:** Comandes interessants (una mica més avançades):
   - `tree`: veure estructura de carpetes
+ 
+<img width="309" height="111" alt="2026-04-15_00-51_1" src="https://github.com/user-attachments/assets/7dfb9cf6-ec9d-4947-94c4-bfdd7e656b8e" />
+
   - `cls`: netejar pantalla
+
+<img width="320" height="134" alt="2026-04-15_00-52" src="https://github.com/user-attachments/assets/d5004b00-7160-464a-a274-a37eb810e17d" />
+
+<img width="222" height="67" alt="2026-04-15_00-52_1" src="https://github.com/user-attachments/assets/c760c380-ffa3-4b19-9f9d-fc2f941578f7" />
+
   - `help`: veure ajuda
+
+<img width="647" height="621" alt="2026-04-15_00-53" src="https://github.com/user-attachments/assets/e4c77253-e487-4e42-9939-23416c987453" />
+
   - `shutdown /s /t 0`: apagar l'equip
+
+<img width="834" height="447" alt="2026-04-15_00-54" src="https://github.com/user-attachments/assets/bbf2f28b-ae32-4a40-aea4-2c211d95b2ef" />
+
 - **Pas 33:** Mini interpretació:
-  - Indicar què mostra `tasklist`
-  - Indicar què mostra `ipconfig`
-  - Indicar què mostra `systeminfo`
+
+* **tasklist**
+    * **tasklist:** Muestra una lista de todos los procesos y programas que se están ejecutando actualmente en el sistema.
+
+* **ipconfig**
+    * **ipconfig:** Muestra la configuración básica de red del equipo (dirección IP, máscara de subred, puerta de enlace, etc.).
+
+* **systeminfo**
+    * **systeminfo:** Muestra información detallada del hardware y del sistema operativo (versión de Windows, memoria RAM, procesador, tiempo de actividad, etc.).
 
 ## Fase 7 – Instal·lació d'aplicacions
 - **Pas 34:** Descarregar un programa des del navegador (ex: Chrome o VS Code)

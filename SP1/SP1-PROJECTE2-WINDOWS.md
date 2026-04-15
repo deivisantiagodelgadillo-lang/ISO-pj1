@@ -273,9 +273,32 @@ Aquí tienes la traducción al castellano, manteniendo el formato para que sea f
 
 ## Fase 7 – Instal·lació d'aplicacions
 - **Pas 34:** Descarregar un programa des del navegador (ex: Chrome o VS Code)
+
+<img width="737" height="160" alt="2026-04-15_01-12" src="https://github.com/user-attachments/assets/6cbb619d-b585-4261-8e27-6b522dedb29b" />
+
+
 - **Pas 35:** Instal·lar-lo seguint l'assistent
+
+<img width="621" height="233" alt="2026-04-15_01-12_1" src="https://github.com/user-attachments/assets/3cb569eb-3579-43f8-afe9-f6ad6ce3a434" />
+
 - **Pas 36:** Obrir-lo i comprovar que funciona
+
+<img width="694" height="456" alt="2026-04-15_01-12_2" src="https://github.com/user-attachments/assets/82275e5d-3fc8-4418-b12a-deb9ffeb8a3a" />
+
 - **Pas 37:** Instal·lar una aplicació des de Microsoft Store
+
+<img width="511" height="386" alt="2026-04-15_01-14" src="https://github.com/user-attachments/assets/39834a0f-3615-45ae-9b34-f35c14ab29c7" />
+
 - **Pas 38:** Obrir-la i comprovar funcionament
+
+<img width="503" height="403" alt="2026-04-15_01-16" src="https://github.com/user-attachments/assets/38e28e04-8619-46fc-8ae7-754527d8fdaa" />
+
+<img width="797" height="456" alt="2026-04-15_01-16_1" src="https://github.com/user-attachments/assets/407e3c3f-8f38-4429-86a9-bdfefffd163c" />
+
 - **Pas 39:** Desinstal·lar una aplicació: `Configuració → Aplicacions → Desinstal·lar`
+
+<img width="797" height="326" alt="2026-04-15_01-18_1" src="https://github.com/user-attachments/assets/22dd724b-756a-429f-baec-6df71743bc54" />
+
 - **Pas 40:** Verificació: Comprovar que el programa ja no apareix al sistema
+
+<img width="771" height="588" alt="2026-04-15_01-19" src="https://github.com/user-attachments/assets/9a1fa2ed-ca27-491c-9e09-43a2d1430f23" />

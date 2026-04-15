@@ -1,3 +1,4 @@
+# Instal·lació i configuració de Windows
 ## Fase 1 – Instal·lació del sistema operatiu
 - **Pas 1:** Crear màquina virtual amb VirtualBox
 

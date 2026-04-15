@@ -167,15 +167,46 @@ Aquí tienes la traducción al castellano, manteniendo el formato para que sea f
 
 ## Fase 6 – Comandes generals
 - **Pas 27:** Obrir PowerShell
+
+<img width="355" height="219" alt="2026-04-15_00-30" src="https://github.com/user-attachments/assets/dea42be5-bca6-49b0-82cb-8f172037fee9" />
+
 - **Pas 28:** Diferenciar cmd i PowerShell:
-  - `cmd`: comandes bàsiques i clàssiques
-  - `PowerShell`: més potent, permet treballar amb objectes i automatitzar tasques
+### Detalles del arranque
+
+* **BCD (Boot Configuration Data):** Es el archivo de donde el **Boot Manager** lee la configuración de arranque.
+* **Kernel:** El **Boot Loader** (`winload.efi`) es quien toma el núcleo de Windows (`ntoskrnl.exe`) y los controladores básicos y los carga en la memoria RAM.
+
+---
+
+### Diferencias clave: cmd vs. PowerShell
+
+| Característica | cmd (Símbolo del sistema) | Windows PowerShell |
+| :--- | :--- | :--- |
+| **Datos** | Trabaja con texto plano. | Trabaja con **objetos** (.NET). |
+| **Comandos** | Básicos y heredados de DOS (`dir`, `ping`). | Utiliza **Cmdlets** con formato `Verbo-Nombre` (`Get-Process`). |
+| **Uso principal** | Comprobaciones rápidas de red o sistema. | Automatización de tareas y scripts para administradores. |
+
 - **Pas 29:** Comandes bàsiques (provar-les):
   - `dir`: veure fitxers
+ 
+<img width="634" height="452" alt="2026-04-15_00-34" src="https://github.com/user-attachments/assets/e424c182-738f-4a92-bbf9-66e8c6886b72" />
+
   - `cd`: moure's per carpetes
+
+<img width="450" height="99" alt="2026-04-15_00-38" src="https://github.com/user-attachments/assets/f10b3800-8d33-4cfc-971f-99d4d97c7172" />
+
   - `mkdir prova`: crear carpeta
+
+<img width="327" height="56" alt="2026-04-15_00-39" src="https://github.com/user-attachments/assets/f169cf6b-2fa8-4a30-bd2c-dbebe8de9204" />
+
   - `echo hola > fitxer.txt`: crear fitxer
+
+<img width="412" height="59" alt="2026-04-15_00-40" src="https://github.com/user-attachments/assets/2d3da937-5e61-4e2b-9fa2-fa47e5be614b" />
+
   - `del fitxer.txt`: eliminar fitxer
+
+<img width="363" height="59" alt="2026-04-15_00-41" src="https://github.com/user-attachments/assets/57395635-4b83-4af2-b070-e486f4c70b09" />
+
 - **Pas 30:** Comandes útils del sistema:
   - `tasklist`: veure processos actius
   - `taskkill /IM notepad.exe /F`: tancar un procés

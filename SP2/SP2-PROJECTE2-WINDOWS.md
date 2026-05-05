@@ -216,7 +216,6 @@ El archivo `processos_inici.txt` generado por `tasklist` contiene la lista compl
 3. El sistema NO se cuelga: el kernel y los servicios siguen funcionando.
 4. Para recuperarlo: `Ctrl + Alt + Supr → Administrador de tareas → Archivo → Ejecutar nueva tarea → explorer.exe`
 
-> ⚠️ **Prueba controlada:** En un entorno de laboratorio, eliminar `explorer.exe` es reversible. En un entorno de producción habría que ir con mucho cuidado, ya que el usuario se quedaría sin interfaz gráfica.
 
 #### ¿Cómo mejora el rendimiento en VMs?
 

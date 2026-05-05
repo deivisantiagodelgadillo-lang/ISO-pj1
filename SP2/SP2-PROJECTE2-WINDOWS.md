@@ -323,7 +323,6 @@ Volvemos a iniciar sesión como **administrador** y ejecutamos el comando `icacl
 
 La salida confirma: *"Se procesaron correctamente 1 archivos"*. Ahora `alumne2` tiene **solo lectura**, a pesar de ser miembro del grupo Limitats que tiene Control total (la entrada explícita del usuario tiene **prioridad** sobre la del grupo).
 
-<img width="2488" height="416" alt="51" src="https://github.com/user-attachments/assets/6b494b6d-adf3-4259-bb4e-a83ad360755f" />
 
 ---
 

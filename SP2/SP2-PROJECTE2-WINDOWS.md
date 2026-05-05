@@ -1,6 +1,6 @@
-**Sprint 2 - Windows: Discs, Quotes, Scripts, Processos i ACLs**
+# **Sprint 2 - Windows: Discs, Quotes, Scripts, Processos i ACLs**
 
-**Fase 1 – Preparació del sistema**
+## **Fase 1 – Preparació del sistema**
 
 **Pas 1. Afegir un nou disc virtual a la màquina virtual**
 
@@ -54,7 +54,7 @@ El disco sobre el que estamos trabajando, con la partición Datos (3MB, formato 
 
 <img width="526" height="495" alt="2026-05-05_10-28" src="https://github.com/user-attachments/assets/8663fa90-ae3e-4561-83b2-52153dd11d76" />
 
-**Fase 2 – Quotes i usuaris**
+## **Fase 2 – Quotes i usuaris**
 
 **Pas 5 – Activar quotes de disc a la partició Dades (NTFS)**
 
@@ -113,7 +113,7 @@ Finalmente, accederemos al usuario alumno1, e intentaremos crear archivos mayore
 
 <img width="474" height="318" alt="2026-05-05_10-48" src="https://github.com/user-attachments/assets/bc359f31-97b3-43e4-85f9-51276c590705" />
 
-**Fase 3 – Script de còpia i automatització**
+## **Fase 3 – Script de còpia i automatització**
 
 **Pas 10 – Afegir tercer disc virtual, formatar-lo en NTFS com a Backups**
 
@@ -155,7 +155,7 @@ Añadimos la ruta del script a la pestaña Iniciar Sesión.
 
 <img width="550" height="284" alt="2026-05-05_12-01" src="https://github.com/user-attachments/assets/a68c211d-e338-4041-b896-4c25728db976" />
 
-**Fase 4 – Verificació i documentació**
+## **Fase 4 – Verificació i documentació**
 
 **Pas 15 – Comprovació: l'script fa la còpia a Backups**
 
@@ -163,7 +163,7 @@ Iniciamos sesión con alumno1 para que se ejecute el script, y comprobamos que l
 
 <img width="703" height="363" alt="2026-05-05_12-05" src="https://github.com/user-attachments/assets/482fcb67-0b91-457b-b080-9f660f7d0a77" />
 
-**Fase 5 – Gestió de processos i serveis**
+## **Fase 5 – Gestió de processos i serveis**
 
 **Pas 19 – Llistar processos actius**
 
@@ -201,148 +201,119 @@ Para verificar que funciona, iniciamos sesión como alumno2 y comprobamos que On
 
 La consola no devuelve ningún resultado, lo que confirma que OneDrive.exe no se está ejecutando para alumno2 gracias al script de inicio de sesión.
 
-### Pas 23 – Documentació: tasklist, anàlisi de processos crítics i rendiment
+### Paso 23 – Documentación: tasklist, análisis de procesos críticos y rendimiento
 
-#### Fitxer de processos i anàlisi
+#### Archivo de procesos y análisis
 
-El fitxer `processos_inici.txt` generat per `tasklist` conté la llista completa de processos en el moment d'inici de sessió. S'ha adjuntat a la documentació com a evidència.
+El archivo `processos_inici.txt` generado por `tasklist` contiene la lista completa de procesos en el momento de inicio de sesión. Se ha adjuntado a la documentación como evidencia.
 
-#### Què passa si mates un procés crític com explorer.exe?
+#### ¿Qué pasa si matas un proceso crítico como explorer.exe?
 
-`explorer.exe` és el gestor de l'escriptori i de l'Explorador de fitxers de Windows. Si l'eliminem:
+`explorer.exe` es el gestor del escritorio y del Explorador de archivos de Windows. Si lo eliminamos:
 
-1. L'escriptori desapareix completament (barra de tasques, icones, fons).
-2. No podem obrir cap finestra ni accedir a cap fitxer via GUI.
-3. El sistema NO es penja: el kernel i els serveis segueixen funcionant.
-4. Per recuperar-lo: `Ctrl + Alt + Supr → Administrador de tasques → Arxiu → Executar nova tasca → explorer.exe`
+1. El escritorio desaparece por completo (barra de tareas, iconos, fondo).
+2. No podemos abrir ninguna ventana ni acceder a ningún archivo vía GUI.
+3. El sistema NO se cuelga: el kernel y los servicios siguen funcionando.
+4. Para recuperarlo: `Ctrl + Alt + Supr → Administrador de tareas → Archivo → Ejecutar nueva tarea → explorer.exe`
 
-> ⚠️ **Prova controlada:** En un entorn de laboratori, eliminar `explorer.exe` és reversible. En un entorn de producció caldria anar amb molta cura, ja que l'usuari quedaria sense interfície gràfica.
+> ⚠️ **Prueba controlada:** En un entorno de laboratorio, eliminar `explorer.exe` es reversible. En un entorno de producción habría que ir con mucho cuidado, ya que el usuario se quedaría sin interfaz gráfica.
 
-#### Com millora el rendiment en VMs?
+#### ¿Cómo mejora el rendimiento en VMs?
 
-| Acció | Recursos alliberats |
+| Acción | Recursos liberados |
 |-------|---------------------|
-| Matar OneDrive.exe | ~135 MB RAM, CPU esporàdica |
-| Matar Teams.exe | ~150-400 MB RAM, CPU i xarxa |
-| Deshabilitar SearchIndexer | ~40 MB RAM, I/O disc reduït |
-| Total estimat | +300-600 MB RAM disponible |
+| Matar OneDrive.exe | ~135 MB RAM, CPU esporádica |
+| Matar Teams.exe | ~150-400 MB RAM, CPU y red |
+| Deshabilitar SearchIndexer | ~40 MB RAM, I/O disco reducido |
+| Total estimado | +300-600 MB RAM disponible |
 
-En màquines virtuals amb 4 GB de RAM, alliberar 300+ MB pot significar la diferència entre un sistema fluid i un de lent.
+En máquinas virtuales con 4 GB de RAM, liberar 300+ MB puede significar la diferencia entre un sistema fluido y uno lento.
 
 ---
 
-## Fase 6 – Gestió de permisos (ACLs)
+## Fase 6 – Gestión de permisos (ACLs)
 
-### Què són les ACLs i com funcionen a Windows
+### Qué son las ACLs y cómo funcionan en Windows
 
-A Windows, cada fitxer i carpeta té una **llista de control d'accés (ACL, Access Control List)**. Aquesta llista defineix qui pot fer què amb aquell recurs.
+En Windows, cada archivo y carpeta tiene una **lista de control de acceso (ACL, Access Control List)**. Esta lista define quién puede hacer qué con ese recurso.
 
-Cada entrada d'una ACL es diu **ACE (Access Control Entry)** i indica:
-- Quina **identitat** (usuari o grup) està afectada
-- Quins **permisos** té (lectura, escriptura, execució, control total, etc.)
-- Si el permís és **Permetre** o **Denegar**
+Cada entrada de una ACL se llama **ACE (Access Control Entry)** e indica:
+- Qué **identidad** (usuario o grupo) está afectada
+- Qué **permisos** tiene (lectura, escritura, ejecución, control total, etc.)
+- Si el permiso es **Permitir** o **Denegar**
 
-**Permisos disponibles a Windows:**
+**Permisos disponibles en Windows:**
 
-| Permís | Descripció |
+| Permiso | Descripción |
 |--------|------------|
-| Control total (F) | Accés complet: llegir, escriure, modificar, eliminar i canviar permisos |
-| Modificar (M) | Llegir, escriure i eliminar fitxers, però no canviar permisos |
-| Lectura i execució (RX) | Obrir fitxers i executar programes |
-| Mostrar contingut | Llistar el contingut d'una carpeta |
-| Lectura (R) | Obrir fitxers en mode només lectura |
-| Escriptura (W) | Crear fitxers i subcarpetes |
+| Control total (F) | Acceso completo: leer, escribir, modificar, eliminar y cambiar permisos |
+| Modificar (M) | Leer, escribir y eliminar archivos, pero no cambiar permisos |
+| Lectura y ejecución (RX) | Abrir archivos y ejecutar programas |
+| Mostrar contenido | Listar el contenido de una carpeta |
+| Lectura (R) | Abrir archivos en modo solo lectura |
+| Escritura (W) | Crear archivos y subcarpetas |
 
-**Herència:** Els permisos d'una carpeta pare es propaguen automàticament a les subcarpetes i fitxers. Quan es desactiva la herència, cal decidir si es conserven o descarten les entrades heretades.
+**Herencia:** Los permisos de una carpeta padre se propagan automáticamente a las subcarpetas y archivos. Cuando se desactiva la herencia, hay que decidir si se conservan o se descartan las entradas heredadas.
 
 ---
 
-### Pas 24 – Crear la carpeta Projectes
+### Paso 24 – Crear la carpeta Projectes
 
-Iniciem sessió com a **administrador** i creem la carpeta `Projectes` dins de la partició Dades (E:). La carpeta s'ha creat correctament a `E:\Projectes`.
+Iniciamos sesión como **administrador** y creamos la carpeta `Projectes` dentro de la partición Dades (E:). La carpeta se ha creado correctamente en `E:\Projectes`.
 
 <img width="590" height="83" alt="41" src="https://github.com/user-attachments/assets/a91f7c94-4cac-40f8-b026-21b6a6025a56" />
 
 
 ---
 
-### Pas 25 – Assignar permisos normals al grup Limitats
+### Paso 25 – Asignar permisos normales al grupo Limitats
 
-Fem clic dret sobre `E:\Projectes → Propietats → Seguretat`. Veiem els permisos actuals (heretats de `E:\`): Usuaris autenticats, SYSTEM, Administradors i Usuaris.
+Hacemos clic derecho sobre `E:\Projectes → Propiedades → Seguridad`. Vemos los permisos actuales (heredados de `E:\`): Usuarios autenticados, SYSTEM, Administradores y Usuarios.
 
-Fem clic a **Opciones avanzadas** per accedir a la configuració avançada de permisos.
+Hacemos clic en **Opciones avanzadas** para acceder a la configuración avanzada de permisos.
 
 <img width="356" height="473" alt="42" src="https://github.com/user-attachments/assets/9eb1233f-199f-44b1-bb32-f09f3450a4c7" />
 
 
-A la finestra d'opcions avançades veiem que els permisos estan **heretats** des de `E:\` (columna "Heredada de"). Fem clic a **Deshabilitar herencia** per trencar la herència i poder gestionar els permisos de forma independent.
+En la ventana de opciones avanzadas vemos que los permisos están **heredados** desde `E:\` (columna "Heredada de"). Hacemos clic en **Deshabilitar herencia** para romper la herencia y poder gestionar los permisos de forma independiente.
 
 <img width="360" height="479" alt="43" src="https://github.com/user-attachments/assets/1c112d86-72e5-4185-8a0f-b513927e5cbc" />
 
 
-Eliminem l'entrada de **Usuarios (DESKTOP-6104CQ0\Usuarios)** per netejar els permisos per defecte que no necessitem. Seleccionem l'entrada i fem clic a **Quitar**.
+Eliminamos la entrada de **Usuarios (DESKTOP-6104CQ0\Usuarios)** para limpiar los permisos por defecto que no necesitamos. Seleccionamos la entrada y hacemos clic en **Quitar**.
 
 <img width="729" height="420" alt="44" src="https://github.com/user-attachments/assets/8cd1bd74-100c-487d-b0a4-fe877d4c7a52" />
 
 
-Ara afegim el grup **Limitats** amb **Control total**. Fem clic a **Agregar**, introduïm `Limitats`, i marquem tots els permisos bàsics (Control total, Modificar, Lectura i execució, Mostrar el contingut de la carpeta, Lectura, Escriptura).
+Ahora añadimos el grupo **Limitats** con **Control total**. Hacemos clic en **Agregar**, introducimos `Limitats`, y marcamos todos los permisos básicos (Control total, Modificar, Lectura y ejecución, Mostrar el contenido de la carpeta, Lectura, Escritura).
 
-El tipus és **Permitir** i s'aplica a **Esta carpeta, subcarpetes y archivos** per garantir herència cap avall.
+El tipo es **Permitir** y se aplica a **Esta carpeta, subcarpetas y archivos** para garantizar la herencia hacia abajo.
 
 <img width="633" height="416" alt="46" src="https://github.com/user-attachments/assets/1245b96c-be6b-43ca-baaf-345d566e61ca" />
 
 
-La captura de la configuració avançada final mostra el resultat: la columna **"Heredada de"** ara diu **"Ninguno"** per a totes les entrades, confirmant que la herència s'ha desactivat. El grup **Limitats (aaron\Limitats)** apareix amb **Control total**.
+La captura de la configuración avanzada final muestra el resultado: la columna **"Heredada de"** ahora dice **"Ninguno"** para todas las entradas, confirmando que la herencia se ha desactivado. El grupo **Limitats (aaron\Limitats)** aparece con **Control total**.
 
 <img width="734" height="359" alt="47" src="https://github.com/user-attachments/assets/83b601df-64aa-475a-a589-33906d4e779c" />
 
 
 ---
 
-### Pas 26 – Comprovar accés amb alumne1
+### Paso 26 – Comprobar acceso con alumne1
 
-Iniciem sessió com a **alumne1** (membre del grup Limitats). Creem un fitxer de text `hey.txt` a `E:\Projectes` amb el contingut "hola".
+Iniciamos sesión como **alumne1** (miembro del grupo Limitats). Creamos un archivo de texto `hey.txt` en `E:\Projectes` con el contenido "hola".
 
-La captura confirma que alumne1 ha pogut crear i escriure el fitxer sense cap problema, tal com s'esperava (té **Control total** hereta del grup Limitats).
+La captura confirma que alumne1 ha podido crear y escribir el archivo sin ningún problema, tal como se esperaba (tiene **Control total** heredado del grupo Limitats).
 
 <img width="624" height="154" alt="48" src="https://github.com/user-attachments/assets/e667bf1c-cd67-43dd-b530-58b467174697" />
 
-El fitxer `hey.txt` s'ha creat correctament a `E:\Projectes` i conté el text "hola".
+El archivo `hey.txt` se ha creado correctamente en `E:\Projectes` y contiene el texto "hola".
 
 <img width="246" height="109" alt="49" src="https://github.com/user-attachments/assets/9c7c329d-bfad-4df1-ba56-a4f2d126268d" />
 
 
 ---
 
-### Pas 27 – Aplicar excepció per alumne2 (només lectura)
+### Paso 27 – Aplicar excepción para alumne2 (solo lectura)
 
-Tornem a iniciar sessió com a **administrador** i executem la comanda `icacls` per aplicar una excepció específica per a `alumne2`:
-
-```
-icacls "E:\Projectes" /grant:r alumne2:(R)
-```
-
-**Explicació:**
-- `/grant:r` → Substitueix (reset) qualsevol permís existent per a aquell usuari.
-- `alumne2:(R)` → Assigna **només lectura (R)** a l'usuari alumne2.
-
-La sortida confirma: *"Se procesaron correctamente 1 archivos"*. Ara `alumne2` té **només lectura**, tot i ser membre del grup Limitats que té Control total (la entrada explícita de l'usuari té **prioritat** sobre la del grup).
-
-<img width="2488" height="416" alt="51" src="https://github.com/user-attachments/assets/6b494b6d-adf3-4259-bb4e-a83ad360755f" />
-
----
-
-### Pas 28 – Comprovar l'excepció amb alumne2
-
-Iniciem sessió com a **alumne2** i accedim a `E:\Projectes`. La captura mostra que la carpeta apareix **buida** per a alumne2 (no veu el fitxer creat per alumne1, o la carpeta s'ha estat modificada entre captures).
-
-Quan alumne2 intenta crear un fitxer nou o modificar algun existent, rep un missatge de **denegació d'accés**.
-
-<img width="665" height="178" alt="50" src="https://github.com/user-attachments/assets/9f7f04cc-fc57-4b57-a7df-445f858fd88e" />
-
-
-Tornem a iniciar sessió com a alumne1 i comprovem que pot llegir i veure el fitxer `hola.txt` creat a la sessió anterior.
-
-<img width="694" height="150" alt="52" src="https://github.com/user-attachments/assets/1ee87629-4e31-420e-a9ee-d045ccfb6a97" />
-
-
+Volvemos a iniciar sesión como **administrador** y ejecutamos el comando `icacls` para aplicar una excepción específica para `alumne2`:

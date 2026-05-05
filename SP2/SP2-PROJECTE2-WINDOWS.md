@@ -316,3 +316,151 @@ El archivo `hey.txt` se ha creado correctamente en `E:\Projectes` y contiene el 
 ### Paso 27 – Aplicar excepción para alumne2 (solo lectura)
 
 Volvemos a iniciar sesión como **administrador** y ejecutamos el comando `icacls` para aplicar una excepción específica para `alumne2`:
+
+Aquí tienes el código de tu documento exactamente igual, listo para que lo copies y lo pegues directamente en tu archivo de GitHub:
+
+```markdown
+### Paso 23 – Documentación: tasklist, análisis de procesos críticos y rendimiento
+
+#### Archivo de procesos y análisis
+
+El archivo `processos_inici.txt` generado por `tasklist` contiene la lista completa de procesos en el momento de inicio de sesión. Se ha adjuntado a la documentación como evidencia.
+
+#### ¿Qué pasa si matas un proceso crítico como explorer.exe?
+
+`explorer.exe` es el gestor del escritorio y del Explorador de archivos de Windows. Si lo eliminamos:
+
+1. El escritorio desaparece por completo (barra de tareas, iconos, fondo).
+2. No podemos abrir ninguna ventana ni acceder a ningún archivo vía GUI.
+3. El sistema NO se cuelga: el kernel y los servicios siguen funcionando.
+4. Para recuperarlo: `Ctrl + Alt + Supr → Administrador de tareas → Archivo → Ejecutar nueva tarea → explorer.exe`
+
+> ⚠️ **Prueba controlada:** En un entorno de laboratorio, eliminar `explorer.exe` es reversible. En un entorno de producción habría que ir con mucho cuidado, ya que el usuario se quedaría sin interfaz gráfica.
+
+#### ¿Cómo mejora el rendimiento en VMs?
+
+| Acción | Recursos liberados |
+|-------|---------------------|
+| Matar OneDrive.exe | ~135 MB RAM, CPU esporádica |
+| Matar Teams.exe | ~150-400 MB RAM, CPU y red |
+| Deshabilitar SearchIndexer | ~40 MB RAM, I/O disco reducido |
+| Total estimado | +300-600 MB RAM disponible |
+
+En máquinas virtuales con 4 GB de RAM, liberar 300+ MB puede significar la diferencia entre un sistema fluido y uno lento.
+
+---
+
+## Fase 6 – Gestión de permisos (ACLs)
+
+### Qué son las ACLs y cómo funcionan en Windows
+
+En Windows, cada archivo y carpeta tiene una **lista de control de acceso (ACL, Access Control List)**. Esta lista define quién puede hacer qué con ese recurso.
+
+Cada entrada de una ACL se llama **ACE (Access Control Entry)** e indica:
+- Qué **identidad** (usuario o grupo) está afectada
+- Qué **permisos** tiene (lectura, escritura, ejecución, control total, etc.)
+- Si el permiso es **Permitir** o **Denegar**
+
+**Permisos disponibles en Windows:**
+
+| Permiso | Descripción |
+|--------|------------|
+| Control total (F) | Acceso completo: leer, escribir, modificar, eliminar y cambiar permisos |
+| Modificar (M) | Leer, escribir y eliminar archivos, pero no cambiar permisos |
+| Lectura y ejecución (RX) | Abrir archivos y ejecutar programas |
+| Mostrar contenido | Listar el contenido de una carpeta |
+| Lectura (R) | Abrir archivos en modo solo lectura |
+| Escritura (W) | Crear archivos y subcarpetas |
+
+**Herencia:** Los permisos de una carpeta padre se propagan automáticamente a las subcarpetas y archivos. Cuando se desactiva la herencia, hay que decidir si se conservan o se descartan las entradas heredadas.
+
+---
+
+### Paso 24 – Crear la carpeta Projectes
+
+Iniciamos sesión como **administrador** y creamos la carpeta `Projectes` dentro de la partición Dades (E:). La carpeta se ha creado correctamente en `E:\Projectes`.
+
+<img width="590" height="83" alt="41" src="https://github.com/user-attachments/assets/a91f7c94-4cac-40f8-b026-21b6a6025a56" />
+
+
+---
+
+### Paso 25 – Asignar permisos normales al grupo Limitats
+
+Hacemos clic derecho sobre `E:\Projectes → Propiedades → Seguridad`. Vemos los permisos actuales (heredados de `E:\`): Usuarios autenticados, SYSTEM, Administradores y Usuarios.
+
+Hacemos clic en **Opciones avanzadas** para acceder a la configuración avanzada de permisos.
+
+<img width="356" height="473" alt="42" src="https://github.com/user-attachments/assets/9eb1233f-199f-44b1-bb32-f09f3450a4c7" />
+
+
+En la ventana de opciones avanzadas vemos que los permisos están **heredados** desde `E:\` (columna "Heredada de"). Hacemos clic en **Deshabilitar herencia** para romper la herencia y poder gestionar los permisos de forma independiente.
+
+<img width="360" height="479" alt="43" src="https://github.com/user-attachments/assets/1c112d86-72e5-4185-8a0f-b513927e5cbc" />
+
+
+Eliminamos la entrada de **Usuarios (DESKTOP-6104CQ0\Usuarios)** para limpiar los permisos por defecto que no necesitamos. Seleccionamos la entrada y hacemos clic en **Quitar**.
+
+<img width="729" height="420" alt="44" src="https://github.com/user-attachments/assets/8cd1bd74-100c-487d-b0a4-fe877d4c7a52" />
+
+
+Ahora añadimos el grupo **Limitats** con **Control total**. Hacemos clic en **Agregar**, introducimos `Limitats`, y marcamos todos los permisos básicos (Control total, Modificar, Lectura y ejecución, Mostrar el contenido de la carpeta, Lectura, Escritura).
+
+El tipo es **Permitir** y se aplica a **Esta carpeta, subcarpetas y archivos** para garantizar la herencia hacia abajo.
+
+<img width="633" height="416" alt="46" src="https://github.com/user-attachments/assets/1245b96c-be6b-43ca-baaf-345d566e61ca" />
+
+
+La captura de la configuración avanzada final muestra el resultado: la columna **"Heredada de"** ahora dice **"Ninguno"** para todas las entradas, confirmando que la herencia se ha desactivado. El grupo **Limitats (aaron\Limitats)** aparece con **Control total**.
+
+<img width="734" height="359" alt="47" src="https://github.com/user-attachments/assets/83b601df-64aa-475a-a589-33906d4e779c" />
+
+
+---
+
+### Paso 26 – Comprobar acceso con alumne1
+
+Iniciamos sesión como **alumne1** (miembro del grupo Limitats). Creamos un archivo de texto `hey.txt` en `E:\Projectes` con el contenido "hola".
+
+La captura confirma que alumne1 ha podido crear y escribir el archivo sin ningún problema, tal como se esperaba (tiene **Control total** heredado del grupo Limitats).
+
+<img width="624" height="154" alt="48" src="https://github.com/user-attachments/assets/e667bf1c-cd67-43dd-b530-58b467174697" />
+
+El archivo `hey.txt` se ha creado correctamente en `E:\Projectes` y contiene el texto "hola".
+
+<img width="246" height="109" alt="49" src="https://github.com/user-attachments/assets/9c7c329d-bfad-4df1-ba56-a4f2d126268d" />
+
+
+---
+
+### Paso 27 – Aplicar excepción para alumne2 (solo lectura)
+
+Volvemos a iniciar sesión como **administrador** y ejecutamos el comando `icacls` para aplicar una excepción específica para `alumne2`:
+
+```
+icacls "E:\Projectes" /grant:r alumne2:(R)
+```
+
+**Explicación:**
+- `/grant:r` → Sustituye (restablece) cualquier permiso existente para ese usuario.
+- `alumne2:(R)` → Asigna **solo lectura (R)** al usuario alumne2.
+
+La salida confirma: *"Se procesaron correctamente 1 archivos"*. Ahora `alumne2` tiene **solo lectura**, a pesar de ser miembro del grupo Limitats que tiene Control total (la entrada explícita del usuario tiene **prioridad** sobre la del grupo).
+
+<img width="2488" height="416" alt="51" src="https://github.com/user-attachments/assets/6b494b6d-adf3-4259-bb4e-a83ad360755f" />
+
+---
+
+### Paso 28 – Comprobar la excepción con alumne2
+
+Iniciamos sesión como **alumne2** y accedemos a `E:\Projectes`. La captura muestra que la carpeta aparece **vacía** para alumne2 (no ve el archivo creado por alumne1, o la carpeta ha sido modificada entre capturas).
+
+Cuando alumne2 intenta crear un archivo nuevo o modificar alguno existente, recibe un mensaje de **denegación de acceso**.
+
+<img width="665" height="178" alt="50" src="https://github.com/user-attachments/assets/9f7f04cc-fc57-4b57-a7df-445f858fd88e" />
+
+
+Volvemos a iniciar sesión como alumne1 y comprobamos que puede leer y ver el archivo `hola.txt` creado en la sesión anterior.
+
+<img width="694" height="150" alt="52" src="https://github.com/user-attachments/assets/1ee87629-4e31-420e-a9ee-d045ccfb6a97" />
+```

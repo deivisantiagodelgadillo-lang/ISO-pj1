@@ -142,3 +142,23 @@ Explicación del script. @echo off: Silencia la salida de los pedidos en la cons
 <img width="383" height="72" alt="2026-05-05_10-53_1" src="https://github.com/user-attachments/assets/0c5af36c-4c0e-4fae-9cf1-02cdcda697aa" />
 
 **Pas 13 – Obrir gpedit.msc - Configuració d'usuari - Scripts - Inici de sessió**
+
+Ahora, haremos que el sistema ejecute el script automáticamente cuando se inicia sesión.
+
+<img width="351" height="179" alt="2026-05-05_11-59" src="https://github.com/user-attachments/assets/e5192ba8-da1c-4da6-ab4a-169f587ab395" />
+
+<img width="512" height="278" alt="2026-05-05_12-00" src="https://github.com/user-attachments/assets/010b7630-4ad7-4452-ae9e-fcad99a9901d" />
+
+**Pas 14 – Assignar l'script perquè s'executi automàticament en iniciar sessió**
+
+Añadimos la ruta del script a la pestaña Iniciar Sesión.
+
+<img width="550" height="284" alt="2026-05-05_12-01" src="https://github.com/user-attachments/assets/a68c211d-e338-4041-b896-4c25728db976" />
+
+**Fase 4 – Verificació i documentació**
+
+**Pas 15 – Comprovació: l'script fa la còpia a Backups**
+
+Iniciamos sesión con alumno1 para que se ejecute el script, y comprobamos que las carpetas se han copiado correctamente en Backups.
+
+<img width="703" height="363" alt="2026-05-05_12-05" src="https://github.com/user-attachments/assets/482fcb67-0b91-457b-b080-9f660f7d0a77" />

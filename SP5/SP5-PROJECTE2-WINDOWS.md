@@ -1,3 +1,398 @@
+# Sprint 5: Monitoratge, Auditories i Programari Client/Servidor
+# Autorización y auditorías en Windows Server
+
+## Introducción
+
+En esta práctica se trabaja la configuración de auditorías y autorizaciones en Windows Server. El objetivo es comprender cómo controlar los accesos al sistema, registrar la actividad de los usuarios y analizar los eventos generados mediante el Visor de eventos.
+
+Las auditorías permiten registrar acciones importantes como:
+
+* Inicios de sesión correctos o fallidos
+* Acceso a carpetas y archivos
+* Creación y eliminación de usuarios
+* Ejecución de procesos
+
+Este sistema es fundamental para mejorar la seguridad y el control de un servidor Windows.
+
+---
+
+# Autorización en Windows
+
+La autorización sirve para controlar qué acciones pueden realizar los usuarios dentro del sistema.
+
+Mediante permisos es posible decidir:
+
+* Quién puede leer archivos
+* Quién puede modificar carpetas
+* Quién puede eliminar archivos
+* Quién solo tiene acceso de lectura
+
+Estos permisos se configuran desde:
+
+```text
+Propiedades → Seguridad
+```
+
+También se pueden aplicar directivas de seguridad locales para controlar el comportamiento de los usuarios y del sistema.
+
+---
+
+# ¿Qué son las auditorías?
+
+Las auditorías registran actividades importantes del sistema para poder supervisar y detectar posibles accesos no autorizados.
+
+Ejemplos:
+
+* Quién inicia sesión
+* Quién accede a una carpeta
+* Quién modifica un archivo
+* Quién crea o elimina usuarios
+
+Los resultados pueden consultarse desde:
+
+```text
+eventvwr.msc
+```
+
+Algunos Event ID importantes:
+
+| Event ID | Descripción               |
+| -------- | ------------------------- |
+| 4624     | Inicio de sesión correcto |
+| 4625     | Inicio de sesión fallido  |
+| 4663     | Acceso a objetos          |
+| 4688     | Proceso iniciado          |
+| 4689     | Proceso finalizado        |
+| 4720     | Usuario creado            |
+| 4722     | Usuario activado          |
+| 4725     | Usuario desactivado       |
+| 4726     | Usuario eliminado         |
+
+---
+
+# Parte práctica
+
+# 1. Activar las políticas de auditoría
+
+Primero abrimos las directivas de seguridad locales.
+
+```text
+Win + R → secpol.msc
+```
+
+Accedemos a:
+
+```text
+Directivas locales → Directiva de auditoría
+```
+
+Activamos las opciones:
+
+* Auditar eventos de inicio de sesión
+* Auditar el acceso a objetos
+
+Configuraremos tanto:
+
+* Correcto
+* Erróneo
+
+## Captura 1
+
+<img width="785" height="386" alt="image" src="https://github.com/user-attachments/assets/8fa8406f-72cc-4236-9ebe-924eb2c17edd" />
+
+---
+
+# 2. Verificar inicio de sesión correcto
+
+Iniciamos sesión con cualquier usuario del sistema.
+
+Después abrimos:
+
+```text
+Win + R → eventvwr.msc
+```
+
+Ruta:
+
+```text
+Registros de Windows → Seguridad
+```
+
+Buscamos el Event ID:
+
+```text
+4624
+```
+
+Este evento indica que el inicio de sesión se ha realizado correctamente.
+
+## Captura 2
+
+<img width="959" height="933" alt="image" src="https://github.com/user-attachments/assets/594e53d6-784a-4eec-ae96-cc09867bb3b9" />
+
+---
+
+# 3. Crear carpeta para auditar accesos
+
+Creamos una carpeta nueva.
+
+Ejemplo:
+
+```text
+C:\Auditoria
+```
+
+Botón derecho sobre la carpeta:
+
+```text
+Propiedades → Seguridad → Opciones avanzadas → Auditoría
+```
+
+Añadimos el usuario:
+
+```text
+Administrador
+```
+
+Permisos:
+
+```text
+Lectura
+```
+
+## Captura 3
+
+<img width="763" height="511" alt="image" src="https://github.com/user-attachments/assets/0d22a3d1-cad4-4ee8-84c9-8a4acd187418" />
+
+---
+
+# 4. Añadir administrador con control total
+
+Añadimos también:
+
+```text
+Administrador
+```
+
+Permisos:
+
+```text
+Control total
+```
+
+Esto permitirá realizar diferentes pruebas dentro de la carpeta.
+
+## Captura 4
+
+<img width="763" height="511" alt="image" src="https://github.com/user-attachments/assets/5f06e8d8-f0df-43c0-b61c-af911102f41c" />
+
+---
+
+# 5. Generar Event ID 4663
+
+Realizamos acciones dentro de la carpeta:
+
+* Crear archivos
+* Abrir archivos
+* Modificar archivos
+* Eliminar archivos
+
+Después revisamos:
+
+```text
+eventvwr.msc
+```
+
+Buscamos:
+
+```text
+Event ID 4663
+```
+
+Este evento indica acceso a objetos.
+
+## Captura 5
+
+<img width="961" height="899" alt="image" src="https://github.com/user-attachments/assets/a8fc35e1-cf4d-4283-8744-a5dd5e0f238d" />
+
+---
+
+# 6. Auditar seguimiento de procesos
+
+Volvemos a:
+
+```text
+secpol.msc
+```
+
+Activamos:
+
+```text
+Auditar el seguimiento de procesos
+```
+
+Opciones:
+
+* Correcto
+* Erróneo
+
+## Captura 6
+
+<img width="789" height="414" alt="image" src="https://github.com/user-attachments/assets/a144f2e2-d9ba-44b3-825f-e24ec867e99f" />
+
+---
+
+# 7. Generar Event ID 4688
+
+Abrimos un programa.
+
+Ejemplo:
+
+```text
+Microsoft Edge
+```
+
+Después revisamos el Visor de eventos y buscamos:
+
+```text
+4688
+```
+
+Este evento indica que se ha iniciado un proceso.
+
+## Captura 7
+
+<img width="956" height="894" alt="image" src="https://github.com/user-attachments/assets/6f6c7939-b4b1-464e-a1e8-95738c6d6141" />
+
+---
+
+# 8. Generar Event ID 4689
+
+Cerramos Edge desde:
+
+```text
+Administrador de tareas
+```
+
+Buscamos ahora:
+
+```text
+4689
+```
+
+Este evento indica la finalización de un proceso.
+
+## Captura 8
+
+<img width="957" height="891" alt="image" src="https://github.com/user-attachments/assets/bb1b062a-7b74-47b6-919b-8b7caa397b4a" />
+
+---
+
+# 9. Auditar administración de cuentas
+
+Volvemos a:
+
+```text
+secpol.msc
+```
+
+Activamos:
+
+```text
+Auditar la administración de cuentas
+```
+
+Opciones:
+
+* Correcto
+* Erróneo
+
+## Captura 9
+
+<img width="790" height="445" alt="image" src="https://github.com/user-attachments/assets/6bda16e2-3a4a-4429-95a4-0116105d3615" />
+
+---
+
+# 10. Crear un usuario nuevo
+
+Creamos un usuario nuevo desde:
+
+```text
+Administración de equipos → Usuarios y grupos locales
+```
+
+Ejemplo:
+
+```text
+UsuarioPrueba
+```
+
+Después revisamos el Visor de eventos.
+
+Eventos esperados:
+
+| Event ID | Significado      |
+| -------- | ---------------- |
+| 4720     | Usuario creado   |
+| 4722     | Usuario activado |
+
+## Captura 10
+
+<img width="955" height="904" alt="image" src="https://github.com/user-attachments/assets/6ea76802-0138-4367-a0d6-2e193ef38f94" />
+
+## Captura 11
+
+<img width="960" height="912" alt="image" src="https://github.com/user-attachments/assets/0fd74973-c651-4efd-a1e8-c4e6a1f9a034" />
+
+---
+
+# 11. Desactivar el usuario
+
+Desactivamos el usuario creado.
+
+Buscamos:
+
+```text
+4725
+```
+
+Este evento indica que la cuenta ha sido desactivada.
+
+## Captura 12
+
+<img width="957" height="880" alt="image" src="https://github.com/user-attachments/assets/074783b9-56b7-45f1-ae3a-d51d01974dd2" />
+
+---
+
+# 12. Eliminar el usuario
+
+Eliminamos el usuario.
+
+Después revisamos:
+
+```text
+4726
+```
+
+Este evento indica que la cuenta ha sido eliminada.
+
+## Captura 13
+
+<img width="957" height="883" alt="image" src="https://github.com/user-attachments/assets/26b194e0-04f4-4f03-9501-a48d499d59b0" />
+
+---
+
+# Conclusiones
+
+Las auditorías de Windows Server permiten controlar y registrar actividades importantes del sistema. Esto ayuda a detectar accesos no autorizados, comprobar las acciones realizadas por los usuarios y aumentar la seguridad del servidor.
+
+Mediante el Visor de eventos es posible analizar todos los eventos generados y verificar si el sistema funciona correctamente.
+
+También es importante no activar auditorías innecesarias, ya que pueden afectar al rendimiento del sistema.
+
+---
+
+
 # Guía de Monitorización del Rendimiento en Sistemas Windows Server
 
 ### 1. Introducción a la Supervisión de Recursos

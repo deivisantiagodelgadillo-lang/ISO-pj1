@@ -96,9 +96,8 @@ Configuraremos tanto:
 * Correcto
 * Erróneo
 
-## Captura 1
 
-<img width="785" height="386" alt="image" src="https://github.com/user-attachments/assets/8fa8406f-72cc-4236-9ebe-924eb2c17edd" />
+<img width="703" height="330" alt="2026-05-19_01-15" src="https://github.com/user-attachments/assets/b57ac884-a8e7-4dee-905c-8852829846bd" />
 
 ---
 
@@ -126,9 +125,9 @@ Buscamos el Event ID:
 
 Este evento indica que el inicio de sesión se ha realizado correctamente.
 
-## Captura 2
 
-<img width="959" height="933" alt="image" src="https://github.com/user-attachments/assets/594e53d6-784a-4eec-ae96-cc09867bb3b9" />
+<img width="664" height="751" alt="2026-05-19_01-16" src="https://github.com/user-attachments/assets/b711bc49-612d-4cb3-9ef2-478269302749" />
+
 
 ---
 
@@ -160,7 +159,6 @@ Permisos:
 Lectura
 ```
 
-## Captura 3
 
 <img width="763" height="511" alt="image" src="https://github.com/user-attachments/assets/0d22a3d1-cad4-4ee8-84c9-8a4acd187418" />
 
@@ -182,7 +180,6 @@ Control total
 
 Esto permitirá realizar diferentes pruebas dentro de la carpeta.
 
-## Captura 4
 
 <img width="763" height="511" alt="image" src="https://github.com/user-attachments/assets/5f06e8d8-f0df-43c0-b61c-af911102f41c" />
 
@@ -213,7 +210,7 @@ Este evento indica acceso a objetos.
 
 ## Captura 5
 
-<img width="961" height="899" alt="image" src="https://github.com/user-attachments/assets/a8fc35e1-cf4d-4283-8744-a5dd5e0f238d" />
+<img width="814" height="684" alt="2026-05-19_01-18" src="https://github.com/user-attachments/assets/b6215f5e-287f-4220-a7f9-81518baf4fd7" />
 
 ---
 
@@ -236,9 +233,8 @@ Opciones:
 * Correcto
 * Erróneo
 
-## Captura 6
 
-<img width="789" height="414" alt="image" src="https://github.com/user-attachments/assets/a144f2e2-d9ba-44b3-825f-e24ec867e99f" />
+<img width="683" height="282" alt="2026-05-19_01-19" src="https://github.com/user-attachments/assets/9f9f2ea1-3001-4ca3-976d-f28d1b3a6ad1" />
 
 ---
 
@@ -260,9 +256,9 @@ Después revisamos el Visor de eventos y buscamos:
 
 Este evento indica que se ha iniciado un proceso.
 
-## Captura 7
 
-<img width="956" height="894" alt="image" src="https://github.com/user-attachments/assets/6f6c7939-b4b1-464e-a1e8-95738c6d6141" />
+<img width="827" height="697" alt="2026-05-19_01-20" src="https://github.com/user-attachments/assets/7c78d002-a495-4f4a-84a9-1b2cea98540f" />
+
 
 ---
 
@@ -282,9 +278,9 @@ Buscamos ahora:
 
 Este evento indica la finalización de un proceso.
 
-## Captura 8
 
-<img width="957" height="891" alt="image" src="https://github.com/user-attachments/assets/bb1b062a-7b74-47b6-919b-8b7caa397b4a" />
+<img width="822" height="691" alt="2026-05-19_01-20_1" src="https://github.com/user-attachments/assets/db82ef3e-055c-455c-86d8-ed6f76962c02" />
+
 
 ---
 
@@ -307,9 +303,9 @@ Opciones:
 * Correcto
 * Erróneo
 
-## Captura 9
 
-<img width="790" height="445" alt="image" src="https://github.com/user-attachments/assets/6bda16e2-3a4a-4429-95a4-0116105d3615" />
+<img width="681" height="291" alt="2026-05-19_01-21" src="https://github.com/user-attachments/assets/fbdfbb9f-8a8d-4e32-95de-fac942b496f4" />
+
 
 ---
 
@@ -336,13 +332,12 @@ Eventos esperados:
 | 4720     | Usuario creado   |
 | 4722     | Usuario activado |
 
-## Captura 10
 
-<img width="955" height="904" alt="image" src="https://github.com/user-attachments/assets/6ea76802-0138-4367-a0d6-2e193ef38f94" />
+<img width="823" height="721" alt="2026-05-19_01-21_1" src="https://github.com/user-attachments/assets/f3cbe9aa-9e9c-4885-8dca-d043733a5299" />
 
-## Captura 11
 
-<img width="960" height="912" alt="image" src="https://github.com/user-attachments/assets/0fd74973-c651-4efd-a1e8-c4e6a1f9a034" />
+<img width="820" height="704" alt="2026-05-19_01-22" src="https://github.com/user-attachments/assets/5922c7ea-3207-4fcc-8d00-d8fb04fed28d" />
+
 
 ---
 
@@ -358,9 +353,9 @@ Buscamos:
 
 Este evento indica que la cuenta ha sido desactivada.
 
-## Captura 12
 
-<img width="957" height="880" alt="image" src="https://github.com/user-attachments/assets/074783b9-56b7-45f1-ae3a-d51d01974dd2" />
+<img width="823" height="711" alt="2026-05-19_01-23" src="https://github.com/user-attachments/assets/758d1556-85ee-4c62-9686-834771333cec" />
+
 
 ---
 
@@ -376,9 +371,9 @@ Después revisamos:
 
 Este evento indica que la cuenta ha sido eliminada.
 
-## Captura 13
 
-<img width="957" height="883" alt="image" src="https://github.com/user-attachments/assets/26b194e0-04f4-4f03-9501-a48d499d59b0" />
+<img width="815" height="707" alt="2026-05-19_01-24" src="https://github.com/user-attachments/assets/58bcdd9d-bdc1-4bb5-83d5-40fb1171ff8e" />
+
 
 ---
 

@@ -91,7 +91,8 @@ Se copian archivos de prueba en la raíz de la unidad.
 
 Se abren y se comprueba que los archivos son completamente accesibles y se leen sin problemas.
 
-<img width="795" height="595" alt="image" src="https://github.com/user-attachments/assets/3a515157-47d2-47c8-b6d0-5f356caff1c1" />
+<img width="703" height="312" alt="2026-05-19_09-49" src="https://github.com/user-attachments/assets/e9c91a48-403c-4ee2-af0c-5bb6aaff2d61" />
+
 
 ---
 
@@ -111,7 +112,7 @@ para simular un fallo crítico de la unidad.
 
 Se observa el comportamiento del sistema: Windows Server mostrará una advertencia indicando que el volumen se encuentra en estado degradado, pero sigue siendo accesible. Se vuelve a comprobar que los archivos pueden abrirse normalmente gracias a la reconstrucción en tiempo real mediante la paridad.
 
-<img width="831" height="524" alt="image" src="https://github.com/user-attachments/assets/1a152e65-87fc-4be8-8481-30ffdaa04b4e" />
+<img width="471" height="199" alt="2026-05-19_09-51" src="https://github.com/user-attachments/assets/bba35c7a-95c1-4977-a134-faa0d5a464e8" />
 
 ---
 
@@ -147,7 +148,8 @@ Online
 
 El volumen inicia automáticamente el proceso de recuperación o reconstrucción de datos. Posteriormente, se vuelve a intentar el acceso a los archivos de la unidad y se comprueba que la integridad de los datos se ha mantenido correctamente.
 
-<img width="696" height="181" alt="image" src="https://github.com/user-attachments/assets/e17336f3-b64e-4d0c-b02a-5bee0c4f2e48" />
+<img width="262" height="250" alt="2026-05-19_09-51_1" src="https://github.com/user-attachments/assets/eee4bac3-8643-4905-8281-32d2472291b4" />
+
 
 ---
 

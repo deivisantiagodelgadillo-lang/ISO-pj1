@@ -208,7 +208,6 @@ Event ID 4663
 
 Este evento indica acceso a objetos.
 
-## Captura 5
 
 <img width="814" height="684" alt="2026-05-19_01-18" src="https://github.com/user-attachments/assets/b6215f5e-287f-4220-a7f9-81518baf4fd7" />
 

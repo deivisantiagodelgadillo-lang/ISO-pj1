@@ -126,13 +126,6 @@ Se procede a forzar un segundo fallo colocando un **segundo disco en estado Offl
 
 Debido a que el RAID 5 únicamente tiene tolerancia para soportar el fallo de un solo disco simultáneamente, el volumen completo dejará de funcionar inmediatamente. Se intenta acceder nuevamente a la unidad:
 
-```text
-E:\
-```
-
-y se comprueba que el acceso a los archivos queda completamente bloqueado.
-
-<img width="175" height="47" alt="image" src="https://github.com/user-attachments/assets/cbc1c568-6ba3-4a4f-9cc2-d4da0aa8a3af" />
 
 ---
 

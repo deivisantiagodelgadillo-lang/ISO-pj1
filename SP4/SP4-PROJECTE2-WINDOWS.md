@@ -1,112 +1,160 @@
-# Sprint 4: Configuració del Programari de Base i Sistemes d’Emmagatzematge en Windows
+# Sprint 4: Configuración del Software Base y Sistemas de Almacenamiento en Windows
 
 ---
 
-## 1. Introducció
-Els RAIDs (Redundant Array of Independent Disks) són sistemes que permeten combinar diversos discos discos físics en una sola unitat lògica per aconseguir millores en rendiment, capacitat o seguretat. Aquests sistemes poden ser gestionats tant per maquinari (controladores RAID) com per programari, sent aquest últim el cas dels sistemes operatius moderns com Windows Server. Cada nivell de RAID ofereix característiques diferents segons si l'objectiu és millorar la velocitat, oferir redundància o combinar ambdues coses.
+## 1. Introducción
 
-El RAID 5 és un dels nivells més utilitzats en entorns professionals perquè aconsegueix un equilibri òptim entre rendiment, capacitat i tolerància a fallades. Aquest sistema distribueix tant les dades com la informació de paritat entre tots els discos de la matriu. La paritat té la funció de reconstruir la informació en cas que un dels discos falli, permetent que el sistema segueixi funcionant i garantint la disponibilitat en entorns crítics com els servidors. Per a la seva configuració es requereix un mínim de tres discos durs, i la capacitat útil total és la suma de tots els discos menys un, ja que l'espai equivalent a una unitat es dedica a la paritat.
+Los RAIDs (Redundant Array of Independent Disks) son sistemas que permiten combinar varios discos físicos en una única unidad lógica para conseguir mejoras de rendimiento, capacidad o seguridad. Estos sistemas pueden ser gestionados tanto por hardware (controladoras RAID) como por software, siendo este último el caso de los sistemas operativos modernos como Windows Server. Cada nivel de RAID ofrece características diferentes dependiendo de si el objetivo es mejorar la velocidad, ofrecer redundancia o combinar ambas opciones.
+
+El RAID 5 es uno de los niveles más utilizados en entornos profesionales porque consigue un equilibrio óptimo entre rendimiento, capacidad y tolerancia a fallos. Este sistema distribuye tanto los datos como la información de paridad entre todos los discos de la matriz. La paridad tiene la función de reconstruir la información en caso de que uno de los discos falle, permitiendo que el sistema siga funcionando y garantizando la disponibilidad en entornos críticos como servidores. Para su configuración se requiere un mínimo de tres discos duros y la capacidad útil total es la suma de todos los discos menos uno, ya que el espacio equivalente a una unidad se dedica a la paridad.
 
 ---
 
-## 2. Desenvolupament de la Pràctica Pas a Pas
+## 2. Desarrollo de la práctica paso a paso
 
-### Pas 1: Preparació de la màquina virtual
-Abans d'iniciar el sistema operatiu, cal configurar el maquinari virtual necessari per implementar la matriu de discos:
-* A la màquina virtual com Windows Server 2022, s'afegeixen un mínim de 3 discos addicionals de la mateixa mida (per exemple, 10 GB cadascun).
-* Una vegada connectats els suports d'emmagatzematge, s'inicia la màquina virtual.
+### Paso 1: Preparación de la máquina virtual
+
+Antes de iniciar el sistema operativo, es necesario configurar el hardware virtual necesario para implementar la matriz de discos:
+
+* En la máquina virtual con Windows Server 2022, se añaden un mínimo de 3 discos adicionales del mismo tamaño (por ejemplo, 10 GB cada uno).
+* Una vez conectados los dispositivos de almacenamiento, se inicia la máquina virtual.
 
 <img width="883" height="534" alt="image" src="https://github.com/user-attachments/assets/9a6f4a93-cb97-4821-96fc-bc89c4b8bcb4" />
 
-### Pas 2: Inicialització i configuració dels discs
-Un cop arrencat el sistema, s'obre l'eina de **Gestió de discs** mitjançant l'execució de la comanda `diskmgmt.msc`.
+---
+
+### Paso 2: Inicialización y configuración de los discos
+
+Una vez iniciado el sistema, se abre la herramienta de **Administración de discos** ejecutando el comando:
+
+```text
+diskmgmt.msc
+```
 
 <img width="406" height="220" alt="image" src="https://github.com/user-attachments/assets/d3963112-f13f-4245-829a-11fa119e0572" />
 
-Quan es mostri l'assistent automàtic, s'inicialitzen els nous discos triant l'estil de partició MBR o GPT (es recomana GPT si la mida és superior a 2TB, tot i que en aquest cas no afecta).
-   
+Cuando aparezca el asistente automático, se inicializan los nuevos discos eligiendo el estilo de partición MBR o GPT (se recomienda GPT si el tamaño es superior a 2 TB, aunque en este caso no afecta).
+
 <img width="450" height="322" alt="image" src="https://github.com/user-attachments/assets/ed1d5ba7-d606-4e69-9b12-8b6de6ae1e3a" />
 
-Es mantenen els discos en l'estat inicial, sans formatar-los ni crear-hi cap tipus de partició.
+Los discos se mantienen en su estado inicial, sin formatearlos ni crear ningún tipo de partición.
 
 <img width="1207" height="358" alt="image" src="https://github.com/user-attachments/assets/5d30d5ba-215f-4b4b-b787-88642399d258" />
 
+---
 
-### Pas 3: Creació del volum RAID 5 des del Gestor de discs
-Es fa clic amb el botó dret del ratolí sobre un dels nous discos buits i es selecciona l'opció **"New RAID-5 Volume"**.
-   
+### Paso 3: Creación del volumen RAID 5 desde el Administrador de discos
+
+Se hace clic derecho sobre uno de los discos vacíos y se selecciona la opción:
+
+```text
+New RAID-5 Volume
+```
+
 <img width="498" height="410" alt="image" src="https://github.com/user-attachments/assets/1a1cd729-2ea0-4a2f-a72a-cc52646b845d" />
 
-Dips de l'assistent, s'afegeixen els altres 2 discos restants a la configuració per formar la matriu.
-   
+Dentro del asistente, se añaden los otros 2 discos restantes a la configuración para formar la matriz.
+
 <img width="498" height="410" alt="image" src="https://github.com/user-attachments/assets/b5fd1d0b-ef73-4f31-9e82-56572ca31f34" />
 
-S'assigna una lletra d'unitat al volum.
+Se asigna una letra de unidad al volumen.
 
 <img width="498" height="410" alt="image" src="https://github.com/user-attachments/assets/454ceb04-4ffe-4f97-ad48-d9b19b38e21f" />
 
-Es formata el volum utilitzant el sistema de fitxers **NTFS** i s'estableix l'etiqueta de volum: **RAID5-Test**.
-   
+El volumen se formatea utilizando el sistema de archivos **NTFS** y se establece la etiqueta:
+
+```text
+RAID5-Test
+```
+
 <img width="498" height="410" alt="image" src="https://github.com/user-attachments/assets/89e07d9e-e83e-4519-b3cf-be78cf8c1b30" />
 
-S'espera que finalitzi el procés de format i es verifica que es mostra com a un volum únic al sistema (amb una capacitat útil de 20 GB, corresponent a la suma dels discos menys l'espai de paritat).
+Se espera a que finalice el proceso de formateo y se verifica que aparece como un único volumen en el sistema (con una capacidad útil de 20 GB, correspondiente a la suma de los discos menos el espacio destinado a la paridad).
 
 <img width="1277" height="369" alt="image" src="https://github.com/user-attachments/assets/ac50d18c-6ecb-4074-afc5-783f2f7e0399" />
 
+---
 
-### Pas 4: Proves de funcionalitat i accés
-S'obre l'Explorador de fitxers de Windows i es desplaça fins al volum `E:\`.
-  <img width="795" height="595" alt="image" src="https://github.com/user-attachments/assets/faae2fbf-6485-4472-8955-7943027a57bd" />
+### Paso 4: Pruebas de funcionalidad y acceso
 
-Es copien arxius de prova a l'arrel de la unitat.
+Se abre el Explorador de archivos de Windows y se accede al volumen:
+
+```text
+E:\
+```
+
+<img width="795" height="595" alt="image" src="https://github.com/user-attachments/assets/faae2fbf-6485-4472-8955-7943027a57bd" />
+
+Se copian archivos de prueba en la raíz de la unidad.
+
 <img width="795" height="595" alt="image" src="https://github.com/user-attachments/assets/b70ab182-f29a-4ac6-885a-2a6c8f3551e7" />
 
-S'obren i es comprova que els fitxers són completament accessibles i es llegeixen sense problemes.
+Se abren y se comprueba que los archivos son completamente accesibles y se leen sin problemas.
+
 <img width="795" height="595" alt="image" src="https://github.com/user-attachments/assets/3a515157-47d2-47c8-b6d0-5f356caff1c1" />
 
+---
 
-### Pas 5: Simulació de primera fallada (Un disc Offline)
-Es torna a accedir a l'eina **Disk Management**, Es fa clic dret sobre un dels tres discos que configuren el RAID i es selecciona l'opció **Offline** per simular una fallada crítica de la unitat.
+### Paso 5: Simulación del primer fallo (un disco Offline)
+
+Se vuelve a acceder a la herramienta **Disk Management**. Después, se hace clic derecho sobre uno de los discos que forman el RAID y se selecciona la opción:
+
+```text
+Offline
+```
+
+para simular un fallo crítico de la unidad.
 
 <img width="795" height="236" alt="image" src="https://github.com/user-attachments/assets/f95935b1-3386-4322-b24a-0688d81c6d5f" />
 
 <img width="1006" height="322" alt="image" src="https://github.com/user-attachments/assets/f6362fcb-9677-4f03-ba22-16b8c2c9c3d5" />
 
-  
-S'oberva el cosmportament del sistema: Windows Server mostrarà un advertiment indicant que el volum es troba en estat degradat, però que segueix estant accessiblem es torna a comprovar que es poden obrir els fitxers de forma normal gràcies a la reconstrucció en temps real per paritat.
+Se observa el comportamiento del sistema: Windows Server mostrará una advertencia indicando que el volumen se encuentra en estado degradado, pero sigue siendo accesible. Se vuelve a comprobar que los archivos pueden abrirse normalmente gracias a la reconstrucción en tiempo real mediante la paridad.
 
 <img width="831" height="524" alt="image" src="https://github.com/user-attachments/assets/1a152e65-87fc-4be8-8481-30ffdaa04b4e" />
 
-### Pas 6: Simulació de segona fallada (Dos discs Offline)
-Es procedeix a forçar una segona fallada col·locant un **segon disc en estat Offline**.
-   
+---
+
+### Paso 6: Simulación del segundo fallo (dos discos Offline)
+
+Se procede a forzar un segundo fallo colocando un **segundo disco en estado Offline**.
+
 <img width="1083" height="144" alt="image" src="https://github.com/user-attachments/assets/285513c5-c75c-488c-a35c-4cfda1ea0434" />
 
 <img width="1298" height="324" alt="image" src="https://github.com/user-attachments/assets/c9fb5c2b-32e8-4d98-89db-60e81fda79d0" />
 
-Atès que el RAID 5 només té tolerància per suportar la fallada d'un sol disc de forma simultània, el volum sencer deixarà de funcionar immediatament. S'intenta accedir de nou a la unitat `E:\` i es comprova que l'accés als arxius queda totalment bloquejat.
+Debido a que el RAID 5 únicamente tiene tolerancia para soportar el fallo de un solo disco simultáneamente, el volumen completo dejará de funcionar inmediatamente. Se intenta acceder nuevamente a la unidad:
+
+```text
+E:\
+```
+
+y se comprueba que el acceso a los archivos queda completamente bloqueado.
 
 <img width="175" height="47" alt="image" src="https://github.com/user-attachments/assets/cbc1c568-6ba3-4a4f-9cc2-d4da0aa8a3af" />
 
+---
 
+### Paso 7: Recuperación del sistema
 
-### Pas 7: Recuperació del sistema
-Es fa clic dret sobre un dels discos desconnectats prèviament i es torna a posar en estat **Online**.
+Se hace clic derecho sobre uno de los discos desconectados previamente y se vuelve a colocar en estado:
+
+```text
+Online
+```
 
 <img width="294" height="175" alt="image" src="https://github.com/user-attachments/assets/0b167ac8-48c3-47a8-9169-3b704a979bbe" />
 
-
-
-El volum inicia de forma automàtica la seva recuperació o entra en un procés actiu de reconstrucció de les dades, es torna a intentar l'accés als arxius de la unitat i es comprova que la integritat de les dades s'ha mantingut.
+El volumen inicia automáticamente el proceso de recuperación o reconstrucción de datos. Posteriormente, se vuelve a intentar el acceso a los archivos de la unidad y se comprueba que la integridad de los datos se ha mantenido correctamente.
 
 <img width="696" height="181" alt="image" src="https://github.com/user-attachments/assets/e17336f3-b64e-4d0c-b02a-5bee0c4f2e48" />
 
-
 ---
 
-## 3. Conclusions i Observacions
-* **Distribució de paritat:** S'ha comprovat com el RAID 5 distribueix de manera eficient la paritat i les dades entre tots els components de la matriu.
-* **Tolerància limitada:** El sistema ofereix redundància i tolera correctament la fallada d'un sol disc dur, mantenint els serveis operatius en entorns de producció.
-* **Penalització d'escriptura:** Atès que la paritat es calcula i s'escriu automàticament cada vegada que es graven dades, s'ha de tenir en compte que hi ha una petita penalització en el rendiment d'escriptura, encara que la lectura és molt eficient.
-* **No és un backup:** Tot i la seva resistència davant de la pèrdua d'una unitat, **el RAID 5 no substitueix una còpia de seguretat**. Si dues unitats fallen simultàniament o es produeix corrupció de dades, es perdran tots els fitxers de forma irreversible. A més, el procés de reconstrucció pot ser llarg i estressant per a la resta de discos de la matriu.
-* **Recomanació:** No és adequat per a entorns on la màxima disponibilitat o protecció total sigui crítica; en aquests casos és obligatori combinar-lo amb sistemes de backup externs o avaluar alternatives com RAID 6 o RAID 10.
+## 3. Conclusiones y observaciones
+
+* **Distribución de paridad:** Se ha comprobado cómo el RAID 5 distribuye de manera eficiente la paridad y los datos entre todos los componentes de la matriz.
+* **Tolerancia limitada:** El sistema ofrece redundancia y tolera correctamente el fallo de un único disco duro, manteniendo los servicios operativos en entornos de producción.
+* **Penalización de escritura:** Debido a que la paridad se calcula y escribe automáticamente cada vez que se almacenan datos, existe una pequeña penalización en el rendimiento de escritura, aunque la lectura es muy eficiente.
+* **No es un backup:** A pesar de su resistencia frente a la pérdida de una unidad, **RAID 5 no sustituye una copia de seguridad**. Si dos unidades fallan simultáneamente o se produce corrupción de datos, todos los archivos se perderán de forma irreversible. Además, el proceso de reconstrucción puede ser largo y generar estrés adicional en el resto de discos de la matriz.
+* **Recomendación:** No es adecuado para entornos donde la máxima disponibilidad o protección total sean críticas. En estos casos es obligatorio combinarlo con sistemas de backup externos o valorar alternativas como RAID 6 o RAID 10.

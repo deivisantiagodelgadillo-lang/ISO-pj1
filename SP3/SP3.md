@@ -23,7 +23,8 @@ A continuació, instal·lem els serveis per a instal·lar i gestionar ldap.
 
 Durant l'instal·lació, ens demanara una contrasenya per a l'usuari d'administrador de ldap, mes avant haurem de recordar.
 
-<img width="671" height="374" alt="Captura de pantalla de 2026-01-08 13-31-56" src="https://github.com/user-attachments/assets/5392226b-889e-4e41-a255-5bccb631efa7" />
+<img width="652" height="300" alt="image" src="https://github.com/user-attachments/assets/d6da4609-d432-471d-976f-dba29410869d" />
+
 
 En la comanda **slapcat** per a veure tots els elements del domini.
 

@@ -1,7 +1,4 @@
----
-layout: custom
-title: "SPRINT 3: ADMINISTRACIÓ DE DOMINIS I SEGURETAT"
----
+# Sprint 3: Administració de Dominis i Seguretat 
 
 ## Configuració del servidor
 
@@ -9,16 +6,16 @@ Primer, obrim un terminal dintre de la màquina servidor, executem la comanda **
 
 <img width="746" height="459" alt="Captura de pantalla de 2026-01-08 13-24-13" src="https://github.com/user-attachments/assets/9a3ec543-8a7e-4345-83bc-fcec314ada22" />
 
-<img width="804" height="335" alt="Captura de pantalla de 2026-01-08 13-24-33" src="https://github.com/user-attachments/assets/281fa3ae-7b3e-4150-aad1-dfeac7709e19" />
-
+<img width="786" height="302" alt="2026-05-22_00-06" src="https://github.com/user-attachments/assets/13b72184-44a5-4d15-85a7-3718c254e04d" />
 
 Tot seguit, accedim a **/etc/hostname** amb la comanda **nano**, on **modificarem el nom del dispositiu**.
 
-<img width="513" height="92" alt="Captura de pantalla de 2026-01-08 13-26-39" src="https://github.com/user-attachments/assets/2561caec-30f0-4f96-8a15-62777ef3ac9d" />
+<img width="504" height="48" alt="2026-05-22_00-06_1" src="https://github.com/user-attachments/assets/da0225d1-026a-4372-b06b-7cbba1cb6fb2" />
+
 
 El mateix al **/etc/hosts** i posarem el nou hostname a l'adreça de loopback del dispositiu. També posarem el domini que crearem pròximament lligat a l'adreça IP que ens hem configurat estàticament.
 
-<img width="512" height="134" alt="Captura de pantalla de 2026-01-08 13-28-39" src="https://github.com/user-attachments/assets/e27650e9-98c6-4c48-915c-a8cd61e8e403" />
+<img width="492" height="89" alt="2026-05-22_00-07" src="https://github.com/user-attachments/assets/b3d5d3c2-f494-4d84-8993-b05b50de3d4f" />
 
 A continuació, instal·lem els serveis per a instal·lar i gestionar ldap.
 

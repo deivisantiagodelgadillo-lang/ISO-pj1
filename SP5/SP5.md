@@ -1,1 +1,230 @@
+# Monitoratge del sistema
 
+Supervisar el rendiment en Ubuntu implica analitzar i quantificar el consum de recursos de l'equip o servidor en viu. Aquesta pràctica resulta vital per diagnosticar la salut del sistema i anticipar-se a possibles situacions de saturació.
+
+<img width="447" height="257" alt="image" src="https://github.com/user-attachments/assets/cfedd6e3-25fd-4e17-9f77-0ba32b89ecc0" />
+
+En executar l'aplicació, es visualitzen tots els processos actius en el sistema. Tal com vam practicar en entregues anteriors, aquest entorn gràfic ofereix una funcionalitat equivalent a la d'eines de terminal com htop, etop o btop.
+
+<img width="1190" height="770" alt="image" src="https://github.com/user-attachments/assets/1ced7a4c-1f80-4472-bbc5-6a1dc0bc394c" />
+
+Com s'observa a la interfície, tenim la possibilitat de finalitzar processos, tancar-los o ajustar paràmetres com l'afinitat de la CPU i la prioritat d'execució. Aquestes operacions ja s'han tractat detalladament en seccions prèvies.
+
+<img width="440" height="373" alt="image" src="https://github.com/user-attachments/assets/7e29efbc-5c00-47af-899d-90ee972962ff" />
+
+<img width="791" height="261" alt="image" src="https://github.com/user-attachments/assets/e8723348-bcfc-4945-95c6-44ec455d3347" />
+
+Així mateix, tal com s'ha esmentat prèviament, disposem d'una visió global del rendiment de tots els recursos de la màquina. Els indicadors principals són:
+
+CPU: Reflecteix el volum de treball que està processant la unitat central. Si el percentatge d'ús es manté constantment al màxim, el sistema perdrà fluïdesa en no poder gestionar totes les tasques de manera simultània.
+
+Memòria RAM: Representa l'entorn on s'executen les aplicacions actives. En cas d'esgotar-se la memòria física, Ubuntu utilitzarà l'espai d'intercanvi (Swap) al disc dur; aquest recurs d'emergència provoca una caiguda dràstica en el rendiment general de l'equip.
+
+Xarxa: Monitoritza el flux de dades (entrada i sortida) del dispositiu, a més de supervisar l'estat de les connexions vigents i els ports que romanen oberts.
+
+Emmagatzematge (Disc): Supervisa tant l'ocupació de l'espai disponible com la taxa de transferència en les operacions de lectura i escriptura. Una activitat excessiva del disc pot generar colls d'ampolla que afectin la velocitat del sistema.
+
+<img width="1201" height="756" alt="image" src="https://github.com/user-attachments/assets/08d9bdc1-458c-4c6e-a510-10f54ca162e7" />
+
+<img width="1210" height="121" alt="image" src="https://github.com/user-attachments/assets/a5208d73-cb41-4bb0-8110-b891ea2cdd2a" />
+
+# Logs - Lluc i Manu
+
+Per consultar l'historial d'esdeveniments, visualitzarem el contingut de l'arxiu syslog mitjançant la comanda cat, cosa que ens permetrà revisar tots els registres del sistema.
+
+<img width="1200" height="668" alt="2026-03-05_13-24" src="https://github.com/user-attachments/assets/86dcd351-9f35-453f-bbf8-4aa489de0097" />
+
+En aquest directori podem presonalitzar la rotació dels logs.
+
+<img width="958" height="70" alt="2026-03-05_13-26" src="https://github.com/user-attachments/assets/2f210a51-698f-4186-b999-d20a5c628fd8" />
+
+Tenim la possibilitat d'editar aquest fitxer per configurar i ajustar els paràmetres de rotació dels registres segons les nostres necessitats.
+
+<img width="500" height="483" alt="2026-03-05_13-26_1" src="https://github.com/user-attachments/assets/c55ecb28-0215-49bc-b41e-71a0ee9e8d4e" />
+
+Aquest fitxer ens indica la ruta de la configuració per defecte dels registres; a continuació, ens hi desplaçarem per realitzar les modificacions oportunes.
+
+<img width="942" height="704" alt="2026-03-05_13-27" src="https://github.com/user-attachments/assets/ad30daea-147c-4dd6-8668-347e7d267f24" />
+
+En primer lloc, realitzarem un test per analitzar l'impacte d'una notificació de correu i identificar en quins fitxers de registre queda reflectida. Mitjançant una simulació, verificarem si l'enviament genera una entrada immediata al syslog i si, posteriorment, es registra a l'arxiu mail.log. Per fer-ho, utilitzarem dues terminals: una per enviar el missatge i l'altra per monitorar el syslog en temps real.
+
+<img width="1209" height="725" alt="2026-03-05_13-30" src="https://github.com/user-attachments/assets/e5e7a95f-c91d-438b-ae25-f5cd938dd785" />
+
+Realitzarem una segona prova modificant la configuració del servei de correu. L'objectiu és restringir el fitxer mail.log perquè només enregistri els missatges de nivell error, descartant tant els nivells inferiors com els superiors. Cal recordar que, si utilitzéssim el comodí *, el sistema tornaria a desar tots els registres sense distinció.
+
+<img width="990" height="638" alt="2026-03-05_13-31" src="https://github.com/user-attachments/assets/5fa4e89e-d0ba-4c6a-b2f4-9a3ee889bbb6" />
+
+Quan el modifiquem, hem de fer un restart al servei.
+
+<img width="621" height="39" alt="2026-03-05_13-36" src="https://github.com/user-attachments/assets/f60fac00-8463-4fb5-ab15-f8f256dc040d" />
+
+En repetir la prova anterior, observem que el registre no s'emmagatzema al fitxer mail.log. Això es deu al fet que la notificació enviada té una prioritat de tipus notice, la qual queda exclosa pel filtre que hem configurat exclusivament per a nivells err.
+
+<img width="1213" height="759" alt="2026-03-05_13-37" src="https://github.com/user-attachments/assets/00e0f8f3-490a-4a97-96c6-ff1065a7d765" />
+
+Finalment, si substituïm la prioritat mail.notice per mail.err, comprovarem que el registre s'emmagatzema correctament a l'arxiu de logs, ja que ara sí que coincideix amb el filtre establert.
+
+<img width="1202" height="452" alt="2026-03-05_13-38" src="https://github.com/user-attachments/assets/7d1ad8e3-ea8d-4f5b-93f2-0e7b155ee077" />
+
+Procedirem a modificar novament el filtratge dels registres de correu, aquest cop eliminant el signe =. Amb aquest canvi, el sistema emmagatzemarà no només les entrades de tipus err, sinó també totes les que tinguin una prioritat superior.
+
+<img width="936" height="724" alt="2026-03-05_13-38_1" src="https://github.com/user-attachments/assets/3c16831d-bce9-4b69-8d52-96117582d730" />
+
+Reiniciem el servei i seguim.
+
+Per validar aquest funcionament, canviarem el nivell d'alerta a crit (criticitat superior) i comprovarem que el sistema el registra correctament al fitxer de logs.
+
+<img width="1211" height="478" alt="2026-03-05_13-40" src="https://github.com/user-attachments/assets/c5259d84-7d40-492b-887f-e217ec5990e9" />
+
+És possible definir una ruta personalitzada per emmagatzemar els registres que considerem més rellevants. En aquest cas, configurarem el sistema per capturar totes les entrades de tipus crit, hi indicarem el directori de destinació desitjat i, finalment, reiniciarem el servei per aplicar els canvis.
+
+<img width="1215" height="773" alt="2026-03-05_13-41" src="https://github.com/user-attachments/assets/8e534e00-cf2c-49a0-805b-c96f1645aea5" />
+
+En enviar una notificació de tipus cron.crit, observem que s'ha generat automàticament un nou fitxer anomenat mireia.log. Aquesta és la ruta específica que havíem definit en el pas de configuració anterior.
+
+<img width="1202" height="386" alt="2026-03-05_13-42" src="https://github.com/user-attachments/assets/21276dd7-e3c6-45a6-8bae-353d2bdbac9c" />
+
+Amb aquesta comanda podem veure tots els logs de tipus crit.
+
+<img width="1205" height="185" alt="2026-03-05_13-43" src="https://github.com/user-attachments/assets/8a125f3b-5893-4e0c-b198-63202aadb3d6" />
+
+Depenent dels paràmetres que hi afegim, podem filtrar les cerques per acotar els resultats. En aquest cas, ens centrarem a consultar els registres de tipus mail que hem generat anteriorment.
+
+<img width="588" height="164" alt="2026-03-05_13-44" src="https://github.com/user-attachments/assets/4e26257b-89d6-4699-ad8d-fbda0a04fbfe" />
+
+## Exercici Logs
+
+Per a aquesta pràctica, configurarem un entorn amb dues màquines Ubuntu: un client encarregat d'enviar els seus registres a la xarxa (mentre els conserva localment) i un servidor que actuarà com a receptor centralitzat de tota la informació.
+
+### Màquina Servidor
+
+En primer lloc, a la màquina servidor (l'encarregada de rebre i emmagatzemar els registres), procedirem a configurar la redirecció. Crearem un nou fitxer de configuració per desviar tots els logs remots cap a una carpeta específica, la qual generarem en aquest mateix pas.
+
+<img width="242" height="53" alt="image" src="https://github.com/user-attachments/assets/7bf3735f-2939-4b30-9602-e52360bdd99b" />
+
+<img width="824" height="37" alt="image" src="https://github.com/user-attachments/assets/98294a48-7cd7-45a5-9033-00c8e3e29e69" />
+
+Dins del fitxer de nova creació, hem d'afegir les línies següents per habilitar la recepció de registres mitjançant els protocols UDP i/o TCP.
+
+<img width="817" height="250" alt="image" src="https://github.com/user-attachments/assets/d725df1f-269e-47c1-b6d8-2c6bee319107" />
+
+Finalment, permitim el pas de tcp i udp al firewall.
+
+<img width="161" height="37" alt="image" src="https://github.com/user-attachments/assets/807548eb-85da-40b5-82a7-cf615db3562d" />
+
+<img width="143" height="36" alt="image" src="https://github.com/user-attachments/assets/5578e789-7d1d-4530-81ae-698d0043523f" />
+
+Un cop completats aquests passos de configuració, hem de reiniciar el servei per tal que el sistema apliqui i activi els nous paràmetres.
+
+<img width="227" height="38" alt="image" src="https://github.com/user-attachments/assets/b4528e88-0f98-4681-8a31-43f75289dc7d" />
+
+### Màquina Client
+
+Dins d'un nou fitxer anomenat 90-forward.conf, hi afegirem l'adreça IP del servidor per indicar cap a on s'han de reenviar els registres.
+
+<img width="664" height="55" alt="image" src="https://github.com/user-attachments/assets/9c49c5da-af25-4343-8901-c4aedc2a23b4" />
+
+Fem un restart de rsyslog.
+
+<img width="635" height="51" alt="image" src="https://github.com/user-attachments/assets/ae7c064b-2cb4-4902-b7b8-21a2ed167f38" />
+
+#### Comprobació logger
+
+Un cop configurat el reenviaments, executarem un logger des del client per generar un missatge de prova i verificar que arriba correctament al servidor.
+
+<img width="485" height="25" alt="image" src="https://github.com/user-attachments/assets/4ecc8852-5202-477f-937b-006d94b390c1" />
+
+Podem comprovar que s'han generat diversos fitxers dins del directori remote. Entre ells, trobem la carpeta corresponent al ClientSP5, confirmant que el servidor ha organitzat correctament els registres rebuts per cada node.
+
+<img width="287" height="66" alt="image" src="https://github.com/user-attachments/assets/535f1f6f-6409-4251-9c39-b85d2d36041d" />
+
+Si accedim al directori que s'acaba de crear, podrem localitzar el fitxer de registre i, un cop el comprovem, visualitzarem el log de prova que hem enviat anteriorment des del client.
+
+<img width="1215" height="535" alt="image" src="https://github.com/user-attachments/assets/02807902-269b-4fd7-98cb-8bd8fd085885" />
+
+# Servidor d'actualitzacions
+
+Implementar un servidor d'actualitzacions centralitzat en un entorn amb múltiples nodes Ubuntu és fonamental per garantir l'eficiència operativa:
+
+Optimització de l'ample de banda: Les actualitzacions es descarreguen un sol cop des de la xarxa externa. Els 50 equips de la infraestructura les obtenen directament del servidor local, reduint dràsticament el trànsit d'Internet.
+
+Gestió del cicle de vida i control de riscos: Permet establir un entorn de proves amb equips "pilot" per validar els pedaços abans del desplegament massiu, minimitzant l'impacte d'actualitzacions inestables.
+
+Monitoratge centralitzat de la seguretat: Facilita la supervisió de l'estat de cada node, identificant quins equips requereixen accions urgents o reinicis pendents.
+
+Suport per a entorns aïllats: És la solució indispensable per mantenir al dia servidors crítics que no disposen de sortida directa a Internet per motius de seguretat.
+
+## Servidor
+
+Instalem apache i apt-mirror al servidor.
+
+<img width="517" height="17" alt="2026-03-12_13-08" src="https://github.com/user-attachments/assets/0cdd446f-291e-4b02-a6a0-7c3ba2e039b4" />
+
+<img width="525" height="22" alt="2026-03-12_13-09" src="https://github.com/user-attachments/assets/6bce5ff9-b748-4d01-adc5-3bc2d89f3200" />
+
+Accedirem al fitxer mirror.list i comentarem totes les línies per defecte per evitar descarregues innecessàries. A continuació, hi afegirem exclusivament el repositori o el paquet específic que volem instal·lar i mantenir sincronitzat.
+
+<img width="872" height="481" alt="2026-03-12_13-12" src="https://github.com/user-attachments/assets/1168ceec-56cf-4a8b-b994-47bd6d0a30fb" />
+
+Un cop configurat el fitxer, executarem la comanda apt-mirror per començar a descarregar i sincronitzar el repositori del paquet que hem definit prèviament.
+
+<img width="1015" height="648" alt="2026-03-12_13-13_1" src="https://github.com/user-attachments/assets/d204a29b-75eb-40b0-b9c1-b058816309df" />
+
+Un cop finalitzada la descàrrega, comprovarem que s'ha instal·lat correctament i enllaçarem el contingut a l'Apache per fer-lo accessible a través de la xarxa.
+
+<img width="881" height="98" alt="2026-03-12_13-16" src="https://github.com/user-attachments/assets/f33d0024-88e1-4bed-8bfa-b35829e01630" />
+
+## Client
+
+A la màquina client, accedirem al fitxer sources.list per afegir-hi el nou repositori. En lloc d'apuntar als servidors oficials d'Ubuntu, utilitzarem l'adreça de l'enllaç simbòlic que hem creat prèviament al servidor local.
+
+<img width="747" height="446" alt="2026-03-12_13-19" src="https://github.com/user-attachments/assets/378d2947-5294-4a8c-bac9-462a87c57cb9" />
+
+Aquest pas és indispensable abans d'instal·lar el paquet, ja que primer cal signar-lo (o importar-ne la clau de signatura) perquè el sistema el reconegui com a font de confiança.
+
+<img width="1055" height="76" alt="2026-03-12_13-22" src="https://github.com/user-attachments/assets/df1d0af8-1aaf-41c3-984e-56cb20a4c471" />
+
+Ara, en executar un apt update al client, podrem observar com el sistema agafarà un dels repositoris directament de la màquina servidor en lloc de buscar-lo a Internet.
+
+<img width="1205" height="283" alt="2026-03-12_13-26" src="https://github.com/user-attachments/assets/e83baf97-3ca5-4bf2-b737-9d1cdcf63c89" />
+
+Un cop verificat el repositori, procedirem a instal·lar el paquet desitjat; podrem comprovar que la descàrrega es realitza directament des del nostre servidor local.
+
+<img width="1208" height="520" alt="2026-03-12_13-29" src="https://github.com/user-attachments/assets/67287764-6f98-412f-948e-5a6783ef1dea" />
+
+## Exercici
+### Servidor
+
+He triat l'aplicació AnyDesk perquè és una de les que consumeix menys recursos, la qual cosa en facilita una instal·lació ràpida. A continuació, procedirem a afegir el seu repositori al servidor.
+
+<img width="771" height="419" alt="2026-03-12_13-57" src="https://github.com/user-attachments/assets/0d392833-4682-4682-8cad-fcdb49a8f96d" />
+
+Fem un apt-mirror i veem que descarrega ja el paquet.
+
+<img width="1202" height="719" alt="2026-03-12_14-00" src="https://github.com/user-attachments/assets/eeb24ad7-4b5b-4d8d-bfd5-8e3400a85b10" />
+
+Enviem el paquet a apache.
+
+<img width="753" height="76" alt="2026-03-12_14-06" src="https://github.com/user-attachments/assets/8e172d06-c1bf-43c1-9b72-73689081ec01" />
+
+### Client
+
+A la màquina client, accedirem al fitxer sources.list per afegir-hi el nou repositori. En lloc d'apuntar als servidors oficials, utilitzarem l'adreça de l'enllaç simbòlic que hem creat prèviament al servidor local.
+
+<img width="807" height="492" alt="2026-03-12_14-11" src="https://github.com/user-attachments/assets/5fc6109e-1087-4fb0-b137-1d0ea8dab38f" />
+
+Aquest pas és indispensable abans d'instal·lar el paquet, ja que primer cal signar el repositori (o importar-ne la clau de confiança) perquè el sistema en validi l'autenticitat.
+
+<img width="800" height="89" alt="2026-03-12_14-17" src="https://github.com/user-attachments/assets/cad604b4-673b-4436-8fa8-e76544e810d7" />
+
+Ara, en executar un apt update, veiem que el client s'ha connectat correctament al servidor local per agafar la llista de paquets del repositori que hem configurat.
+
+<img width="807" height="338" alt="2026-03-12_14-18" src="https://github.com/user-attachments/assets/a6b29a41-41a6-4789-943d-fe5cb92212c6" />
+
+Finalment, ja podem procedir a instal·lar el paquet i confirmar que el sistema el descarrega directament des del nostre servidor local.
+
+<img width="923" height="507" alt="2026-03-12_14-19" src="https://github.com/user-attachments/assets/882b9f43-3e7e-4143-87a5-92ca7b294f60" />
+
+Un cop finalitzada la instal·lació, l'aplicació ja està operativa i ja la podem fer servir amb total normalitat a la màquina client.
+
+<img width="644" height="240" alt="image" src="https://github.com/user-attachments/assets/0e572098-4a87-4909-bb34-64485ba8ef11" />

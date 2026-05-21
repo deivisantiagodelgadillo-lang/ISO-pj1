@@ -19,8 +19,7 @@ El mateix al **/etc/hosts** i posarem el nou hostname a l'adreça de loopback de
 
 A continuació, instal·lem els serveis per a instal·lar i gestionar ldap.
 
-<img width="1024" height="202" alt="image" src="https://github.com/user-attachments/assets/8d8b962e-4686-447a-84b3-9016143c1ba3" />
-
+<img width="1024" height="202" alt="image" src="https://github.com/user-attachments/assets/dff51355-c176-4ee6-8698-5812af97bf65" />
 
 Durant l'instal·lació, ens demanara una contrasenya per a l'usuari d'administrador de ldap, mes avant haurem de recordar.
 

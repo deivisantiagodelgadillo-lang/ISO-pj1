@@ -103,10 +103,9 @@ Mitjançant la comanda de **slapcat**, podriem confirmar que se'ns ha creat.
 
 <img width="610" height="677" alt="image" src="https://github.com/user-attachments/assets/7f81a643-f6e5-4682-b943-5a8dcf975fe0" />
 
+<img width="862" height="1024" alt="image" src="https://github.com/user-attachments/assets/337015b7-e692-4a4c-88cc-73d54c6915e5" />
 
-<img width="456" height="536" alt="image" src="https://github.com/user-attachments/assets/307f58c1-02e4-45ad-b985-40f19688ac73" />
-
-<img width="457" height="258" alt="image" src="https://github.com/user-attachments/assets/708f5daa-d00d-447c-9c1f-5f4c19ae6712" />
+<img width="1024" height="577" alt="image" src="https://github.com/user-attachments/assets/5b94474a-9e12-4d9d-afb9-abdf3e0126c1" />
 
 
 ## Configuració del client

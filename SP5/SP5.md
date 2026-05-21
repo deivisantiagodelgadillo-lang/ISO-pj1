@@ -261,7 +261,3 @@ Ahora, al ejecutar un `apt update`, vemos que el cliente se conecta correctament
 Finalmente, ya podemos instalar el paquete y confirmar que el sistema lo descarga directamente desde nuestro servidor local.
 
 <img width="923" height="507" alt="2026-03-12_14-19" src="https://github.com/user-attachments/assets/882b9f43-3e7e-4143-87a5-92ca7b294f60" />
-
-Una vez finalizada la instalación, la aplicación ya está operativa y puede utilizarse con total normalidad en la máquina cliente.
-
-<img width="644" height="240" alt="image" src="https://github.com/user-attachments/assets/0e572098-4a87-4909-bb34-64485ba8ef11" />

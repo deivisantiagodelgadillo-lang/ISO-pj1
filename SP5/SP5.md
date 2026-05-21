@@ -38,11 +38,16 @@ Supervisa tanto la ocupación del espacio disponible como la tasa de transferenc
 
 ---
 
-# Logs - Lluc y Manu
+# Logs
+
+### Esta parte la hice hace meses junto a una compañera del grupo A pero ella no lo documento, pero creo que nos pusiste una parte de la nota a los del Grupo B ya que lo habiamos hecho en infocuina y luego la siguiente clase hicimos un tipo de tutoria guiada a los del grupo A para resolver este apartado, de igual forma lo documento nuevamente por si acaso.
 
 Para consultar el historial de eventos, visualizaremos el contenido del archivo `syslog` mediante el comando `cat`, lo que nos permitirá revisar todos los registros del sistema.
 
-<img width="1200" height="668" alt="2026-03-05_13-24" src="https://github.com/user-attachments/assets/86dcd351-9f35-453f-bbf8-4aa489de0097" />
+<img width="240" height="12" alt="2026-05-21_21-35" src="https://github.com/user-attachments/assets/e3b098b5-c3bc-4e0f-aba6-7f9c8401fd37" />
+
+<img width="644" height="444" alt="2026-05-21_21-35_1" src="https://github.com/user-attachments/assets/0f7ebdac-66bd-424b-af69-125b63587326" />
+
 
 En este directorio podemos personalizar la rotación de logs.
 
@@ -114,7 +119,6 @@ En primer lugar, en la máquina servidor (la encargada de recibir y almacenar lo
 
 <img width="242" height="53" alt="image" src="https://github.com/user-attachments/assets/7bf3735f-2939-4b30-9602-e52360bdd99b" />
 
-<img width="824" height="37" alt="image" src="https://github.com/user-attachments/assets/98294a48-7cd7-45a5-9033-00c8e3e29e69" />
 
 Dentro del nuevo archivo, debemos añadir las siguientes líneas para habilitar la recepción de registros mediante los protocolos UDP y/o TCP.
 

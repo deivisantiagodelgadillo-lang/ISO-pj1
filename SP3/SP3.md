@@ -12,7 +12,6 @@ Tot seguit, accedim a **/etc/hostname** amb la comanda **nano**, on **modificare
 
 <img width="504" height="48" alt="2026-05-22_00-06_1" src="https://github.com/user-attachments/assets/da0225d1-026a-4372-b06b-7cbba1cb6fb2" />
 
-
 El mateix al **/etc/hosts** i posarem el nou hostname a l'adreça de loopback del dispositiu. També posarem el domini que crearem pròximament lligat a l'adreça IP que ens hem configurat estàticament.
 
 <img width="492" height="89" alt="2026-05-22_00-07" src="https://github.com/user-attachments/assets/b3d5d3c2-f494-4d84-8993-b05b50de3d4f" />
@@ -28,11 +27,11 @@ Durant l'instal·lació, ens demanara una contrasenya per a l'usuari d'administr
 
 En la comanda **slapcat** per a veure tots els elements del domini.
 
-<img width="454" height="279" alt="image" src="https://github.com/user-attachments/assets/655e7727-4a91-4b40-9967-c8011ebdcd58" />
+<img width="1024" height="612" alt="image" src="https://github.com/user-attachments/assets/6b9c2aad-b68c-41f8-aadc-8ca08f8dd88c" />
 
 Ara anem a **Descargas**, i descomprimim el zip que ens descarregat del moodle.
 
-<img width="560" height="209" alt="image" src="https://github.com/user-attachments/assets/29d8f3b4-fe45-46b1-9b69-f6e78299bddc" />
+<img width="1024" height="387" alt="image" src="https://github.com/user-attachments/assets/5c59694c-5f18-4190-aa6d-f30f88fff7b7" />
 
 Amb **dpkg-reconfigure slapd**, podem configurar i afegir elements al domini més facilment. Alternativament, podem fer servir els fitxers de configuració **.ldif** que hem descomprimit, però aquests no són tan practics.
 
@@ -40,31 +39,33 @@ Amb **dpkg-reconfigure slapd**, podem configurar i afegir elements al domini mé
 
 Posem al domini que hem indicat previament al **/etch/hosts**.
 
-<img width="553" height="282" alt="image" src="https://github.com/user-attachments/assets/793b33e6-413f-4346-b200-07e5a1daef42" />
+<img width="1024" height="483" alt="image" src="https://github.com/user-attachments/assets/cc93c89c-1252-4562-a9f4-eaa66132efb0" />
+
 
 El nom de l'organitazció.
 
-<img width="559" height="240" alt="image" src="https://github.com/user-attachments/assets/811115e3-1ab1-4134-a40e-1ee3612ff251" />
+<img width="1024" height="483" alt="image" src="https://github.com/user-attachments/assets/41dd417b-991f-44d1-96a1-ff846b85ad25" />
 
 Una contrasenya, podem ficar la mateia que abans.
 
-<img width="558" height="264" alt="image" src="https://github.com/user-attachments/assets/de8287b0-7aa8-46cd-8daa-47bf738354bf" />
+<img width="556" height="233" alt="image" src="https://github.com/user-attachments/assets/98401836-90b1-4ee4-bfbd-2e046ebc89a3" />
 
 Eliminarem la base de dades en purgar.
 
-<img width="557" height="257" alt="image" src="https://github.com/user-attachments/assets/7d7478e7-c514-49ee-8822-d53268df0aa0" />
+<img width="555" height="230" alt="image" src="https://github.com/user-attachments/assets/1a6004dd-9342-42a4-a2b4-91a72385e54d" />
 
 Finalment, movem la base de ades antiga, i executem la comanda **slapcat** per a comprovar que tots els canvis que acabem de configurar s'han aplicat correctament.
 
-<img width="559" height="266" alt="image" src="https://github.com/user-attachments/assets/fe1d9ac2-ff6b-4567-8da6-73b4a271012a" />
+<img width="556" height="242" alt="image" src="https://github.com/user-attachments/assets/a3bb3730-8c0e-4997-9f84-df402069fb57" />
+
 
 De moment no tenim elements (usuaris, grups, unitats organitzatives) però el domini ja apareix configurat correctament.
 
-<img width="474" height="275" alt="image" src="https://github.com/user-attachments/assets/3d073a90-8fd4-4aa7-bfa3-af6a6c547c54" />
+<img width="1024" height="589" alt="image" src="https://github.com/user-attachments/assets/3d5a7f7f-b468-4b73-8b25-e46b83b7a6bf" />
 
 Ara crearem una unitat organitzativa mitjançant un fitxer, **uo.ldif** que ens hem descarregat, l'editarem per a que s'adapte als nostres parametres, que seria canviar **dc=nick,dc=cat**, que vindria a ser el nostre domini.
 
-<img width="520" height="147" alt="image" src="https://github.com/user-attachments/assets/56a1b938-a9ca-4e31-bf24-a42dbecb3883" />
+<img width="1024" height="278" alt="image" src="https://github.com/user-attachments/assets/73d96383-1bc2-4b48-aa2c-cae25b6b173d" />
 
 Per executar-lo utilitzarem aquesta comanda, que serveix per afegir contingut al servidor LDAP llegint-lo des d'un fitxer.
 
@@ -80,27 +81,28 @@ Per executar-lo utilitzarem aquesta comanda, que serveix per afegir contingut al
 
 **-f uo.ldif:** Indica el fitxer d'on ha de llegir les dades que vols afegir (en aquest cas, el fitxer uo.ldif).
 
-<img width="559" height="61" alt="image" src="https://github.com/user-attachments/assets/b86f4ea6-1103-4a17-9e9d-ff1a77cd4a4d" />
+<img width="1024" height="107" alt="image" src="https://github.com/user-attachments/assets/b81980cc-2015-4a39-990b-a0e81f77dc36" />
 
 Ara tocaria per a crear un usuari amb el fitxer **usu.ldif**, igual canviarem els parametres adaptant-ho als nostres. 
 
-<img width="519" height="410" alt="image" src="https://github.com/user-attachments/assets/c6da8fc6-af50-40dc-a4bb-fc0b35edb043" />
+<img width="1024" height="798" alt="image" src="https://github.com/user-attachments/assets/1bf58761-df87-40cb-a200-4cb9e1fd44c1" />
 
 Seguidament executariem la mateixa comanda per afegir-ho, nomes canviant el nom del fitxer.
 
-<img width="558" height="67" alt="image" src="https://github.com/user-attachments/assets/91619933-fb51-4109-8f94-1afd7ed16922" />
+<img width="1024" height="114" alt="image" src="https://github.com/user-attachments/assets/e49880a9-2980-47a2-bf46-061f25fc3127" />
 
 Tocaria per a l'ultim que es el fitxer de **grup.ldif** que canviariem el mateix que als altres dos fitxers.
 
-<img width="514" height="188" alt="image" src="https://github.com/user-attachments/assets/70886093-9063-493a-a619-ab30dd4b22d4" />
+<img width="1024" height="347" alt="image" src="https://github.com/user-attachments/assets/fb754193-6b77-4eb9-8507-adb873a02a2b" />
 
 I mateixa comanda canviant el nom del fitxer.
 
-<img width="560" height="61" alt="image" src="https://github.com/user-attachments/assets/4ba3d2f3-2529-4f97-949c-776ef8434b40" />
+<img width="1024" height="116" alt="image" src="https://github.com/user-attachments/assets/c8e16992-172d-441f-8d24-145a87b4f446" />
 
 Mitjançant la comanda de **slapcat**, podriem confirmar que se'ns ha creat.
 
-<img width="475" height="516" alt="image" src="https://github.com/user-attachments/assets/30652036-f9eb-464f-ba38-53e2bc305140" />
+<img width="610" height="677" alt="image" src="https://github.com/user-attachments/assets/7f81a643-f6e5-4682-b943-5a8dcf975fe0" />
+
 
 <img width="456" height="536" alt="image" src="https://github.com/user-attachments/assets/307f58c1-02e4-45ad-b985-40f19688ac73" />
 

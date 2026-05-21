@@ -112,58 +112,57 @@ Mitjançant la comanda de **slapcat**, podriem confirmar que se'ns ha creat.
 
 Ara seria el torn per al client, previament hauriem fet la compravacio que tenen connexio entre els dos. Despres descarregarem els paquets necessaris.
 
-<img width="557" height="21" alt="image" src="https://github.com/user-attachments/assets/98a56ec0-7bb9-4c6f-b8aa-bb0b82a307ba" />
+<img width="381" height="17" alt="image" src="https://github.com/user-attachments/assets/c99a90b0-a451-4c43-bc05-e6adcd858913" />
 
 En la instal·lació, apareixera l'assistent que ens demanara l'adreça IP del domini.
 
-<img width="562" height="279" alt="image" src="https://github.com/user-attachments/assets/de5f7ed7-10ad-4da0-84fa-19ebae6ac55b" />
+<img width="689" height="308" alt="image" src="https://github.com/user-attachments/assets/985a1e76-9238-436c-a9ba-cd8d3a00294c" />
 
 Posarem tambe el nom.
 
-<img width="562" height="274" alt="image" src="https://github.com/user-attachments/assets/06d2f696-d34f-4f5b-8df3-524e36b9b16f" />
+<img width="1024" height="441" alt="image" src="https://github.com/user-attachments/assets/9b7b2d49-6d67-46e9-8bf0-253ac22232ca" />
 
 Elegirem la versió de LDAP 3.
 
-<img width="560" height="291" alt="image" src="https://github.com/user-attachments/assets/58f0f443-5d90-4ba1-82c5-50877bade699" />
+<img width="696" height="327" alt="image" src="https://github.com/user-attachments/assets/d97b2edf-d168-4024-8a9a-17e1397a3087" />
 
 Si a les seguents dos opcions.
 
-<img width="554" height="337" alt="image" src="https://github.com/user-attachments/assets/aa5bf757-42d2-4adf-9562-a091abd39a02" />
+<img width="690" height="390" alt="image" src="https://github.com/user-attachments/assets/43838a43-c1ec-45f0-ac20-c61bb25ced4a" />
 
-<img width="561" height="317" alt="image" src="https://github.com/user-attachments/assets/af2d330d-4249-4c3e-abaa-b941072cf15f" />
+<img width="698" height="360" alt="image" src="https://github.com/user-attachments/assets/e1a2ceeb-1e97-49a3-8ecb-d72cbf28c769" />
 
 Posarem l'usuari d'adminsitrador.
 
-<img width="503" height="314" alt="image" src="https://github.com/user-attachments/assets/0b4abaf2-fc1c-4adf-868d-ae4acfdb8384" />
+<img width="1024" height="622" alt="image" src="https://github.com/user-attachments/assets/48eacc3f-31cb-4948-a1d2-f031a4c7e727" />
 
 La seva contrasenya.
 
-<img width="556" height="299" alt="image" src="https://github.com/user-attachments/assets/e20e6492-1a5b-47b0-90a8-7910ec183fe1" />
+<img width="692" height="339" alt="image" src="https://github.com/user-attachments/assets/403daf51-35ff-4c90-8607-183a33cce760" />
 
 I ja ho tindriem, pero en cas que en algun punt ens haguessim equivocat, podem tornar a configurar-ho amb aquesta comanda.
 
-<img width="552" height="22" alt="image" src="https://github.com/user-attachments/assets/55bb59b4-7b15-4b0d-884f-75d212aacfe9" />
+<img width="343" height="20" alt="image" src="https://github.com/user-attachments/assets/9e1632ce-e516-4e7d-a36c-4c3be3c46557" />
 
 Seguidament editarem el fitxer **/etc/nsswitch.conf** i afegirem **files systemd** al mig de cada linia.
 
-<img width="561" height="212" alt="image" src="https://github.com/user-attachments/assets/e1bc2fdc-bbb5-4c4d-a96d-a6a3487bb2f1" />
+<img width="697" height="231" alt="image" src="https://github.com/user-attachments/assets/6b668762-554f-400c-a17e-23ab29ba254d" />
 
 Despres al fitxer **/etc/pam.d/common-password** haurem de borrar aquesta part d'una linia.
 
-<img width="561" height="245" alt="image" src="https://github.com/user-attachments/assets/da692876-b4ee-4f83-a05e-d5d20bea2353" />
+<img width="699" height="284" alt="image" src="https://github.com/user-attachments/assets/01334baa-b0ac-4213-8f12-8a9d32669867" />
 
 Casi acabariem i dins d'aquest fitxer **/etc/pam.d/common-session** afegirem l'ultima linia que es veu, serveix perque quan un usuari canvii la seva contrasenya, s'actualitzi automaticament al servidor LDAP sense que l'hagi de teclejar dues vegades.
 
-<img width="560" height="362" alt="image" src="https://github.com/user-attachments/assets/c1f8beab-69ea-48d5-b795-e5cf52e23324" />
+<img width="698" height="410" alt="image" src="https://github.com/user-attachments/assets/93849ed2-821e-4710-801c-75473ba49c96" />
 
 Ara modificariem i ficariem el seguent al fitxer **/usr/share/ligthdm/lightdm.conf.d/50-ubuntu.conf** per 
 
-<img width="559" height="111" alt="image" src="https://github.com/user-attachments/assets/6a1dcfc2-ec1b-4108-84c9-953dd2b8415e" />
+<img width="680" height="94" alt="image" src="https://github.com/user-attachments/assets/c001bfe0-d237-4e93-82e8-262041223899" />
 
 Una vegada fet tot aixo, ja podriem surtir del nostre usuari, i iniciar per l'usuari nou que hem creat que es diu **alu1**.
 
-<img width="468" height="573" alt="image" src="https://github.com/user-attachments/assets/6622b21f-43f3-4dfb-9b2c-a1fd8196be19" />
-
+<img width="563" height="609" alt="image" src="https://github.com/user-attachments/assets/92aa1a5a-0598-41d3-bc1a-599eaea50f17" />
 
 ## Gestió del domini mitjançant comandes
 

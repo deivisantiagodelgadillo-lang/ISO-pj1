@@ -434,7 +434,7 @@ Una vez aquí, iremos a **"New Group"**.
 
 Finalmente, crearemos el grupo. En este caso, le pondremos un nombre y un UID.
 
-<img width="905" height="269" alt="2026-02-18_18-30" src="https://github.com/user-attachments/assets/2364fdff-a0e6-46cf-88d0-6174f670778a" />
+<img width="614" height="202" alt="image" src="https://github.com/user-attachments/assets/a4c4f4dd-9174-4ba6-ba50-e9bb729d00fd" />
 
 El grupo se ha creado correctamente.
 

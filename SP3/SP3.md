@@ -170,31 +170,35 @@ Una vegada fet tot aixo, ja podriem surtir del nostre usuari, i iniciar per l'us
 
 * Fes un dpkg-reconfigure slapd al servidor per tal de deixar la base de dades buida i només amb el domini l’usuari admin creat. Comprova-ho amb un slapcat.
 
-<img width="762" height="177" alt="2026-02-20_08-55" src="https://github.com/user-attachments/assets/400fae27-894c-4b4e-a29a-0faf500c713c" />
+<img width="2171" height="724" alt="image" src="https://github.com/user-attachments/assets/5912be5b-1f35-4c7b-b0d6-8b99ca5027c9" />
 
-<img width="505" height="306" alt="2026-02-20_08-57" src="https://github.com/user-attachments/assets/caf7e644-af67-4baa-9ab1-0f5a70df8026" />
+<img width="1617" height="973" alt="image" src="https://github.com/user-attachments/assets/52ce8285-3cee-46ca-879a-6b651fb12cb6" />
+
 
 * Descarrega l'arxiu dades_pt10.ldif del moodle i amb la comanda ldapadd carrega els usuaris, grups i uos (Compte que el domini és vesper.cat, hauràs de modificar-lo pel teu)
 
-<img width="522" height="312" alt="2026-02-20_09-03" src="https://github.com/user-attachments/assets/128dff1e-5d9e-4ad1-902c-f9c534c5d87e" />
+<img width="1708" height="921" alt="image" src="https://github.com/user-attachments/assets/19b851bc-ea67-4594-98e8-162e2b9fc7f8" />
 
 I afegim el **.ldif** amb **ldapadd**.
 
-<img width="808" height="421" alt="2026-02-20_09-06" src="https://github.com/user-attachments/assets/16d6b624-a920-4ebd-bd1f-c2f9c4db43e2" />
+<img width="1746" height="901" alt="image" src="https://github.com/user-attachments/assets/2044a705-e712-428d-9deb-1794aa2dcac0" />
+
 
 * Fes un altre slapcat per tal de comprovar que les dades s'han carregat correctament.
 
-<img width="508" height="530" alt="2026-02-20_09-09" src="https://github.com/user-attachments/assets/12e342aa-852d-43a9-8e5c-1e971f7f7163" />
+<img width="1231" height="1278" alt="image" src="https://github.com/user-attachments/assets/a404209c-6e4a-4dbd-83ac-cab4a342d983" />
+
 
 ### Activitats
 
 * Quantes uos hi ha? **Hi ha 2 UO** Quants usuaris hi ha al domini? **Hi ha 3 usuaris**
 
-<img width="818" height="200" alt="2026-02-20_09-11" src="https://github.com/user-attachments/assets/0d7578bc-ebb0-4918-bb87-f073dc1e1e5b" />
+<img width="1979" height="795" alt="image" src="https://github.com/user-attachments/assets/06e1e949-63b0-46aa-8d3c-e6a52996db6d" />
 
 * Crea una nova uo anomenada asix
 
-<img width="809" height="181" alt="2026-02-20_09-13" src="https://github.com/user-attachments/assets/e5dd5039-ceac-4d64-9893-5e41f006814b" />
+<img width="2170" height="725" alt="image" src="https://github.com/user-attachments/assets/d7dc5e8a-614a-4269-ad89-5ec8558db47a" />
+
 
 * Esborra l’atribut roomnumber i homeDirectory de l’usuari ejohnson
 
@@ -202,7 +206,7 @@ Amb aquest cas no existeix cap usuari **ejohnson** i cap dels usuaris te assigna
 
 Com que l'usuari esta present no permet eliminar el homeDirectory pero si el seu roomNumber.
 
-<img width="532" height="125" alt="2026-02-20_10-30" src="https://github.com/user-attachments/assets/a6c8978e-2bf1-4914-a9b9-e182881f729f" />
+<img width="2172" height="724" alt="image" src="https://github.com/user-attachments/assets/7324beb5-27fe-43a5-8d2c-605a6ff15c3e" />
 
 Aqui ja l'hauriem creat que es podria veure.
 

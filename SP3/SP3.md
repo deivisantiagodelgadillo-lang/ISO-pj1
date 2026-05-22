@@ -1,103 +1,106 @@
 # Sprint 3: Administració de Dominis i Seguretat 
 
-## Configuració del servidor
+Claro. Te lo dejo traducido al castellano, respetando el orden de los apartados y manteniendo las capturas en el mismo lugar. 
 
-Primer, obrim un terminal dintre de la màquina servidor, executem la comanda **ip a**, ens apuntem l'adreça IP que rebem per dhcp, i la posarem de manera estàtica amb interficie gràfica. Quan configurem un servidor **sempre hem de posar l'adreça IP estatica**, ja que una adreça dinàmica complicaría l'accés als serveis que ofereix, degut a que cada dia en tindria una de diferent.
+---
+
+## Configuración del servidor
+
+Primero, abrimos un terminal dentro de la máquina servidor, ejecutamos el comando **ip a**, anotamos la dirección IP que recibimos por DHCP y la configuraremos de forma estática mediante la interfaz gráfica. Cuando configuramos un servidor, **siempre debemos poner la dirección IP estática**, ya que una dirección dinámica complicaría el acceso a los servicios que ofrece, debido a que cada día podría tener una dirección diferente.
 
 <img width="746" height="459" alt="Captura de pantalla de 2026-01-08 13-24-13" src="https://github.com/user-attachments/assets/9a3ec543-8a7e-4345-83bc-fcec314ada22" />
 
 <img width="786" height="302" alt="2026-05-22_00-06" src="https://github.com/user-attachments/assets/13b72184-44a5-4d15-85a7-3718c254e04d" />
 
-Tot seguit, accedim a **/etc/hostname** amb la comanda **nano**, on **modificarem el nom del dispositiu**.
+A continuación, accedemos a **/etc/hostname** con el comando **nano**, donde **modificaremos el nombre del dispositivo**.
 
 <img width="504" height="48" alt="2026-05-22_00-06_1" src="https://github.com/user-attachments/assets/da0225d1-026a-4372-b06b-7cbba1cb6fb2" />
 
-El mateix al **/etc/hosts** i posarem el nou hostname a l'adreça de loopback del dispositiu. També posarem el domini que crearem pròximament lligat a l'adreça IP que ens hem configurat estàticament.
+Haremos lo mismo en **/etc/hosts** y pondremos el nuevo hostname en la dirección de loopback del dispositivo. También añadiremos el dominio que crearemos próximamente asociado a la dirección IP que hemos configurado de forma estática.
 
 <img width="492" height="89" alt="2026-05-22_00-07" src="https://github.com/user-attachments/assets/b3d5d3c2-f494-4d84-8993-b05b50de3d4f" />
 
-A continuació, instal·lem els serveis per a instal·lar i gestionar ldap.
+A continuación, instalamos los servicios necesarios para instalar y gestionar LDAP.
 
 <img width="780" height="153" alt="image" src="https://github.com/user-attachments/assets/0a30a644-0d52-45bd-9e02-394bf293a2af" />
 
-Durant l'instal·lació, ens demanara una contrasenya per a l'usuari d'administrador de ldap, mes avant haurem de recordar.
+Durante la instalación, nos pedirá una contraseña para el usuario administrador de LDAP, que más adelante deberemos recordar.
 
 <img width="652" height="300" alt="image" src="https://github.com/user-attachments/assets/d6da4609-d432-471d-976f-dba29410869d" />
 
-En la comanda **slapcat** per a veure tots els elements del domini.
+Usamos el comando **slapcat** para ver todos los elementos del dominio.
 
 <img width="761" height="483" alt="image" src="https://github.com/user-attachments/assets/52c97ac2-bc84-4031-98ef-72cc74827359" />
 
-Ara anem a **Descargas**, i descomprimim el zip que ens descarregat del moodle.
+Ahora vamos a **Descargas** y descomprimimos el archivo ZIP que hemos descargado de Moodle.
 
 <img width="773" height="305" alt="image" src="https://github.com/user-attachments/assets/c32eaa7f-ce22-4652-abd4-bfb65a94d6de" />
 
-Amb **dpkg-reconfigure slapd**, podem configurar i afegir elements al domini més facilment. Alternativament, podem fer servir els fitxers de configuració **.ldif** que hem descomprimit, però aquests no són tan practics.
+Con **dpkg-reconfigure slapd**, podemos configurar y añadir elementos al dominio más fácilmente. Alternativamente, podemos utilizar los archivos de configuración **.ldif** que hemos descomprimido, pero estos no son tan prácticos.
 
 <img width="561" height="18" alt="image" src="https://github.com/user-attachments/assets/66131f3e-973c-4abc-b772-652b85e35fbf" />
 
-Posem al domini que hem indicat previament al **/etch/hosts**.
+Introducimos el dominio que hemos indicado previamente en **/etc/hosts**.
 
 <img width="768" height="359" alt="image" src="https://github.com/user-attachments/assets/dc385436-be5b-44cc-bc78-febcfc178e27" />
 
-El nom de l'organitazció.
+Indicamos el nombre de la organización.
 
 <img width="751" height="369" alt="image" src="https://github.com/user-attachments/assets/4596e391-d4b5-432e-80f1-e7a0af226daa" />
 
-Una contrasenya, podem ficar la mateia que abans.
+Introducimos una contraseña. Podemos poner la misma que antes.
 
 <img width="556" height="233" alt="image" src="https://github.com/user-attachments/assets/98401836-90b1-4ee4-bfbd-2e046ebc89a3" />
 
-Eliminarem la base de dades en purgar.
+Eliminaremos la base de datos al purgar.
 
 <img width="555" height="230" alt="image" src="https://github.com/user-attachments/assets/1a6004dd-9342-42a4-a2b4-91a72385e54d" />
 
-Finalment, movem la base de ades antiga, i executem la comanda **slapcat** per a comprovar que tots els canvis que acabem de configurar s'han aplicat correctament.
+Finalmente, movemos la base de datos antigua y ejecutamos el comando **slapcat** para comprobar que todos los cambios que acabamos de configurar se han aplicado correctamente.
 
 <img width="556" height="242" alt="image" src="https://github.com/user-attachments/assets/a3bb3730-8c0e-4997-9f84-df402069fb57" />
 
-
-De moment no tenim elements (usuaris, grups, unitats organitzatives) però el domini ja apareix configurat correctament.
+De momento no tenemos elementos, como usuarios, grupos o unidades organizativas, pero el dominio ya aparece configurado correctamente.
 
 <img width="763" height="462" alt="image" src="https://github.com/user-attachments/assets/d983ffbd-7436-4457-988c-d3cf294bbb2a" />
 
-Ara crearem una unitat organitzativa mitjançant un fitxer, **uo.ldif** que ens hem descarregat, l'editarem per a que s'adapte als nostres parametres, que seria canviar **dc=nick,dc=cat**, que vindria a ser el nostre domini.
+Ahora crearemos una unidad organizativa mediante un archivo llamado **uo.ldif**, que hemos descargado. Lo editaremos para que se adapte a nuestros parámetros. En este caso, habría que cambiar **dc=nick,dc=cat**, que corresponde a nuestro dominio.
 
 <img width="753" height="210" alt="image" src="https://github.com/user-attachments/assets/5c509ca5-47f8-44af-9be0-afd34aa8535c" />
 
-Per executar-lo utilitzarem aquesta comanda, que serveix per afegir contingut al servidor LDAP llegint-lo des d'un fitxer.
+Para ejecutarlo utilizaremos este comando, que sirve para añadir contenido al servidor LDAP leyéndolo desde un archivo.
 
-**ldapadd:** És l'ordre principal per afegir entrades a la base de dades LDAP.
+**ldapadd:** Es el comando principal para añadir entradas a la base de datos LDAP.
 
-**-c (continue):** Si troba un error (per exemple, si una entrada ja existeix), no s'atura; continua afegint la resta de coses del fitxer.
+**-c (continue):** Si encuentra un error, por ejemplo, si una entrada ya existe, no se detiene; continúa añadiendo el resto de elementos del archivo.
 
-**-x:** Utilitza autenticació simple (amb contrasenya normal), en lloc de xifrats complexos.
+**-x:** Utiliza autenticación simple, es decir, con contraseña normal, en lugar de mecanismos de autenticación más complejos.
 
-**-D "cn=admin...":** És l'usuari amb qui t'identifiques per fer els canvis (el login). Aquí estàs entrant com a admin del domini nick.cat.
+**-D "cn=admin...":** Es el usuario con el que te identificas para hacer los cambios. En este caso, estás accediendo como administrador del dominio nick.cat.
 
-**-W:** Et demana la contrasenya després de prémer Intro (per seguretat, perquè no quedi guardada a l'historial de comandes).
+**-W:** Pide la contraseña después de pulsar Intro, por seguridad, para que no quede guardada en el historial de comandos.
 
-**-f uo.ldif:** Indica el fitxer d'on ha de llegir les dades que vols afegir (en aquest cas, el fitxer uo.ldif).
+**-f uo.ldif:** Indica el archivo desde donde debe leer los datos que quieres añadir. En este caso, el archivo **uo.ldif**.
 
 <img width="791" height="84" alt="image" src="https://github.com/user-attachments/assets/26a7f477-70b4-4d4e-9e5f-c4c2a0dfe603" />
 
-Ara tocaria per a crear un usuari amb el fitxer **usu.ldif**, igual canviarem els parametres adaptant-ho als nostres. 
+Ahora toca crear un usuario con el archivo **usu.ldif**. Igual que antes, cambiaremos los parámetros para adaptarlos a los nuestros.
 
 <img width="758" height="627" alt="image" src="https://github.com/user-attachments/assets/5b40df47-b756-4f20-957f-77f107f9b5a5" />
 
-Seguidament executariem la mateixa comanda per afegir-ho, nomes canviant el nom del fitxer.
+Seguidamente, ejecutaríamos el mismo comando para añadirlo, cambiando únicamente el nombre del archivo.
 
 <img width="792" height="86" alt="image" src="https://github.com/user-attachments/assets/bbad47fe-e51e-4f19-91fe-34e182fdd7af" />
 
-Tocaria per a l'ultim que es el fitxer de **grup.ldif** que canviariem el mateix que als altres dos fitxers.
+Ahora toca el último archivo, **grup.ldif**, en el que cambiaríamos los mismos parámetros que en los dos archivos anteriores.
 
 <img width="742" height="267" alt="image" src="https://github.com/user-attachments/assets/3feae02a-b3a1-40dc-ab23-5cb826988e64" />
 
-I mateixa comanda canviant el nom del fitxer.
+Y usamos la misma orden, cambiando el nombre del archivo.
 
 <img width="620" height="69" alt="image" src="https://github.com/user-attachments/assets/bfe280e5-25bb-4b3f-95ec-e5ec60cd8e3a" />
 
-Mitjançant la comanda de **slapcat**, podriem confirmar que se'ns ha creat.
+Mediante el comando **slapcat**, podemos confirmar que se ha creado correctamente.
 
 <img width="610" height="677" alt="image" src="https://github.com/user-attachments/assets/7f81a643-f6e5-4682-b943-5a8dcf975fe0" />
 
@@ -105,60 +108,57 @@ Mitjançant la comanda de **slapcat**, podriem confirmar que se'ns ha creat.
 
 <img width="712" height="425" alt="image" src="https://github.com/user-attachments/assets/c564ae41-957d-46fc-bc0a-7eb09797140f" />
 
+## Configuración del cliente
 
-## Configuració del client
-
-Ara seria el torn per al client, previament hauriem fet la compravacio que tenen connexio entre els dos. Despres descarregarem els paquets necessaris.
+Ahora sería el turno del cliente. Previamente, habríamos comprobado que hay conexión entre los dos equipos. Después, descargaremos los paquetes necesarios.
 
 <img width="381" height="17" alt="image" src="https://github.com/user-attachments/assets/c99a90b0-a451-4c43-bc05-e6adcd858913" />
 
-En la instal·lació, apareixera l'assistent que ens demanara l'adreça IP del domini.
+Durante la instalación, aparecerá el asistente, que nos pedirá la dirección IP del dominio.
 
 <img width="689" height="308" alt="image" src="https://github.com/user-attachments/assets/985a1e76-9238-436c-a9ba-cd8d3a00294c" />
 
-Posarem tambe el nom.
+También pondremos el nombre.
 
 <img width="717" height="319" alt="image" src="https://github.com/user-attachments/assets/ea6372da-ba7e-471a-866f-1f513924010e" />
 
-Elegirem la versió de LDAP 3.
+Elegiremos la versión de LDAP 3.
 
 <img width="696" height="327" alt="image" src="https://github.com/user-attachments/assets/d97b2edf-d168-4024-8a9a-17e1397a3087" />
 
-Si a les seguents dos opcions.
+Seleccionaremos Sí en las dos opciones siguientes.
 
-<img width="690" height="390" alt="image" src="https://github.com/user-attachments/assets/43838a43-c1ec-45f0-ac20-c61bb25ced4a" />
+<img width="690" height="390" alt="image" src="https://github.com/user-attachments/assets/43838a43-c1ec-45f0-ac20-c61bb25ced4a" /> <img width="698" height="360" alt="image" src="https://github.com/user-attachments/assets/e1a2ceeb-1e97-49a3-8ecb-d72cbf28c769" />
 
-<img width="698" height="360" alt="image" src="https://github.com/user-attachments/assets/e1a2ceeb-1e97-49a3-8ecb-d72cbf28c769" />
-
-Posarem l'usuari d'adminsitrador.
+Introduciremos el usuario administrador.
 
 <img width="708" height="422" alt="image" src="https://github.com/user-attachments/assets/fd0afbf9-945b-479d-a96b-9e64e57d4214" />
 
-La seva contrasenya.
+Después, introduciremos su contraseña.
 
 <img width="692" height="339" alt="image" src="https://github.com/user-attachments/assets/403daf51-35ff-4c90-8607-183a33cce760" />
 
-I ja ho tindriem, pero en cas que en algun punt ens haguessim equivocat, podem tornar a configurar-ho amb aquesta comanda.
+Con esto ya lo tendríamos configurado, pero en caso de que nos hubiéramos equivocado en algún punto, podemos volver a configurarlo con este comando.
 
 <img width="343" height="20" alt="image" src="https://github.com/user-attachments/assets/9e1632ce-e516-4e7d-a36c-4c3be3c46557" />
 
-Seguidament editarem el fitxer **/etc/nsswitch.conf** i afegirem **files systemd** al mig de cada linia.
+Seguidamente, editaremos el archivo /etc/nsswitch.conf y añadiremos files systemd en medio de cada línea.
 
 <img width="697" height="231" alt="image" src="https://github.com/user-attachments/assets/6b668762-554f-400c-a17e-23ab29ba254d" />
 
-Despres al fitxer **/etc/pam.d/common-password** haurem de borrar aquesta part d'una linia.
+Después, en el archivo /etc/pam.d/common-password, tendremos que borrar esta parte de una línea.
 
 <img width="699" height="284" alt="image" src="https://github.com/user-attachments/assets/01334baa-b0ac-4213-8f12-8a9d32669867" />
 
-Casi acabariem i dins d'aquest fitxer **/etc/pam.d/common-session** afegirem l'ultima linia que es veu, serveix perque quan un usuari canvii la seva contrasenya, s'actualitzi automaticament al servidor LDAP sense que l'hagi de teclejar dues vegades.
+Ya casi estaríamos terminando. Dentro del archivo /etc/pam.d/common-session, añadiremos la última línea que se ve en la captura. Esta sirve para que, cuando un usuario cambie su contraseña, se actualice automáticamente en el servidor LDAP sin que tenga que escribirla dos veces.
 
 <img width="698" height="410" alt="image" src="https://github.com/user-attachments/assets/93849ed2-821e-4710-801c-75473ba49c96" />
 
-Ara modificariem i ficariem el seguent al fitxer **/usr/share/ligthdm/lightdm.conf.d/50-ubuntu.conf** per 
+Ahora modificaremos el archivo /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf y añadiremos lo siguiente:
 
 <img width="680" height="94" alt="image" src="https://github.com/user-attachments/assets/c001bfe0-d237-4e93-82e8-262041223899" />
 
-Una vegada fet tot aixo, ja podriem surtir del nostre usuari, i iniciar per l'usuari nou que hem creat que es diu **alu1**.
+Una vez hecho todo esto, ya podríamos cerrar sesión con nuestro usuario e iniciar sesión con el nuevo usuario que hemos creado, que se llama alu1.
 
 <img width="563" height="609" alt="image" src="https://github.com/user-attachments/assets/92aa1a5a-0598-41d3-bc1a-599eaea50f17" />
 
@@ -514,139 +514,138 @@ Per tal que els canvis realitzats en el fitxer de configuració s'apliquin corre
 
 <img width="697" height="393" alt="image" src="https://github.com/user-attachments/assets/b237032d-2590-45d2-bf9f-0655f9bb4984" />
 
-## Configuració client smb
+## Configuración del cliente SMB
 
-Accedim al client, que es troba a la mateixa xarxa, com he comprovat amb el ping
+Accedemos al cliente, que se encuentra en la misma red, como hemos comprobado mediante el comando `ping`.
 
 <img width="1877" height="838" alt="image" src="https://github.com/user-attachments/assets/09237282-2512-4c76-8ab5-a0e350f68321" />
 
-El paquet a instal·lar es **smbclient**.
+El paquete que debemos instalar es **smbclient**.
 
 <img width="598" height="157" alt="image" src="https://github.com/user-attachments/assets/599e7b12-d689-4383-9e90-fc769d0020b4" />
 
-I ja podem connectar-mos mitjançant el navegador de fitxers.
+Y ya podemos conectarnos mediante el navegador de archivos.
 
 <img width="443" height="44" alt="image" src="https://github.com/user-attachments/assets/b119e755-1af1-4368-80b5-5e2c511e6df2" />
 
-Per comemzat entrarem amb l'usuari anonim.
+Para empezar, entraremos con el usuario anónimo.
 
 <img width="622" height="507" alt="image" src="https://github.com/user-attachments/assets/e3484772-52a0-4194-a94b-ed377b95efee" />
 
-Crearem una carpeta "anonim".
+Crearemos una carpeta llamada `anonim`.
 
 <img width="436" height="127" alt="image" src="https://github.com/user-attachments/assets/589511c5-4f21-4a4c-bc69-024c098bc898" />
 
-I veiem que es crea perfectament.
+Y vemos que se crea correctamente.
 
 <img width="251" height="142" alt="image" src="https://github.com/user-attachments/assets/4cca0f9a-53ee-43a5-ad3b-f5f88feaa2da" />
 
-Surtirem. 
+Saldremos.
 
 <img width="213" height="214" alt="image" src="https://github.com/user-attachments/assets/8f96bf84-775c-4799-9dd1-bd055d5482cb" />
 
-I tornarem a entrar amb l'usuari "naim".
+Y volveremos a entrar con el usuario `naim`.
 
 <img width="469" height="429" alt="image" src="https://github.com/user-attachments/assets/d43f61a2-0339-4dac-9c7e-8bb924459bd7" />
 
-Creem carpeta.
+Creamos una carpeta.
 
 <img width="433" height="113" alt="image" src="https://github.com/user-attachments/assets/6ee1f356-c671-4e98-86ff-f3dce4145ac3" />
 
-I es crea sense cap problema.
+Y se crea sin ningún problema.
 
 <img width="240" height="140" alt="image" src="https://github.com/user-attachments/assets/4d0112ca-4f97-4c38-a86e-779daf2f0748" />
 
-Ara provarem amb l'usuari "eros".
+Ahora probaremos con el usuario `eros`.
 
 <img width="466" height="429" alt="image" src="https://github.com/user-attachments/assets/457724ab-ef5e-4057-965a-aa287b3b732d" />
 
-I podem veure que amb aquest usuari, no es pot crear cap carpeta.
+Y podemos ver que, con este usuario, no se puede crear ninguna carpeta.
 
 <img width="600" height="200" alt="image" src="https://github.com/user-attachments/assets/c087c19b-30f5-4d34-a184-9b1ab245368f" />
 
 
 ## NFS
 
-### 1 exercici nfs sense ldap 
+### 1 ejercicio NFS sin LDAP
 
-En aquest apartat configurarem un servidor NFS per compartir directoris amb un client, sense utilitzar autenticació LDAP inicialment.
+En este apartado configuraremos un servidor NFS para compartir directorios con un cliente, sin utilizar autenticación LDAP inicialmente.
 
-Actualitzarem tots els paquets.
+Actualizaremos todos los paquetes.
 
 <img width="776" height="233" alt="image" src="https://github.com/user-attachments/assets/68053bfe-5b5c-4193-8ebe-f53d823b4713" />
 
-
-Primer, al **servidor**, instal·lem el paquet `nfs-kernel-server`.
+Primero, en el **servidor**, instalamos el paquete `nfs-kernel-server`.
 
 <img width="775" height="246" alt="image" src="https://github.com/user-attachments/assets/2e988b18-e7fa-4e2e-abf6-eb69aa6b163f" />
 
-Creem el directori que volem compartir i li assignem els permisos necessaris. En aquest cas, creem `/1exercici`.
+Creamos el directorio que queremos compartir y le asignamos los permisos necesarios. En este caso, creamos `/1exercici`.
 
 <img width="778" height="222" alt="image" src="https://github.com/user-attachments/assets/4bca7fa9-e5e6-46fa-bf38-afca5a6033b8" />
 
-Editem el fitxer `/etc/exports` per definir qui pot accedir al recurs i amb quins permisos. Afegim la línia corresponent al nostre directori i xarxa/client.
+Editamos el archivo `/etc/exports` para definir quién puede acceder al recurso y con qué permisos. Añadimos la línea correspondiente a nuestro directorio y a la red o cliente.
 
 <img width="629" height="344" alt="image" src="https://github.com/user-attachments/assets/17e968d5-6660-4dfa-994d-cc05501b0376" />
 
-Apliquem la nova configuració i reiniciem el servei `nfs-kernel-server` per assegurar-nos que els canvis s'apliquen.
+Aplicamos la nueva configuración y reiniciamos el servicio `nfs-kernel-server` para asegurarnos de que los cambios se aplican correctamente.
 
 <img width="806" height="256" alt="image" src="https://github.com/user-attachments/assets/48a92b86-56ed-472b-b285-c37fe4704200" />
 
-Ara crearem un arxiu anomenat `hola` a la carpeta `/1exercici`.
+Ahora crearemos un archivo llamado `hola` en la carpeta `/1exercici`.
 
 <img width="359" height="58" alt="2026-02-10_13-00" src="https://github.com/user-attachments/assets/3ce9553d-93d1-4404-9ddb-98e26fc5a809" />
 
-Ara passem al **client**. Instal·lem el paquet `nfs-common, rpcbind` i creem el punt de muntatge on vincularem el directori remot.
+Ahora pasamos al **cliente**. Instalamos los paquetes `nfs-common` y `rpcbind`, y creamos el punto de montaje donde vincularemos el directorio remoto.
 
 <img width="777" height="222" alt="image" src="https://github.com/user-attachments/assets/8959dece-2a68-42d7-91c2-9e1c356936ce" />
 
-Muntem manualment el recurs compartit NFS al punt de muntatge creat. Utilitzem la IP del servidor i la ruta del directori exportat.
+Montamos manualmente el recurso compartido NFS en el punto de montaje creado. Utilizamos la IP del servidor y la ruta del directorio exportado.
 
 <img width="772" height="266" alt="image" src="https://github.com/user-attachments/assets/33555c4b-07a7-4c67-a603-7e073bbf22c7" />
 
-Verifiquem que tenim accés d'escriptura (si així ho hem configurat) creant un fitxer de prova dins del directori muntat.
+Verificamos que tenemos acceso de escritura, si así lo hemos configurado, creando un archivo de prueba dentro del directorio montado.
 
 <img width="769" height="256" alt="image" src="https://github.com/user-attachments/assets/d5185b04-5018-4c4c-b9ee-769d27386c1c" />
 
-Per fer que el muntatge sigui permanent i es mantingui després de reiniciar, afegim l'entrada corresponent al fitxer `/etc/fstab`.
+Para hacer que el montaje sea permanente y se mantenga después de reiniciar, añadimos la entrada correspondiente al archivo `/etc/fstab`.
 
 <img width="803" height="280" alt="image" src="https://github.com/user-attachments/assets/8331fe14-4987-457c-a6e6-6cc070899a58" />
 
-Finalment, podem reiniciar el client o fer un `mount -a` per comprovar que el recurs es munta automàticament sense errors.
+Finalmente, podemos reiniciar el cliente o ejecutar `mount -a` para comprobar que el recurso se monta automáticamente sin errores.
 
 <img width="194" height="49" alt="image" src="https://github.com/user-attachments/assets/3f33c8f9-cf53-4418-91ec-c656a7ae4522" />
 
 <img width="681" height="104" alt="image" src="https://github.com/user-attachments/assets/23971487-44ea-4c30-b351-91378bd8d42b" />
 
-### NFS amb LDAP
+### NFS con LDAP
 
-Primerament al nostre servidor prepararem el directori.
+Primero, en nuestro servidor prepararemos el directorio.
 
 <img width="413" height="156" alt="2026-02-10_13-51" src="https://github.com/user-attachments/assets/6a237ed6-da20-4b4b-935f-c8ae490b63ce" />
 
-I tal com hem fet anteriorment ficarem aquesta ruta **/homes** al **/etc/exports**.
+Y, tal como hemos hecho anteriormente, pondremos esta ruta, **/homes**, en el archivo **/etc/exports**.
 
 <img width="508" height="324" alt="2026-02-10_13-53" src="https://github.com/user-attachments/assets/cda2076d-3900-4af4-9a52-47da22df2ed1" />
 
-Ara anirem al nostre client i farem el seguent.
+Ahora iremos a nuestro cliente y haremos lo siguiente.
 
 <img width="723" height="219" alt="image" src="https://github.com/user-attachments/assets/343beb44-7ab9-4eea-b823-d88aac9aa024" />
 
-Al fstab ficarem aquesta línia tal i com hem fet anteriorment.
+En el archivo `fstab` pondremos esta línea, tal como hemos hecho anteriormente.
 
 <img width="803" height="306" alt="image" src="https://github.com/user-attachments/assets/0488f3f2-2415-4ecb-a33c-b9970b3a72fb" />
 
-Guardem i tornem a la part del servidor, ara crearem l'usuari Marcel. MOLT IMPORTANT INDICA EL SEU HOME amb aquest cas **/homes**
+Guardamos y volvemos a la parte del servidor. Ahora crearemos el usuario Marcel. **MUY IMPORTANTE: indica su HOME**, en este caso **/homes**.
 
 <img width="704" height="481" alt="image" src="https://github.com/user-attachments/assets/f485ee1c-975c-4bee-bddd-8eb2d4a291b8" />
 
-I amb ldapadd l'afegim.
+Y con `ldapadd` lo añadimos.
 
 <img width="741" height="82" alt="image" src="https://github.com/user-attachments/assets/a1d524d9-dbff-4657-9c4d-e4d91926c139" />
 
-Un cop fet aquesta gestió per part del client i el servidor, reiniciarem el client i entrarem com a l'usuari marcel. Si tot ha funcionat correctament dins de **/homes/marcel** hauriem de veure les carpetes basiques com ara **Descargas**, **Documentos** etc...
+Una vez realizada esta configuración por parte del cliente y del servidor, reiniciaremos el cliente e iniciaremos sesión como el usuario **marcel**. Si todo ha funcionado correctamente, dentro de **/homes/marcel** deberíamos ver las carpetas básicas, como **Descargas**, **Documentos**, etc.
 
-I si.
+Y sí, se muestran correctamente.
 
 <img width="728" height="155" alt="image" src="https://github.com/user-attachments/assets/3f73369f-4084-40f6-b1a8-84296605c1df" />
 

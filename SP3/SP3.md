@@ -259,48 +259,50 @@ Amb aquest cas 0
 
 En aquest cas esborraria la "uo" de "rrhh" ja que la de "People" no existeix.
 
-
+<img width="2169" height="725" alt="image" src="https://github.com/user-attachments/assets/f2ee8638-39e3-4d22-92bd-8fc73fa97ead" />
 
 * Modifica el uid de l’usuari hmiller a hamiller
 
 Com que el usuari hamiller no exiteix ho faré amb l'usuari xavier, amb aquest fitxer.
 
-<img width="528" height="115" alt="2026-02-20_13-26" src="https://github.com/user-attachments/assets/079f0cfa-3ad1-417e-bce4-eb1ebe8346b9" />
+<img width="2168" height="725" alt="image" src="https://github.com/user-attachments/assets/a3f0b19e-1614-4c5a-889f-4f873ac66f57" />
 
 I aquesta comanda.
 
-<img width="778" height="96" alt="2026-02-20_13-27" src="https://github.com/user-attachments/assets/72ec3db5-033a-4bbd-9109-11429d887d76" />
+<img width="701" height="89" alt="image" src="https://github.com/user-attachments/assets/33a64693-7a1f-4810-b709-6e2d2abd5b67" />
+
 
 Comprovació:
 
-<img width="507" height="467" alt="2026-02-20_13-27_1" src="https://github.com/user-attachments/assets/747d973b-e62f-4df3-b888-e10ba0f1ecef" />
-
+<img width="1324" height="1188" alt="image" src="https://github.com/user-attachments/assets/e7e9f482-9aec-4d45-bfb1-a6153971d064" />
 
 * Crea un nou usuari amb dos atributs opcionals per a  la classe posixAccount, ho fare amb aquest fitxer.
 
-<img width="512" height="373" alt="2026-02-20_13-30" src="https://github.com/user-attachments/assets/e21f32e7-1016-4b56-bef3-a816428498e0" />
+<img width="1447" height="1087" alt="image" src="https://github.com/user-attachments/assets/49dbf014-3d46-4d92-a014-bf5df04634da" />
 
 Comanda:
 
-<img width="776" height="87" alt="2026-02-20_13-30_1" src="https://github.com/user-attachments/assets/182df6d1-c05a-4888-a471-e64e16e1f2c8" />
+<img width="2171" height="724" alt="image" src="https://github.com/user-attachments/assets/1c77b76b-06b4-4f24-a0a3-80fc07a75893" />
 
 * Afegeix un parell més d’opcionals a l’usuari anterior
 
-<img width="509" height="181" alt="2026-02-20_13-32" src="https://github.com/user-attachments/assets/f351ba9f-a495-4d43-8934-d4c12a8d6626" />
+<img width="2153" height="730" alt="image" src="https://github.com/user-attachments/assets/62aee637-9a6e-4f36-b85a-39e54eef6750" />
 
 Comanda:
 
-<img width="772" height="90" alt="2026-02-20_13-32_1" src="https://github.com/user-attachments/assets/35924df9-7f1e-49bb-88bc-245c2ee14436" />
+<img width="2167" height="725" alt="image" src="https://github.com/user-attachments/assets/1598fbcc-4101-4234-a058-0e0cbf815401" />
 
 * Modifica el mail de l’usuari jburrell per jburrell@gmail.com
 
 Com que el usuari jburrell no existeix ho he fet amb ramon.
 
-<img width="497" height="115" alt="2026-02-20_13-34" src="https://github.com/user-attachments/assets/e875b1da-b991-4fe5-a4a2-9f47b2da16bf" />
+<img width="2171" height="724" alt="image" src="https://github.com/user-attachments/assets/24f918be-85d0-4b12-8329-587871c8b356" />
+
 
 Comanda:
 
-<img width="778" height="88" alt="2026-02-20_13-34_1" src="https://github.com/user-attachments/assets/2d58fe02-fa0b-4513-8861-f3adf4f2221c" />
+<img width="2170" height="725" alt="image" src="https://github.com/user-attachments/assets/567c9acb-218b-47af-9880-4fed761fcab9" />
+
 
 Comprovació:
 
@@ -310,31 +312,35 @@ Comprovació:
 
 Com que prèviament he mostrat que no existeix la UO Groups ho faré sobre la de asix.
 
-<img width="514" height="202" alt="2026-02-20_13-36" src="https://github.com/user-attachments/assets/f8194083-3222-4dc3-b982-3e57224f9294" />
+<img width="2033" height="773" alt="image" src="https://github.com/user-attachments/assets/794fcb46-6378-45ba-8386-09e8bf8a0dbf" />
+
 
 Comanda:
 
-<img width="780" height="89" alt="2026-02-20_13-36_1" src="https://github.com/user-attachments/assets/a81e19c8-ab5b-4af7-8678-256c3f763588" />
+<img width="2171" height="724" alt="image" src="https://github.com/user-attachments/assets/7773fcf7-38dc-4b1e-8626-03a35c2beebc" />
 
 Comprovació:
 
-<img width="787" height="391" alt="2026-02-20_13-38" src="https://github.com/user-attachments/assets/0e9fbfbb-22ec-4fef-b080-bb715d847ca3" />
+<img width="1779" height="884" alt="image" src="https://github.com/user-attachments/assets/352b81ce-c36f-40e2-9536-fb9d485b8931" />
 
 * Treu del grup creat anteriorment a un usuari
 
-<img width="533" height="109" alt="2026-02-20_13-39" src="https://github.com/user-attachments/assets/93ca45c3-0a10-44ec-9774-cc6f98bf2f06" />
+<img width="2151" height="731" alt="image" src="https://github.com/user-attachments/assets/4b0f2a1f-7438-42d1-a594-8ff647b215e9" />
+
 
 Comanda:
 
-<img width="781" height="96" alt="2026-02-20_13-40" src="https://github.com/user-attachments/assets/d2751a0c-4a96-43f9-9ace-2ae59cf5830f" />
+<img width="2167" height="725" alt="image" src="https://github.com/user-attachments/assets/9dbc9557-4522-43d5-bb18-46da09cdf9da" />
+
 
 * Mostra tots els usuaris de la uo Asix que el seu uid comenci per la lletra x i formin part també de la uo Recursos Humans
 
-<img width="783" height="108" alt="2026-02-20_13-40_1" src="https://github.com/user-attachments/assets/49e827cd-3a63-4a5a-8736-4abdac833e28" />
+<img width="2172" height="724" alt="image" src="https://github.com/user-attachments/assets/efb3265d-5d44-46a0-9f80-dd08123b1e90" />
 
 * Mostra tots els usuaris del domini on el seu uidNumber estigui entre 1010 i 1030 (inclosos). Quants en son?
 
-<img width="788" height="119" alt="2026-02-20_13-42" src="https://github.com/user-attachments/assets/96f7d159-bd9d-4d80-897b-9bab8deeed92" />
+<img width="2172" height="724" alt="image" src="https://github.com/user-attachments/assets/ea5bd242-9a9b-4115-9bfa-1ec78614c76d" />
+
 
 * Usuaris on el seu telèfon acabi en un 2 o el seu cognom en una n. Quants?
 

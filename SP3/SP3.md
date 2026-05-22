@@ -346,16 +346,16 @@ Comanda:
 
 Amb aquest cas son 0 usuaris.
 
-<img width="776" height="71" alt="2026-02-20_13-42_1" src="https://github.com/user-attachments/assets/48a7c46b-4072-4898-ab7d-04fa69412a53" />
+<img width="2170" height="725" alt="image" src="https://github.com/user-attachments/assets/3f157ffd-1e9c-4173-9028-b126b691e5e1" />
+
 
 * D’un sol cop, a l’usuari que tu vulguis, esborra un atribut, afegeix-ne un altre i modifica un tercer.
 
-<img width="515" height="314" alt="2026-02-20_13-44" src="https://github.com/user-attachments/assets/75c71516-cbc6-49dc-a78e-7ef9cce7eae9" />
+<img width="1618" height="972" alt="image" src="https://github.com/user-attachments/assets/beb4ee07-6a60-46bd-bd8d-f7369398a766" />
 
 Comprovació:
 
-<img width="776" height="89" alt="2026-02-20_13-45" src="https://github.com/user-attachments/assets/c2e3a892-d6e1-4f27-95ef-692d83c12361" />
-
+<img width="2170" height="725" alt="image" src="https://github.com/user-attachments/assets/d8ff7549-d83e-4a7e-80bd-11666eb995f4" />
 
 ## Entorn grafic
 
@@ -408,11 +408,11 @@ I ja estem dins com a l'usuari LAM.
 
 Aquí ficarem la nostra configuració LDAP.
 
-<img width="700" height="267" alt="2026-02-18_18-06" src="https://github.com/user-attachments/assets/9f9a40db-6f54-4ff1-ad7d-7fe0878d9f7c" />
+<img width="2069" height="760" alt="image" src="https://github.com/user-attachments/assets/bea2c8da-b4f2-42f1-8a7f-4af0e835725d" />
 
 També haurem de anar al **Account Types** i canviar aquesta configuració d'aquí.
 
-<img width="826" height="368" alt="2026-02-18_18-11" src="https://github.com/user-attachments/assets/2900ac29-6e4e-4c2e-8b69-0d84b6ab9ea0" />
+<img width="627" height="262" alt="image" src="https://github.com/user-attachments/assets/27d5a79e-118a-4b4f-a912-2369fbc6259a" />
 
 Ara ja podem iniciar sessió amb el usuari admin del nostre domini LDAP.
 
@@ -420,7 +420,8 @@ Ara ja podem iniciar sessió amb el usuari admin del nostre domini LDAP.
 
 Per aqui ja podem veure els usuaris que tenim creats.
 
-<img width="1073" height="545" alt="2026-02-18_18-18_1" src="https://github.com/user-attachments/assets/cc7177d7-9757-4061-8fb3-2dece95f9b86" />
+<img width="1724" height="912" alt="image" src="https://github.com/user-attachments/assets/3f60c897-d7c0-420a-b916-71467dac5bc3" />
+
 
 ### Creació de una nova OU
 
@@ -470,11 +471,11 @@ Aquí anirem a **"New User"**.
 
 Un cop aquí pasarem a la gestió personal.
 
-<img width="811" height="276" alt="2026-02-18_18-35" src="https://github.com/user-attachments/assets/49aba089-4f8a-438e-8c74-1917f0f6f710" />
+<img width="782" height="157" alt="image" src="https://github.com/user-attachments/assets/414bdf7f-99b0-45df-94e7-d0fd96b55f36" />
 
 I ara la gestió UNIX.
 
-<img width="1082" height="355" alt="2026-02-18_18-36" src="https://github.com/user-attachments/assets/10285577-8690-4372-a351-9efe85094e08" />
+<img width="797" height="212" alt="image" src="https://github.com/user-attachments/assets/ae7c08ff-dd26-4d90-85c5-25bcc982c6f5" />
 
 Finalment podem ficarli una contrasenya de la següent manera.
 
@@ -492,8 +493,7 @@ Verificació:
 
 Per fer-ho he obert el client i he accedit via GUI per comprovar he executat la comanda `id`.
 
-<img width="512" height="67" alt="2026-02-18_18-41" src="https://github.com/user-attachments/assets/151d46b3-81bd-4ae1-acb2-98e6223bee15" />
-
+<img width="619" height="81" alt="image" src="https://github.com/user-attachments/assets/ef104953-3f64-4e22-aa37-e8324fefe537" />
 
 
 ## Servidor Samba
@@ -502,15 +502,16 @@ Finalment, configurarem Samba per permetre l'accés a recursos compartits amb au
 
 Primer instal·lem el paquet `samba`.
 
-<img width="703" height="155" alt="image" src="https://github.com/user-attachments/assets/3cbde56f-b1f3-4b70-b3eb-324d4d48ed76" />
+<img width="622" height="129" alt="image" src="https://github.com/user-attachments/assets/6c21fb8f-d466-4d52-9e53-1d8fb23e8cdf" />
 
 Primerament, procedirem a la creació del directori que volem compartir i n'ajustarem els permisos i la propietat. Definirem l'usuari i el grup corresponents per garantir que només els membres autoritzats tinguin accés al recurs compartit.
 
-<img width="604" height="202" alt="image" src="https://github.com/user-attachments/assets/1cebacd2-3e71-4a7e-ac6f-711db3fe35f0" />
+<img width="420" height="173" alt="image" src="https://github.com/user-attachments/assets/8ab7f83b-485b-4a4e-98a3-51467352719f" />
 
 Despres fare la creació d'usuaris i grups per realitzar les proves.
 
-<img width="562" height="304" alt="image" src="https://github.com/user-attachments/assets/40433e5a-d777-442a-b67e-a162f2970699" />
+<img width="488" height="303" alt="image" src="https://github.com/user-attachments/assets/670f67b6-a377-4988-9efd-24839d04e292" />
+
 
 I a cada usuari he assignat la seva contrasenya.
 
@@ -528,11 +529,11 @@ Per tal que els canvis realitzats en el fitxer de configuració s'apliquin corre
 
 Accedim al client, que es troba a la mateixa xarxa, com he comprovat amb el ping
 
-<img width="627" height="247" alt="image" src="https://github.com/user-attachments/assets/6b247cf5-9c9b-4c71-bb17-37fcdc317169" />
+<img width="1877" height="838" alt="image" src="https://github.com/user-attachments/assets/09237282-2512-4c76-8ab5-a0e350f68321" />
 
 El paquet a instal·lar es **smbclient**.
 
-<img width="607" height="154" alt="image" src="https://github.com/user-attachments/assets/7e04ced9-4fbf-4d32-86dd-8be3c7b87685" />
+<img width="598" height="157" alt="image" src="https://github.com/user-attachments/assets/599e7b12-d689-4383-9e90-fc769d0020b4" />
 
 I ja podem connectar-mos mitjançant el navegador de fitxers.
 
@@ -540,7 +541,7 @@ I ja podem connectar-mos mitjançant el navegador de fitxers.
 
 Per comemzat entrarem amb l'usuari anonim.
 
-<img width="463" height="437" alt="image" src="https://github.com/user-attachments/assets/fb849993-4bf2-4554-b008-bb6d308d19d8" />
+<img width="622" height="507" alt="image" src="https://github.com/user-attachments/assets/e3484772-52a0-4194-a94b-ed377b95efee" />
 
 Crearem una carpeta "anonim".
 
@@ -552,7 +553,7 @@ I veiem que es crea perfectament.
 
 Surtirem. 
 
-<img width="261" height="260" alt="image" src="https://github.com/user-attachments/assets/9e3a2c98-11de-41e3-85c5-25ae746493a2" />
+<img width="213" height="214" alt="image" src="https://github.com/user-attachments/assets/8f96bf84-775c-4799-9dd1-bd055d5482cb" />
 
 I tornarem a entrar amb l'usuari "naim".
 

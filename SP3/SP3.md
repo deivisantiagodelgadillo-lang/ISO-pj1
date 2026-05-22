@@ -244,7 +244,7 @@ Comprobación:
 
 En este caso, 0.
 
-<img width="811" height="93" alt="image" src="https://github.com/user-attachments/assets/5bca67a4-b0ca-483c-9d11-397c1a73a46b" />
+<img width="600" height="63" alt="image" src="https://github.com/user-attachments/assets/afff5518-fdff-401d-9555-9ca0cb5b612e" />
 
 * Borra la UO `People`.
 

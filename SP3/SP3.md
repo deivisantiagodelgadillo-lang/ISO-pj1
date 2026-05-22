@@ -34,7 +34,7 @@ Ahora vamos a **Descargas** y descomprimimos el archivo ZIP que hemos descargado
 
 Con **dpkg-reconfigure slapd**, podemos configurar y añadir elementos al dominio más fácilmente. Alternativamente, podemos utilizar los archivos de configuración **.ldif** que hemos descomprimido, pero estos no son tan prácticos.
 
-<img width="561" height="18" alt="image" src="https://github.com/user-attachments/assets/66131f3e-973c-4abc-b772-652b85e35fbf" />
+<img width="194" height="18" alt="image" src="https://github.com/user-attachments/assets/ac2c2b66-2ddc-4747-9c62-e1bf8aa9471b" />
 
 Introducimos el dominio que hemos indicado previamente en **/etc/hosts**.
 

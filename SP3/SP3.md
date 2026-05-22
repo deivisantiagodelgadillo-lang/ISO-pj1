@@ -211,8 +211,7 @@ Aqui ja l'hauriem creat que es podria veure.
 
 Executariem la seguent comanda.
 
-<img width="2169" height="725" alt="image" src="https://github.com/user-attachments/assets/09fa02a8-ab71-4713-8647-23089ab24e3a" />
-
+<img width="788" height="88" alt="image" src="https://github.com/user-attachments/assets/21617e71-c607-4295-a171-fdca05463381" />
 
 I ja s'hauria esborrat.
 
@@ -226,8 +225,7 @@ Nombre de grups: 1
 
 Grups on apareix com a memberUid: informatica
 
-<img width="2170" height="725" alt="image" src="https://github.com/user-attachments/assets/c1ac69bb-939b-42a1-b2f0-93048825a252" />
-
+<img width="808" height="85" alt="image" src="https://github.com/user-attachments/assets/332d6426-454c-4e1c-b81e-03883cd86e12" />
 
 * Trau de la uo People a 3 usuaris i afegeix-los a la uo asix
 
@@ -238,8 +236,7 @@ Aquest seria el fitxer que he creat.
 
 Amb la seva comanda per executar-lo.
 
-<img width="2168" height="725" alt="image" src="https://github.com/user-attachments/assets/88ef8f42-c575-47d3-8bb3-b56d24aca2e3" />
-
+<img width="776" height="182" alt="image" src="https://github.com/user-attachments/assets/177dd476-5325-45b2-8995-f16546a514a1" />
 
 Comprovacio:
 
@@ -250,20 +247,20 @@ Comprovacio:
 
 Amb aquest cas 0
 
-<img width="2167" height="726" alt="image" src="https://github.com/user-attachments/assets/2177174a-8164-4f6b-8a60-880025dde483" />
-
+<img width="811" height="93" alt="image" src="https://github.com/user-attachments/assets/5bca67a4-b0ca-483c-9d11-397c1a73a46b" />
 
 * Esborra la uo People
 
 En aquest cas esborraria la "uo" de "rrhh" ja que la de "People" no existeix.
 
-<img width="2169" height="725" alt="image" src="https://github.com/user-attachments/assets/f2ee8638-39e3-4d22-92bd-8fc73fa97ead" />
+<img width="801" height="61" alt="image" src="https://github.com/user-attachments/assets/50033580-013c-4ed1-8aa4-3bb85b598cb8" />
+
 
 * Modifica el uid de l’usuari hmiller a hamiller
 
 Com que el usuari hamiller no exiteix ho faré amb l'usuari xavier, amb aquest fitxer.
 
-<img width="2168" height="725" alt="image" src="https://github.com/user-attachments/assets/a3f0b19e-1614-4c5a-889f-4f873ac66f57" />
+<img width="808" height="158" alt="image" src="https://github.com/user-attachments/assets/be75f2d3-fc85-4087-b754-13d95496bc8b" />
 
 I aquesta comanda.
 
@@ -280,7 +277,7 @@ Comprovació:
 
 Comanda:
 
-<img width="2171" height="724" alt="image" src="https://github.com/user-attachments/assets/1c77b76b-06b4-4f24-a0a3-80fc07a75893" />
+<img width="794" height="87" alt="image" src="https://github.com/user-attachments/assets/e5f94566-7e44-42fb-99b0-1bc1da40b580" />
 
 * Afegeix un parell més d’opcionals a l’usuari anterior
 
@@ -288,19 +285,17 @@ Comanda:
 
 Comanda:
 
-<img width="2167" height="725" alt="image" src="https://github.com/user-attachments/assets/1598fbcc-4101-4234-a058-0e0cbf815401" />
+<img width="806" height="91" alt="image" src="https://github.com/user-attachments/assets/5f031a75-2fa5-4785-9dd2-cd22d030e9ca" />
 
 * Modifica el mail de l’usuari jburrell per jburrell@gmail.com
 
 Com que el usuari jburrell no existeix ho he fet amb ramon.
 
-<img width="2171" height="724" alt="image" src="https://github.com/user-attachments/assets/24f918be-85d0-4b12-8329-587871c8b356" />
-
+<img width="800" height="187" alt="image" src="https://github.com/user-attachments/assets/74905ab9-2571-4a8f-acf3-ac9ad4f5ce5f" />
 
 Comanda:
 
-<img width="2170" height="725" alt="image" src="https://github.com/user-attachments/assets/567c9acb-218b-47af-9880-4fed761fcab9" />
-
+<img width="788" height="87" alt="image" src="https://github.com/user-attachments/assets/daed430c-ccd2-4502-8646-26f4f5016343" />
 
 Comprovació:
 
@@ -312,10 +307,9 @@ Com que prèviament he mostrat que no existeix la UO Groups ho faré sobre la de
 
 <img width="2033" height="773" alt="image" src="https://github.com/user-attachments/assets/794fcb46-6378-45ba-8386-09e8bf8a0dbf" />
 
-
 Comanda:
 
-<img width="2171" height="724" alt="image" src="https://github.com/user-attachments/assets/7773fcf7-38dc-4b1e-8626-03a35c2beebc" />
+<img width="810" height="90" alt="image" src="https://github.com/user-attachments/assets/54a87f00-fdfd-410f-8024-7bbb4f6fd409" />
 
 Comprovació:
 
@@ -323,29 +317,26 @@ Comprovació:
 
 * Treu del grup creat anteriorment a un usuari
 
-<img width="2151" height="731" alt="image" src="https://github.com/user-attachments/assets/4b0f2a1f-7438-42d1-a594-8ff647b215e9" />
+<img width="798" height="161" alt="image" src="https://github.com/user-attachments/assets/3299d01c-68fd-420b-a434-f0a6d5ec1609" />
 
 
 Comanda:
 
-<img width="2167" height="725" alt="image" src="https://github.com/user-attachments/assets/9dbc9557-4522-43d5-bb18-46da09cdf9da" />
-
+<img width="782" height="89" alt="image" src="https://github.com/user-attachments/assets/8571f0f0-5f62-4f51-ad8e-5ce3c386bf63" />
 
 * Mostra tots els usuaris de la uo Asix que el seu uid comenci per la lletra x i formin part també de la uo Recursos Humans
 
-<img width="2172" height="724" alt="image" src="https://github.com/user-attachments/assets/efb3265d-5d44-46a0-9f80-dd08123b1e90" />
+<img width="797" height="107" alt="image" src="https://github.com/user-attachments/assets/029959d3-0d28-4472-97e3-6212b73c21d1" />
 
 * Mostra tots els usuaris del domini on el seu uidNumber estigui entre 1010 i 1030 (inclosos). Quants en son?
 
-<img width="2172" height="724" alt="image" src="https://github.com/user-attachments/assets/ea5bd242-9a9b-4115-9bfa-1ec78614c76d" />
-
+<img width="807" height="111" alt="image" src="https://github.com/user-attachments/assets/d7f1bc01-3d69-4420-be5b-0aa7d0f008e9" />
 
 * Usuaris on el seu telèfon acabi en un 2 o el seu cognom en una n. Quants?
 
 Amb aquest cas son 0 usuaris.
 
-<img width="2170" height="725" alt="image" src="https://github.com/user-attachments/assets/3f157ffd-1e9c-4173-9028-b126b691e5e1" />
-
+<img width="810" height="69" alt="image" src="https://github.com/user-attachments/assets/366e1ab1-838f-4cc2-bf68-3dd5cba2a1b6" />
 
 * D’un sol cop, a l’usuari que tu vulguis, esborra un atribut, afegeix-ne un altre i modifica un tercer.
 

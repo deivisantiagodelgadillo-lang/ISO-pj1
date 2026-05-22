@@ -166,10 +166,6 @@ Una vegada fet tot aixo, ja podriem surtir del nostre usuari, i iniciar per l'us
 
 ## Gestió del domini mitjançant comandes
 
-Per aquest apartat he utilitzat aquesta activitat.
-
-<img width="736" height="495" alt="Captura de pantalla de 2026-02-20 08-44-06" src="https://github.com/user-attachments/assets/5f834da8-86e0-400e-b672-c7db03dc4d4b" />
-
 ### Requisits previs
 
 * Fes un dpkg-reconfigure slapd al servidor per tal de deixar la base de dades buida i només amb el domini l’usuari admin creat. Comprova-ho amb un slapcat.
@@ -573,23 +569,23 @@ En aquest apartat configurarem un servidor NFS per compartir directoris amb un c
 
 Actualitzarem tots els paquets.
 
-<img width="803" height="238" alt="2026-02-10_12-50" src="https://github.com/user-attachments/assets/be38697b-61f7-43e2-b3f8-41886a244f46" />
+<img width="1024" height="302" alt="image" src="https://github.com/user-attachments/assets/8b618f61-cd5b-4c90-b1c8-39b6e32bebe3" />
 
 Primer, al **servidor**, instal·lem el paquet `nfs-kernel-server`.
 
-<img width="708" height="219" alt="2026-02-10_12-50_1" src="https://github.com/user-attachments/assets/48d5b0d9-8c9a-4982-8f5c-547c53d813ed" />
+<img width="1024" height="313" alt="image" src="https://github.com/user-attachments/assets/8c6cb533-41bf-4c8d-9955-138aa0b1142b" />
 
 Creem el directori que volem compartir i li assignem els permisos necessaris. En aquest cas, creem `/1exercici`.
 
-<img width="632" height="180" alt="2026-02-10_12-53" src="https://github.com/user-attachments/assets/17215ed7-922b-4686-86b4-b7d49a086eef" />
+<img width="1024" height="287" alt="image" src="https://github.com/user-attachments/assets/f4a5203d-4666-4b75-88a2-f33be764c1cc" />
 
 Editem el fitxer `/etc/exports` per definir qui pot accedir al recurs i amb quins permisos. Afegim la línia corresponent al nostre directori i xarxa/client.
 
-<img width="507" height="310" alt="2026-02-10_12-57" src="https://github.com/user-attachments/assets/8b0dc7a1-c06e-4bf5-971f-d58e9d3c5b20" />
+<img width="629" height="344" alt="image" src="https://github.com/user-attachments/assets/17e968d5-6660-4dfa-994d-cc05501b0376" />
 
 Apliquem la nova configuració i reiniciem el servei `nfs-kernel-server` per assegurar-nos que els canvis s'apliquen.
 
-<img width="809" height="268" alt="2026-02-10_12-58" src="https://github.com/user-attachments/assets/9ea595ec-0125-4bf8-8b7c-56010b3f9131" />
+<img width="806" height="256" alt="image" src="https://github.com/user-attachments/assets/48a92b86-56ed-472b-b285-c37fe4704200" />
 
 Ara crearem un arxiu anomenat `hola` a la carpeta `/1exercici`.
 
@@ -597,25 +593,26 @@ Ara crearem un arxiu anomenat `hola` a la carpeta `/1exercici`.
 
 Ara passem al **client**. Instal·lem el paquet `nfs-common, rpcbind` i creem el punt de muntatge on vincularem el directori remot.
 
-<img width="642" height="178" alt="2026-02-10_13-03" src="https://github.com/user-attachments/assets/fa5ca1eb-1728-4cef-b7ff-c2292e3fa016" />
+<img width="1024" height="284" alt="image" src="https://github.com/user-attachments/assets/f35d9c04-b501-41f0-91f3-50f4031f6c85" />
+
 
 Muntem manualment el recurs compartit NFS al punt de muntatge creat. Utilitzem la IP del servidor i la ruta del directori exportat.
 
-<img width="597" height="198" alt="2026-02-10_13-09" src="https://github.com/user-attachments/assets/d37a100c-4231-4079-90b2-f2c0d5d33007" />
+<img width="1024" height="335" alt="image" src="https://github.com/user-attachments/assets/5c16fa33-131e-4e0b-9cc2-8a66b4aa327e" />
 
 Verifiquem que tenim accés d'escriptura (si així ho hem configurat) creant un fitxer de prova dins del directori muntat.
 
-<img width="623" height="204" alt="2026-02-10_13-10" src="https://github.com/user-attachments/assets/60cd3a43-a916-46f2-b0fe-5f8b8255d8a6" />
+<img width="1024" height="328" alt="image" src="https://github.com/user-attachments/assets/f28976e9-948b-40fa-9df2-273490b6a59b" />
 
 Per fer que el muntatge sigui permanent i es mantingui després de reiniciar, afegim l'entrada corresponent al fitxer `/etc/fstab`.
 
-<img width="917" height="356" alt="2026-02-10_13-23" src="https://github.com/user-attachments/assets/4d42a169-bb0f-4fae-85aa-221d550d09ef" />
+<img width="803" height="280" alt="image" src="https://github.com/user-attachments/assets/8331fe14-4987-457c-a6e6-6cc070899a58" />
 
 Finalment, podem reiniciar el client o fer un `mount -a` per comprovar que el recurs es munta automàticament sense errors.
 
-<img width="290" height="46" alt="2026-02-10_13-16_1" src="https://github.com/user-attachments/assets/2dfff157-33cb-47b2-a83e-ad2070582c8d" />
+<img width="194" height="49" alt="image" src="https://github.com/user-attachments/assets/3f33c8f9-cf53-4418-91ec-c656a7ae4522" />
 
-<img width="336" height="70" alt="2026-02-10_13-20" src="https://github.com/user-attachments/assets/136d4a63-b6ea-44f0-b797-d207a753bbc9" />
+<img width="1024" height="195" alt="image" src="https://github.com/user-attachments/assets/f5ce4b85-b310-482f-a43c-240e6006c277" />
 
 ### NFS amb LDAP
 
@@ -629,24 +626,25 @@ I tal com hem fet anteriorment ficarem aquesta ruta **/homes** al **/etc/exports
 
 Ara anirem al nostre client i farem el seguent.
 
-<img width="290" height="92" alt="2026-02-10_13-58" src="https://github.com/user-attachments/assets/ce2d63b1-a10d-4530-9a0d-a42a65a86186" />
+<img width="1024" height="310" alt="image" src="https://github.com/user-attachments/assets/b988d47f-da29-44a9-9f23-b8dd5162bd67" />
 
 Al fstab ficarem aquesta línia tal i com hem fet anteriorment.
 
-<img width="917" height="369" alt="2026-02-10_13-57" src="https://github.com/user-attachments/assets/19bc5eff-9ec5-4346-9aea-c1071de95ff2" />
+<img width="803" height="306" alt="image" src="https://github.com/user-attachments/assets/0488f3f2-2415-4ecb-a33c-b9970b3a72fb" />
 
 Guardem i tornem a la part del servidor, ara crearem l'usuari Marcel. MOLT IMPORTANT INDICA EL SEU HOME amb aquest cas **/homes**
 
-<img width="572" height="387" alt="2026-02-10_14-01" src="https://github.com/user-attachments/assets/fc2b2906-963c-40c1-b0c9-ca329ae7abd9" />
+<img width="1024" height="654" alt="image" src="https://github.com/user-attachments/assets/92a8fa7c-2f64-4dd6-a4dd-f1f41eefca7f" />
 
 I amb ldapadd l'afegim.
 
-<img width="805" height="96" alt="2026-02-10_14-04" src="https://github.com/user-attachments/assets/d9122bd4-d208-4280-8436-1d45a32fdc75" />
+<img width="1024" height="117" alt="image" src="https://github.com/user-attachments/assets/f5fc1b8e-b7a4-4550-a333-6c4dd443cb71" />
+
 
 Un cop fet aquesta gestió per part del client i el servidor, reiniciarem el client i entrarem com a l'usuari marcel. Si tot ha funcionat correctament dins de **/homes/marcel** hauriem de veure les carpetes basiques com ara **Descargas**, **Documentos** etc...
 
 I si.
 
-<img width="615" height="155" alt="2026-02-18_10-32" src="https://github.com/user-attachments/assets/79826dc5-79b1-4dfc-87dc-628452b0fc31" />
+<img width="1024" height="214" alt="image" src="https://github.com/user-attachments/assets/87e645c2-b41e-4837-a796-b2f4459cc4c1" />
 
 <img width="524" height="67" alt="2026-02-18_10-32_1" src="https://github.com/user-attachments/assets/18da9858-f630-4765-b20d-4e8d89038a1d" />

@@ -199,7 +199,6 @@ I afegim el **.ldif** amb **ldapadd**.
 
 <img width="2170" height="725" alt="image" src="https://github.com/user-attachments/assets/d7dc5e8a-614a-4269-ad89-5ec8558db47a" />
 
-
 * Esborra l’atribut roomnumber i homeDirectory de l’usuari ejohnson
 
 Amb aquest cas no existeix cap usuari **ejohnson** i cap dels usuaris te assignat roomNumber i homeDirectory per tant primer ho afegiré i despres ho esborraré.
@@ -210,16 +209,16 @@ Com que l'usuari esta present no permet eliminar el homeDirectory pero si el seu
 
 Aqui ja l'hauriem creat que es podria veure.
 
-<img width="504" height="491" alt="2026-02-20_10-33" src="https://github.com/user-attachments/assets/3d17e869-a38d-4608-8cd5-0657848129d3" />
+<img width="1272" height="1236" alt="image" src="https://github.com/user-attachments/assets/daa850eb-2836-4362-b04f-ad6582ecb859" />
 
 Executariem la seguent comanda.
 
-<img width="767" height="86" alt="2026-02-20_10-31" src="https://github.com/user-attachments/assets/0e0be5b2-0f41-4c7e-b91c-464dcb0de0c7" />
+<img width="2169" height="725" alt="image" src="https://github.com/user-attachments/assets/09fa02a8-ab71-4713-8647-23089ab24e3a" />
+
 
 I ja s'hauria esborrat.
 
-<img width="509" height="466" alt="2026-02-20_10-33_1" src="https://github.com/user-attachments/assets/f394b8ef-4149-40c8-9421-b94756cf9c7c" />
-
+<img width="1309" height="1202" alt="image" src="https://github.com/user-attachments/assets/b4a2beed-be7e-46b8-8d2d-5f7427dc17e9" />
 
 * L’usuari kvaughan en quants grups el trobem com a uniqueMember i quins són?
 
@@ -229,33 +228,38 @@ Nombre de grups: 1
 
 Grups on apareix com a memberUid: informatica
 
-<img width="790" height="93" alt="2026-02-20_10-36" src="https://github.com/user-attachments/assets/287b4384-6da7-44c3-8968-ad0c114d59d3" />
+<img width="2170" height="725" alt="image" src="https://github.com/user-attachments/assets/c1ac69bb-939b-42a1-b2f0-93048825a252" />
+
 
 * Trau de la uo People a 3 usuaris i afegeix-los a la uo asix
 
 Aquest seria el fitxer que he creat.
 
-<img width="527" height="405" alt="2026-02-20_10-52" src="https://github.com/user-attachments/assets/06204ee9-fd6d-49c6-a4eb-aaad367cb923" />
+<img width="1421" height="1107" alt="image" src="https://github.com/user-attachments/assets/67d63c60-90c9-4483-b331-54d8a8984c16" />
+
 
 Amb la seva comanda per executar-lo.
 
-<img width="773" height="178" alt="2026-02-20_10-52_1" src="https://github.com/user-attachments/assets/05280bc2-649a-4bea-b107-289f68999d07" />
+<img width="2168" height="725" alt="image" src="https://github.com/user-attachments/assets/88ef8f42-c575-47d3-8bb3-b56d24aca2e3" />
+
 
 Comprovacio:
 
-<img width="504" height="464" alt="2026-02-20_10-55" src="https://github.com/user-attachments/assets/2781f875-988f-4e7a-9401-e4811f470774" />
+<img width="1310" height="1200" alt="image" src="https://github.com/user-attachments/assets/9db5010d-a76d-4842-a109-836c1c6e9e72" />
+
 
 * Quants grups hi ha dintre de la uo Groups?
 
 Amb aquest cas 0
 
-<img width="787" height="94" alt="2026-02-20_13-16" src="https://github.com/user-attachments/assets/1650532b-4e81-4738-937c-c7a13c497e38" />
+<img width="2167" height="726" alt="image" src="https://github.com/user-attachments/assets/2177174a-8164-4f6b-8a60-880025dde483" />
+
 
 * Esborra la uo People
 
 En aquest cas esborraria la "uo" de "rrhh" ja que la de "People" no existeix.
 
-<img width="774" height="71" alt="2026-02-20_13-24" src="https://github.com/user-attachments/assets/47bf9f35-5ef7-4751-ba71-15bf04f74061" />
+
 
 * Modifica el uid de l’usuari hmiller a hamiller
 

@@ -1,9 +1,5 @@
 # Sprint 3: Administració de Dominis i Seguretat 
 
-Claro. Te lo dejo traducido al castellano, respetando el orden de los apartados y manteniendo las capturas en el mismo lugar. 
-
----
-
 ## Configuración del servidor
 
 Primero, abrimos un terminal dentro de la máquina servidor, ejecutamos el comando **ip a**, anotamos la dirección IP que recibimos por DHCP y la configuraremos de forma estática mediante la interfaz gráfica. Cuando configuramos un servidor, **siempre debemos poner la dirección IP estática**, ya que una dirección dinámica complicaría el acceso a los servicios que ofrece, debido a que cada día podría tener una dirección diferente.
@@ -162,355 +158,353 @@ Una vez hecho todo esto, ya podríamos cerrar sesión con nuestro usuario e inic
 
 <img width="563" height="609" alt="image" src="https://github.com/user-attachments/assets/92aa1a5a-0598-41d3-bc1a-599eaea50f17" />
 
-## Gestió del domini mitjançant comandes
+## Gestión del dominio mediante comandos
 
-### Requisits previs
+### Requisitos previos
 
-* Fes un dpkg-reconfigure slapd al servidor per tal de deixar la base de dades buida i només amb el domini l’usuari admin creat. Comprova-ho amb un slapcat.
+* Haz un `dpkg-reconfigure slapd` en el servidor para dejar la base de datos vacía y solo con el dominio y el usuario administrador creados. Compruébalo con un `slapcat`.
 
 <img width="2171" height="724" alt="image" src="https://github.com/user-attachments/assets/5912be5b-1f35-4c7b-b0d6-8b99ca5027c9" />
 
 <img width="1617" height="973" alt="image" src="https://github.com/user-attachments/assets/52ce8285-3cee-46ca-879a-6b651fb12cb6" />
 
 
-* Descarrega l'arxiu dades_pt10.ldif del moodle i amb la comanda ldapadd carrega els usuaris, grups i uos (Compte que el domini és vesper.cat, hauràs de modificar-lo pel teu)
+* Descarga el archivo `dades_pt10.ldif` de Moodle y, con el comando `ldapadd`, carga los usuarios, grupos y UO. Ten en cuenta que el dominio es `vesper.cat`, por lo que tendrás que modificarlo por el tuyo.
 
 <img width="1708" height="921" alt="image" src="https://github.com/user-attachments/assets/19b851bc-ea67-4594-98e8-162e2b9fc7f8" />
 
-I afegim el **.ldif** amb **ldapadd**.
+Y añadimos el **.ldif** con **ldapadd**.
 
 <img width="1746" height="901" alt="image" src="https://github.com/user-attachments/assets/2044a705-e712-428d-9deb-1794aa2dcac0" />
 
 
-* Fes un altre slapcat per tal de comprovar que les dades s'han carregat correctament.
+* Haz otro `slapcat` para comprobar que los datos se han cargado correctamente.
 
 <img width="1231" height="1278" alt="image" src="https://github.com/user-attachments/assets/a404209c-6e4a-4dbd-83ac-cab4a342d983" />
 
 
-### Activitats
+### Actividades
 
-* Quantes uos hi ha? **Hi ha 2 UO** Quants usuaris hi ha al domini? **Hi ha 3 usuaris**
+* ¿Cuántas UO hay? **Hay 2 UO**. ¿Cuántos usuarios hay en el dominio? **Hay 3 usuarios**.
 
 <img width="1979" height="795" alt="image" src="https://github.com/user-attachments/assets/06e1e949-63b0-46aa-8d3c-e6a52996db6d" />
 
-* Crea una nova uo anomenada asix
+* Crea una nueva UO llamada `asix`.
 
 <img width="755" height="164" alt="image" src="https://github.com/user-attachments/assets/4f8103b3-2367-4b6c-b2ef-1607c51404cf" />
 
-* Esborra l’atribut roomnumber i homeDirectory de l’usuari ejohnson
+* Borra los atributos `roomNumber` y `homeDirectory` del usuario `ejohnson`.
 
-Amb aquest cas no existeix cap usuari **ejohnson** i cap dels usuaris te assignat roomNumber i homeDirectory per tant primer ho afegiré i despres ho esborraré.
+En este caso, no existe ningún usuario **ejohnson** y ninguno de los usuarios tiene asignados los atributos `roomNumber` y `homeDirectory`; por tanto, primero los añadiré y después los borraré.
 
-Com que l'usuari esta present no permet eliminar el homeDirectory pero si el seu roomNumber.
+Como el usuario está presente, no permite eliminar el atributo `homeDirectory`, pero sí su `roomNumber`.
 
 <img width="738" height="123" alt="image" src="https://github.com/user-attachments/assets/63dc258c-22da-4fab-b6f5-d5d98aa60b8a" />
 
-Aqui ja l'hauriem creat que es podria veure.
+Aquí ya lo habríamos creado y se puede ver.
 
 <img width="1272" height="1236" alt="image" src="https://github.com/user-attachments/assets/daa850eb-2836-4362-b04f-ad6582ecb859" />
 
-Executariem la seguent comanda.
+Ejecutaríamos el siguiente comando.
 
 <img width="788" height="88" alt="image" src="https://github.com/user-attachments/assets/21617e71-c607-4295-a171-fdca05463381" />
 
-I ja s'hauria esborrat.
+Y ya se habría borrado.
 
 <img width="1309" height="1202" alt="image" src="https://github.com/user-attachments/assets/b4a2beed-be7e-46b8-8d2d-5f7427dc17e9" />
 
-* L’usuari kvaughan en quants grups el trobem com a uniqueMember i quins són?
+* ¿En cuántos grupos encontramos al usuario `kvaughan` como `uniqueMember` y cuáles son?
 
-Utilitzant l’usuari xavier com a substitut de kvaughan:
+Utilizando el usuario `xavier` como sustituto de `kvaughan`:
 
-Nombre de grups: 1
+Número de grupos: 1
 
-Grups on apareix com a memberUid: informatica
+Grupos donde aparece como `memberUid`: `informatica`.
 
 <img width="808" height="85" alt="image" src="https://github.com/user-attachments/assets/332d6426-454c-4e1c-b81e-03883cd86e12" />
 
-* Trau de la uo People a 3 usuaris i afegeix-los a la uo asix
+* Saca de la UO `People` a 3 usuarios y añádelos a la UO `asix`.
 
-Aquest seria el fitxer que he creat.
+Este sería el archivo que he creado.
 
 <img width="1421" height="1107" alt="image" src="https://github.com/user-attachments/assets/67d63c60-90c9-4483-b331-54d8a8984c16" />
 
 
-Amb la seva comanda per executar-lo.
+Con su comando para ejecutarlo.
 
 <img width="776" height="182" alt="image" src="https://github.com/user-attachments/assets/177dd476-5325-45b2-8995-f16546a514a1" />
 
-Comprovacio:
+Comprobación:
 
 <img width="1310" height="1200" alt="image" src="https://github.com/user-attachments/assets/9db5010d-a76d-4842-a109-836c1c6e9e72" />
 
 
-* Quants grups hi ha dintre de la uo Groups?
+* ¿Cuántos grupos hay dentro de la UO `Groups`?
 
-Amb aquest cas 0
+En este caso, 0.
 
 <img width="811" height="93" alt="image" src="https://github.com/user-attachments/assets/5bca67a4-b0ca-483c-9d11-397c1a73a46b" />
 
-* Esborra la uo People
+* Borra la UO `People`.
 
-En aquest cas esborraria la "uo" de "rrhh" ja que la de "People" no existeix.
+En este caso, borraría la UO de `rrhh`, ya que la de `People` no existe.
 
 <img width="801" height="61" alt="image" src="https://github.com/user-attachments/assets/50033580-013c-4ed1-8aa4-3bb85b598cb8" />
 
 
-* Modifica el uid de l’usuari hmiller a hamiller
+* Modifica el `uid` del usuario `hmiller` a `hamiller`.
 
-Com que el usuari hamiller no exiteix ho faré amb l'usuari xavier, amb aquest fitxer.
+Como el usuario `hamiller` no existe, lo haré con el usuario `xavier`, con este archivo.
 
 <img width="808" height="158" alt="image" src="https://github.com/user-attachments/assets/be75f2d3-fc85-4087-b754-13d95496bc8b" />
 
-I aquesta comanda.
+Y esta es la orden.
 
 <img width="701" height="89" alt="image" src="https://github.com/user-attachments/assets/33a64693-7a1f-4810-b709-6e2d2abd5b67" />
 
 
-Comprovació:
+Comprobación:
 
 <img width="1324" height="1188" alt="image" src="https://github.com/user-attachments/assets/e7e9f482-9aec-4d45-bfb1-a6153971d064" />
 
-* Crea un nou usuari amb dos atributs opcionals per a  la classe posixAccount, ho fare amb aquest fitxer.
+* Crea un nuevo usuario con dos atributos opcionales para la clase `posixAccount`. Lo haré con este archivo.
 
 <img width="1447" height="1087" alt="image" src="https://github.com/user-attachments/assets/49dbf014-3d46-4d92-a014-bf5df04634da" />
 
-Comanda:
+Comando:
 
 <img width="794" height="87" alt="image" src="https://github.com/user-attachments/assets/e5f94566-7e44-42fb-99b0-1bc1da40b580" />
 
-* Afegeix un parell més d’opcionals a l’usuari anterior
+* Añade un par de atributos opcionales más al usuario anterior.
 
 <img width="2153" height="730" alt="image" src="https://github.com/user-attachments/assets/62aee637-9a6e-4f36-b85a-39e54eef6750" />
 
-Comanda:
+Comando:
 
 <img width="806" height="91" alt="image" src="https://github.com/user-attachments/assets/5f031a75-2fa5-4785-9dd2-cd22d030e9ca" />
 
-* Modifica el mail de l’usuari jburrell per jburrell@gmail.com
+* Modifica el correo del usuario `jburrell` por `jburrell@gmail.com`.
 
-Com que el usuari jburrell no existeix ho he fet amb ramon.
+Como el usuario `jburrell` no existe, lo he hecho con `ramon`.
 
 <img width="800" height="187" alt="image" src="https://github.com/user-attachments/assets/74905ab9-2571-4a8f-acf3-ac9ad4f5ce5f" />
 
-Comanda:
+Comando:
 
 <img width="788" height="87" alt="image" src="https://github.com/user-attachments/assets/daed430c-ccd2-4502-8646-26f4f5016343" />
 
-Comprovació:
+Comprobación:
 
 <img width="277" height="72" alt="2026-02-20_13-35" src="https://github.com/user-attachments/assets/bf626264-87a0-40f8-816d-455d4a8f7d70" />
 
-* Crea un nou grup dintre de la uo Groups i afegeix 3 usuaris
+* Crea un nuevo grupo dentro de la UO `Groups` y añade 3 usuarios.
 
-Com que prèviament he mostrat que no existeix la UO Groups ho faré sobre la de asix.
+Como previamente he mostrado que no existe la UO `Groups`, lo haré sobre la de `asix`.
 
 <img width="2033" height="773" alt="image" src="https://github.com/user-attachments/assets/794fcb46-6378-45ba-8386-09e8bf8a0dbf" />
 
-Comanda:
+Comando:
 
 <img width="810" height="90" alt="image" src="https://github.com/user-attachments/assets/54a87f00-fdfd-410f-8024-7bbb4f6fd409" />
 
-Comprovació:
+Comprobación:
 
 <img width="1779" height="884" alt="image" src="https://github.com/user-attachments/assets/352b81ce-c36f-40e2-9536-fb9d485b8931" />
 
-* Treu del grup creat anteriorment a un usuari
+* Quita del grupo creado anteriormente a un usuario.
 
 <img width="798" height="161" alt="image" src="https://github.com/user-attachments/assets/3299d01c-68fd-420b-a434-f0a6d5ec1609" />
 
 
-Comanda:
+Comando:
 
 <img width="782" height="89" alt="image" src="https://github.com/user-attachments/assets/8571f0f0-5f62-4f51-ad8e-5ce3c386bf63" />
 
-* Mostra tots els usuaris de la uo Asix que el seu uid comenci per la lletra x i formin part també de la uo Recursos Humans
+* Muestra todos los usuarios de la UO `Asix` cuyo `uid` empiece por la letra `x` y que formen parte también de la UO `Recursos Humanos`.
 
 <img width="797" height="107" alt="image" src="https://github.com/user-attachments/assets/029959d3-0d28-4472-97e3-6212b73c21d1" />
 
-* Mostra tots els usuaris del domini on el seu uidNumber estigui entre 1010 i 1030 (inclosos). Quants en son?
+* Muestra todos los usuarios del dominio cuyo `uidNumber` esté entre 1010 y 1030, ambos incluidos. ¿Cuántos son?
 
 <img width="807" height="111" alt="image" src="https://github.com/user-attachments/assets/d7f1bc01-3d69-4420-be5b-0aa7d0f008e9" />
 
-* Usuaris on el seu telèfon acabi en un 2 o el seu cognom en una n. Quants?
+* Usuarios cuyo teléfono acabe en un 2 o cuyo apellido acabe en una n. ¿Cuántos?
 
-Amb aquest cas son 0 usuaris.
+En este caso son 0 usuarios.
 
 <img width="810" height="69" alt="image" src="https://github.com/user-attachments/assets/366e1ab1-838f-4cc2-bf68-3dd5cba2a1b6" />
 
-* D’un sol cop, a l’usuari que tu vulguis, esborra un atribut, afegeix-ne un altre i modifica un tercer.
+* De una sola vez, en el usuario que tú quieras, borra un atributo, añade otro y modifica un tercero.
 
 <img width="1618" height="972" alt="image" src="https://github.com/user-attachments/assets/beb4ee07-6a60-46bd-bd8d-f7369398a766" />
 
-Comprovació:
+Comprobación:
 
 <img width="2170" height="725" alt="image" src="https://github.com/user-attachments/assets/d8ff7549-d83e-4a7e-80bd-11666eb995f4" />
 
-## Entorn grafic
+## Entorno gráfico
 
-Per a configurar LDAP en un entorn gràfic tenim moltes opcions com ara:
+Para configurar LDAP en un entorno gráfico tenemos muchas opciones, como por ejemplo:
 
 * phpldapadmin
-* apache directory stdio
+* apache directory studio
 * jxplorer
 * ldap account manager (LAM)
 
-Amb aquest cas he escollit LAM ja que em sembla molt fàcil d'utilitzar i molt intuitiu.
+En este caso he escogido LAM, ya que me parece muy fácil de utilizar y muy intuitivo.
 
-### Requeriments Prèvis
+### Requisitos previos
 
-Primerament hem d'instalar tots aquests paquets ja que LAM utilitza php i hem d'instalar tots els seus requeriments per al seu funcionament.
-
+Primero debemos instalar todos estos paquetes, ya que LAM utiliza PHP y necesitamos instalar todos sus requisitos para que funcione correctamente.
 
 <img width="733" height="196" alt="2026-02-18_17-21" src="https://github.com/user-attachments/assets/2e67a43a-7ae1-421d-9c12-90c343c3a69c" />
 
-I ara descarregaré el binari **.deb**.
+Y ahora descargaré el binario **.deb**.
 
 <img width="734" height="134" alt="2026-02-18_17-23" src="https://github.com/user-attachments/assets/4f8f4c3b-7e2f-4b3d-ab51-56dd18ea5d0a" />
 
 <img width="735" height="131" alt="2026-02-18_17-24" src="https://github.com/user-attachments/assets/cf3658e4-0da9-4c6f-b9ff-3510e2f024fd" />
 
 
-## Configuració del entorn gràfic
+## Configuración del entorno gráfico
 
-Un cop ja instal·lat podem accedir via la IP al directori **/lam**. Aqui ficarem una contrasenya per entrar al panel administratiu. I una vegada ficada ja estem aquí dins per poder gestionar el **LDAP**.
+Una vez ya instalado, podemos acceder mediante la IP al directorio **/lam**. Aquí pondremos una contraseña para entrar al panel administrativo. Una vez introducida, ya estaremos dentro para poder gestionar el **LDAP**.
 
 <img width="693" height="401" alt="2026-02-18_17-27" src="https://github.com/user-attachments/assets/ecbd687c-afe4-442e-af19-12fdb5106fde" />
 
-Ara quan guardesim ens "expulsará" i ens fará iniciar sessió.
+Ahora, cuando guardemos, nos “expulsará” y nos hará iniciar sesión.
 
 <img width="791" height="527" alt="2026-02-18_17-41" src="https://github.com/user-attachments/assets/105f0a65-aa52-4feb-9230-21765132fabb" />
 
-Ara hem de crear un usuari per a la gestió d'aquest per tant anirem a **"Editar perfiles del servidor"**.
+Ahora debemos crear un usuario para la gestión. Para ello, iremos a **"Editar perfiles del servidor"**.
 
 <img width="440" height="338" alt="2026-02-18_17-42" src="https://github.com/user-attachments/assets/c78f32b8-1756-4669-bebc-466c336f6554" />
 
-I aquí farem clic amb aquest opció.
+Y aquí haremos clic en esta opción.
 
 <img width="787" height="455" alt="2026-02-18_17-42_1" src="https://github.com/user-attachments/assets/1cf79ab5-4dca-4981-885a-95744a8505cd" />
 
 <img width="621" height="353" alt="2026-02-18_18-00" src="https://github.com/user-attachments/assets/f7f2eaee-9f3b-472a-adcd-c57aaa0c7a56" />
 
-I ja estem dins com a l'usuari LAM.
+Y ya estamos dentro como usuario LAM.
 
 <img width="816" height="477" alt="2026-02-18_18-04" src="https://github.com/user-attachments/assets/157aa314-e1d0-45d0-b1b8-b30798c30442" />
 
-Aquí ficarem la nostra configuració LDAP.
+Aquí introduciremos nuestra configuración LDAP.
 
 <img width="2069" height="760" alt="image" src="https://github.com/user-attachments/assets/bea2c8da-b4f2-42f1-8a7f-4af0e835725d" />
 
-També haurem de anar al **Account Types** i canviar aquesta configuració d'aquí.
+También tendremos que ir a **Account Types** y cambiar esta configuración.
 
 <img width="627" height="262" alt="image" src="https://github.com/user-attachments/assets/27d5a79e-118a-4b4f-a912-2369fbc6259a" />
 
-Ara ja podem iniciar sessió amb el usuari admin del nostre domini LDAP.
+Ahora ya podemos iniciar sesión con el usuario administrador de nuestro dominio LDAP.
 
 <img width="389" height="312" alt="2026-02-18_18-18" src="https://github.com/user-attachments/assets/6b005c3f-aff0-49b6-8b59-2929a11b307f" />
 
-Per aqui ja podem veure els usuaris que tenim creats.
+Desde aquí ya podemos ver los usuarios que tenemos creados.
 
 <img width="1724" height="912" alt="image" src="https://github.com/user-attachments/assets/3f60c897-d7c0-420a-b916-71467dac5bc3" />
 
 
-### Creació de una nova OU
+### Creación de una nueva OU
 
-Per a la creació d'una nova OU primerament hem d'anar a **"Tools"** i **"OU Editor"**.
+Para crear una nueva OU, primero debemos ir a **"Tools"** y después a **"OU Editor"**.
 
 <img width="356" height="236" alt="2026-02-18_18-20" src="https://github.com/user-attachments/assets/f71694c9-d757-46cf-a677-24a63484e4ae" />
 
-Aquí fiquem el nom de com volem que es digui aquesta OU.
+Aquí introducimos el nombre que queremos que tenga esta OU.
 
 <img width="1015" height="209" alt="2026-02-18_18-20_1" src="https://github.com/user-attachments/assets/76341059-402a-41f2-ae37-33f436ec313d" />
 
-I fem OK. I ja la tenim creada.
+Hacemos clic en **OK** y ya la tenemos creada.
 
 <img width="344" height="152" alt="2026-02-18_18-21" src="https://github.com/user-attachments/assets/5590605c-da92-4c54-925f-4cc3d6ab326c" />
 
-### Creació d'un nou grup
+### Creación de un nuevo grupo
 
-Per a crear un nou grup primerament hem d'anar a **"Accounts"** i **"Groups"**.
+Para crear un nuevo grupo, primero debemos ir a **"Accounts"** y después a **"Groups"**.
 
 <img width="449" height="130" alt="2026-02-18_18-21_1" src="https://github.com/user-attachments/assets/38fe7d4a-8637-4a21-a180-386ae6089c67" />
 
-Una vegada aquí anirem a **"New Group"**.
+Una vez aquí, iremos a **"New Group"**.
 
 <img width="549" height="320" alt="2026-02-18_18-22_1" src="https://github.com/user-attachments/assets/af0a0b76-c244-42b9-9b14-3c372b5a19d5" />
 
-I finalment crearem el grup, amb aquest cas li fiquem un nom i un UID.
+Finalmente, crearemos el grupo. En este caso, le pondremos un nombre y un UID.
 
 <img width="905" height="269" alt="2026-02-18_18-30" src="https://github.com/user-attachments/assets/2364fdff-a0e6-46cf-88d0-6174f670778a" />
 
-I s'ha creat correctament el grup.
+El grupo se ha creado correctamente.
 
 <img width="715" height="171" alt="2026-02-18_18-31" src="https://github.com/user-attachments/assets/2ba32186-af59-4d43-b134-a955fb8fe001" />
 
-Comprovació:
+Comprobación:
 
 <img width="889" height="341" alt="2026-02-18_18-31_1" src="https://github.com/user-attachments/assets/9e0e1286-b179-408d-8bd6-ce75bc0b177f" />
 
-### Creació d'un nou usuari
+### Creación de un nuevo usuario
 
-Per a crear un nou usuari primerament hem d'anar a **"Accounts"** i després a **"Users"**.
+Para crear un nuevo usuario, primero debemos ir a **"Accounts"** y después a **"Users"**.
 
 <img width="298" height="66" alt="2026-02-18_18-32" src="https://github.com/user-attachments/assets/4df0d191-0c57-4d8e-b335-8407ca67ad4f" />
 
-Aquí anirem a **"New User"**.
+Aquí iremos a **"New User"**.
 
 <img width="848" height="426" alt="2026-02-18_18-32_1" src="https://github.com/user-attachments/assets/dff5a5c2-0367-4f98-99d8-59748dfe6eb1" />
 
-Un cop aquí pasarem a la gestió personal.
+Una vez aquí, pasaremos a la gestión personal.
 
 <img width="782" height="157" alt="image" src="https://github.com/user-attachments/assets/414bdf7f-99b0-45df-94e7-d0fd96b55f36" />
 
-I ara la gestió UNIX.
+Y ahora a la gestión UNIX.
 
 <img width="797" height="212" alt="image" src="https://github.com/user-attachments/assets/ae7c08ff-dd26-4d90-85c5-25bcc982c6f5" />
 
-Finalment podem ficarli una contrasenya de la següent manera.
+Finalmente, podemos ponerle una contraseña de la siguiente manera.
 
 <img width="683" height="423" alt="2026-02-18_18-37" src="https://github.com/user-attachments/assets/3ea00955-bde9-4848-8651-89fa37c525d4" />
 
-I ja tenim el usuari creat correctament.
+Y ya tenemos el usuario creado correctamente.
 
 <img width="676" height="155" alt="2026-02-18_18-38" src="https://github.com/user-attachments/assets/1240daec-b4d5-4e44-bd81-d1d9c69e44b4" />
 
-Verificació:
+Verificación:
 
 <img width="856" height="456" alt="2026-02-18_18-38_1" src="https://github.com/user-attachments/assets/790f3576-958d-4aeb-8401-3b505e829020" />
 
-### Accedir desde el client amb aquest nou usuari creat
+### Acceder desde el cliente con este nuevo usuario creado
 
-Per fer-ho he obert el client i he accedit via GUI per comprovar he executat la comanda `id`.
+Para hacerlo, he abierto el cliente y he accedido mediante la interfaz gráfica. Para comprobarlo, he ejecutado el comando `id`.
 
 <img width="619" height="81" alt="image" src="https://github.com/user-attachments/assets/ef104953-3f64-4e22-aa37-e8324fefe537" />
 
 
 ## Servidor Samba
 
-Finalment, configurarem Samba per permetre l'accés a recursos compartits amb autenticació LDAP o local.
+Finalmente, configuraremos Samba para permitir el acceso a recursos compartidos con autenticación LDAP o local.
 
-Primer instal·lem el paquet `samba`.
+Primero instalamos el paquete `samba`.
 
 <img width="622" height="129" alt="image" src="https://github.com/user-attachments/assets/6c21fb8f-d466-4d52-9e53-1d8fb23e8cdf" />
 
-Primerament, procedirem a la creació del directori que volem compartir i n'ajustarem els permisos i la propietat. Definirem l'usuari i el grup corresponents per garantir que només els membres autoritzats tinguin accés al recurs compartit.
+Primeramente, procederemos a la creación del directorio que queremos compartir y ajustaremos sus permisos y su propiedad. Definiremos el usuario y el grupo correspondientes para garantizar que solo los miembros autorizados tengan acceso al recurso compartido.
 
 <img width="420" height="173" alt="image" src="https://github.com/user-attachments/assets/8ab7f83b-485b-4a4e-98a3-51467352719f" />
 
-Despres fare la creació d'usuaris i grups per realitzar les proves.
+Después crearé los usuarios y grupos necesarios para realizar las pruebas.
 
 <img width="488" height="303" alt="image" src="https://github.com/user-attachments/assets/670f67b6-a377-4988-9efd-24839d04e292" />
 
-
-I a cada usuari he assignat la seva contrasenya.
+Y a cada usuario le he asignado su contraseña.
 
 <img width="333" height="292" alt="image" src="https://github.com/user-attachments/assets/732d6887-6da7-4272-8e70-b8f8a5960f74" />
 
-Procedire a l'edició del fitxer smb.conf per afegir-hi la declaració del recurs compartit. Això inclou configurar els paràmetres necessaris perquè el directori sigui visible i accessible des de la xarxa per als clients autoritzats.
+Procederé a editar el archivo `smb.conf` para añadir la declaración del recurso compartido. Esto incluye configurar los parámetros necesarios para que el directorio sea visible y accesible desde la red para los clientes autorizados.
 
 <img width="494" height="377" alt="image" src="https://github.com/user-attachments/assets/ebdfe297-c9ca-491a-bcc8-95adc2d3c96f" />
 
-Per tal que els canvis realitzats en el fitxer de configuració s'apliquin correctamente, caldrà reiniciar el servei de Samba. Això permetrà que el sistema carregui la nova definició del recurs compartit."
+Para que los cambios realizados en el archivo de configuración se apliquen correctamente, será necesario reiniciar el servicio de Samba. Esto permitirá que el sistema cargue la nueva definición del recurso compartido.
 
 <img width="697" height="393" alt="image" src="https://github.com/user-attachments/assets/b237032d-2590-45d2-bf9f-0655f9bb4984" />
 

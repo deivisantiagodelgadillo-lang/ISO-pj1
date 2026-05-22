@@ -86,7 +86,8 @@ Ahora toca crear un usuario con el archivo **usu.ldif**. Igual que antes, cambia
 
 Seguidamente, ejecutaríamos el mismo comando para añadirlo, cambiando únicamente el nombre del archivo.
 
-<img width="792" height="86" alt="image" src="https://github.com/user-attachments/assets/bbad47fe-e51e-4f19-91fe-34e182fdd7af" />
+<img width="621" height="66" alt="image" src="https://github.com/user-attachments/assets/29991643-1cf1-4663-902a-70d319bc33cf" />
+
 
 Ahora toca el último archivo, **grup.ldif**, en el que cambiaríamos los mismos parámetros que en los dos archivos anteriores.
 
